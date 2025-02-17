@@ -10,10 +10,9 @@
 * Defining Working Paths  
 * --- --- --- --- --- --- --- --- --- 
 
-  global path_work "/Users/jcmunozmora/Documents/data/Akresh-Verwimp-Munoz"
-  global results "/Users/jcmunozmora/Documents/Tesis/Chap 5 - Household Composition and Civil War/results/Akresh_etal-August2015_final.xlsx"
-  global mysintaxis "/Users/jcmunozmora/Documents/data/mysintaxis"
- 
+  global path_work "/path/where/data/and/dofiles/are/located"
+  global graphs "/path/where/graphs/are/located"
+  global results "/excel/file/where/tables/are/located.xlsx"
 
 * --- --- --- --- --- --- --- --- --- 
 * We include the data preliminaries 
@@ -105,7 +104,7 @@ drop if Code98==.
   cap bys id_hh year: gen hh=_n   
   keep if hh==1
   keep if year==1998
-  keep d_leave_hh_t v1_d_violence pov_stat98 Poverty_status_07  ∑ Food_Poverty07
+  keep d_leave_hh_t v1_d_violence pov_stat98 Poverty_status_07 Food_Poverty07 Food_Poverty98
   drop pov_stat98 Poverty_status_07
   rename Food_Poverty98 pov_stat98 
   rename Food_Poverty07 Poverty_status_07 
@@ -126,7 +125,7 @@ drop if Code98==.
   reshape wide prop, i(v1_d_violence d_leave_hh_t pov_stat98) j(Poverty_status_07)
   
 
-  cd "/Users/jcmunozmora/Documents/Tesis/Chap 5 - Household Composition and Civil War/results/"
+  cd "$graphs"
 
   forvalue i=0/1 {
   graph bar prop0 prop1 if v1_d_violence==`i', over(d_leave_hh_t, label(labsize(vsmall))  relabel(1 `""Non-Individual" "Migration""' 2 `""At least one HH" "member migrated""' )) over(pov_stat98, label(labsize(vsmall)  labcolor(gs6) )  relabel(1 `""Non-Extreme Poor Households" "(1998)""' 2 `""Extreme Poor Households" "(1998)""' ) ) ytitle("%")  blabel(bar, position(inside) format(%9.0f) color(white))  $graph_cofing  bar(1,  color(gs4)    lcolor(gs15))   bar(2,  color(gs12)    lcolor(gs9))   legend( label(1 Non-Extreme Poor (2007)) label(2 Extreme Poor  (2007))) bargap(-20) graphregion(color(white))  ylabel(,labsize(vsmall)) legend( region( style(none)) cols(3)  size(small) forcesize ) stack
@@ -140,7 +139,6 @@ drop if Code98==.
 * --- --- --- --- --- --- --- --- --- 
 * New Sample
             cap restore
-            preserve
 
           * The sample
           * Women: No marriage at 1998
@@ -174,16 +172,18 @@ drop if Code98==.
           cap bys id_hh year: gen hh=_n         
           keep if hh==1
           xtset id_hh year
-          cap drop province_trend
+          cap drop province_trendd_hh_marri
+		  
           bys province year: gen province_trend=_n
 
 
           * Save results
           tempfile file
-
+		  
           local i=1
+		  
       forvalue k=20(5)65 {
-        preserve
+	  	preserve
         keep if age>=15 & age<=`k'
       qui xtreg d_hh_marriage`i' index_asset i.year province_trend , cluster(reczd) fe
       parmest, norestore 
@@ -200,7 +200,7 @@ u `file', clear
 label def sample 1 "15-20" 2 "15-25" 3 "15-30" 4 "15-35" 5 "15-40" 6 "15-45" 7 "15-50" 8 "15-55" 9 "15-60" 10 "15-65"
 label val sample sample
 
-cd "/Users/jcmunozmora/Documents/Tesis/Chap 5 - Household Composition and Civil War/results/"
+  cd "$graphs"
 
 twoway (scatter sample estimate , msymbol(none)) (scatter sample estimate,  mcolor(black)  ) (rcap min95 max95 sample, horizontal lpattern(dash)  lcolor(gs9)     ), ylabel(1/10, valuelabel angle(0) labsize(small) ) xlabel(, labsize(small) ) legend(off) ytitle("Civil War and Marital Migration over group ages", size(small) )  xtitle("Point Estimates and confidence interval (95%)", size(small)) graphregion(color(white))  xline(0)
 

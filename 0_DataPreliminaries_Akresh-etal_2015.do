@@ -4,7 +4,7 @@
 *-------- Data Preliminaries ----------------*
 *--------------------------------------------*
 
- global path_work "C:/Users/Stefany Lopez/OneDrive/EAFIT/Proyectos/Burundi"
+ global path_work "/path/where/data/and/dofiles/are/located"
  
 *--- Initial
 

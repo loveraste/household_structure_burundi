@@ -10,11 +10,10 @@
 * Defining Working Paths  
 * --- --- --- --- --- --- --- --- --- 
 
-  global path_work "/Users/jcmunozmora/Documents/data/Akresh-Verwimp-Munoz"
-  global results "/Users/jcmunozmora/Documents/Tesis/Chap 5 - Household Composition and Civil War/results/Akresh_etal-August2015_final.xlsx"
-   global result_table "/Users/jcmunozmora/Documents/Tesis/Chap 5 - Household Composition and Civil War/results/"
-  global mysintaxis "/Users/jcmunozmora/Documents/data/mysintaxis"
- 
+   global path_work "/path/where/data/and/dofiles/are/located"
+   global result_table "/path/where/tables/are/located" 
+   global results "/excel/file/where/tables/are/located.xlsx" 
+   
 * Log-File
 	cap log close
   log using "$path_work/log-files/Akresh-etal_2015", replace
@@ -63,41 +62,43 @@ drop if Code98==.
 * TABLE I
 * Summary Statistics 1997-2008 (OK)
 * --- --- --- --- --- --- --- --- --- 
+		
+			putexcel set "${results}", modify sheet("Table 1") 
 
 		* Individual-year level 
 			estpost tabstat d_violence deathwounded_100 leave, stats(n mean sd)  columns(statistics) 
 
-			putexcel C4=matrix(e(count)') D4=matrix(e(mean)') E4=matrix(e(sd)')using "${results}", modify   sheet("Table 1") keepcellformat 
+			putexcel C4=matrix(e(count)') D4=matrix(e(mean)') E4=matrix(e(sd)')  
 	
 		* Individual level 
 			estpost tabstat d_leave_ind if n_ind==1, stats(n mean sd)  columns(statistics)  
 
-			putexcel C8=matrix(e(count)') D8=matrix(e(mean)') E8=matrix(e(sd)')using "${results}", modify   sheet("Table 1") keepcellformat 
+			putexcel C8=matrix(e(count)') D8=matrix(e(mean)') E8=matrix(e(sd)')
 
 	
 		* Household-year level 
 			estpost tabstat d_violence deathwounded_100 d_leave_hh leave_hh   sk_vl_rob_money sk_vl_rob_product sk_vl_rob_goods sk_vl_rob_destruction sk_vl_rob_land 	index_agri index_asset if hh==1,  stats(n mean sd)  columns(statistics)
 
-			putexcel C10=matrix(e(count)') D10=matrix(e(mean)') E10=matrix(e(sd)') using "${results}", modify   sheet("Table 1") keepcellformat 
+			putexcel C10=matrix(e(count)') D10=matrix(e(mean)') E10=matrix(e(sd)')
 
 
 		* Household Level 
 			estpost tabstat hh_d_violence hh_deathwounded  leave_hh_t d_leave_hh_t hh_sk_vl_rob_money hh_sk_vl_rob_product hh_sk_vl_rob_goods hh_sk_vl_rob_destruction hh_sk_vl_rob_land if n_hh==1, stats(n mean sd)  columns(statistics)
 			
-			putexcel C22=matrix(e(count)') D22=matrix(e(mean)') E22=matrix(e(sd)') using "${results}", modify   sheet("Table 1") keepcellformat 
+			putexcel C22=matrix(e(count)') D22=matrix(e(mean)') E22=matrix(e(sd)')
 
 
 		* Village-year level
 			estpost tabstat v_deathwounded v_d_violence  if n_vill_y==1, stats(n mean sd)  columns(statistics)
 			
-			putexcel C32=matrix(e(count)') D32=matrix(e(mean)') E32=matrix(e(sd)') using "${results}", modify   sheet("Table 1") keepcellformat 
+			putexcel C32=matrix(e(count)') D32=matrix(e(mean)') E32=matrix(e(sd)') 
 
 
 		* Village-year level		
 		
 			estpost tabstat v1_d_violence  if n_vill==1, stats(n mean sd)  columns(statistics)
 			
-			putexcel C35=matrix(e(count)') D35=matrix(e(mean)') E35=matrix(e(sd)') using "${results}", modify   sheet("Table 1") keepcellformat 
+			putexcel C35=matrix(e(count)') D35=matrix(e(mean)') E35=matrix(e(sd)') 
 
 * --- --- --- --- --- --- --- --- --- 
 * TABLE II
@@ -162,8 +163,9 @@ drop if Code98==.
 			if `r(p)'<=0.01 {
 			local dif1  : display  int(`dif1'*1000)/1000  "***"
 			}
-
-		putexcel C4=(per[1,2]) C6=(per[1,1]) E4=(per[1,5]) E6=(per[1,4]) D5=("`sd_1'") F5=("`sd_2'") G5=("`se'") G4=("`dif'") C10=(r(mu_1)) E10=(r(mu_2) ) C11=("`sd_1a'") E11=("`sd_2a'") G11=("`se_a'") G10=("`dif1'") using "${results}", modify sheet("Table 2") keepcellformat 
+		 
+		putexcel set "${results}", modify sheet("Table 2") 
+		putexcel C4=(per[1,2]) C6=(per[1,1]) E4=(per[1,5]) E6=(per[1,4]) D5=("`sd_1'") F5=("`sd_2'") G5=("`se'") G4=("`dif'") C10=(r(mu_1)) E10=(r(mu_2) ) C11=("`sd_1a'") E11=("`sd_2a'") G11=("`se_a'") G10=("`dif1'") 
 
 * --- --- --- --- --- --- --- --- --- 
 * TABLE III
@@ -214,7 +216,7 @@ drop if Code98==.
 		}
 		
 		* Export estout (To check)
-					esttab using "$result_table/Table_4.csv", star(* 0.10 ** 0.05 *** 0.01) replace nomtitles brackets label se(%9.3f) b(%9.3f) fragment keep($tables_hh
+					esttab using "$result_table/Table_4.csv", star(* 0.10 ** 0.05 *** 0.01) replace nomtitles brackets label se(%9.3f) b(%9.3f) fragment keep($tables_hh)
 
 
 **************************************

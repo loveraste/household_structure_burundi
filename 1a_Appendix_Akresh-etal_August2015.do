@@ -10,9 +10,8 @@
 * Defining Working Paths  
 * --- --- --- --- --- --- --- --- --- 
 
-  global path_work "/Users/jcmunozmora/Documents/data/Akresh-Verwimp-Munoz"
-  global results "/Users/jcmunozmora/Documents/Tesis/Chap 5 - Household Composition and Civil War/results/Akresh_etal-August2015_final.xlsx"
-  global mysintaxis "/Users/jcmunozmora/Documents/data/mysintaxis"
+  global path_work "/path/where/data/and/dofiles/are/located"
+  global results "/excel/file/where/tables/are/located.xlsx"
  
 
 * Log-File
@@ -200,7 +199,8 @@ drop if Code98==.
               }
 
           * Export Results
-              putexcel C6=("`beta1'") C7=("`sd1_1'")  D9=("`beta2'") D10=("`sd1_2'") E12=("`beta3'") E13=("`sd1_3'") F14=("`beta4'") F15=("`sd1_4'") G6=("`beta11'") G7=("`sd2_1'") H9=("`beta12'") H10=("`sd2_2'") I12=("`beta13'") I13=("`sd2_3'") J14=("`beta14'") J15=("`sd2_4'") using "${results}", modify sheet("Appendix Table 1") keepcellformat 
+			  putexcel set "${results}", modify sheet("Appendix Table 1") 
+              putexcel C6=("`beta1'") C7=("`sd1_1'")  D9=("`beta2'") D10=("`sd1_2'") E12=("`beta3'") E13=("`sd1_3'") F14=("`beta4'") F15=("`sd1_4'") G6=("`beta11'") G7=("`sd2_1'") H9=("`beta12'") H10=("`sd2_2'") I12=("`beta13'") I13=("`sd2_3'") J14=("`beta14'") J15=("`sd2_4'") 
 
 
                 mat obs=J(1,8,0)
@@ -214,7 +214,7 @@ drop if Code98==.
                 }
              
               * Mean and observation
-              putexcel C16=matrix(obs) C17=matrix(dep_y)    using "${results}", modify sheet("Appendix Table 1") keepcellformat
+              putexcel C16=matrix(obs) C17=matrix(dep_y)
 
 * --- --- --- --- --- --- --- --- --- 
 * APPENDIX TABLE II 
@@ -351,7 +351,8 @@ drop if Code98==.
               }
 
              * Export Results
-              putexcel C6=("`beta1'") C7=("`sd1_1'")  D9=("`beta2'") D10=("`sd1_2'") E12=("`beta3'") E13=("`sd1_3'") F14=("`beta4'") F15=("`sd1_4'") G6=("`beta11'") G7=("`sd2_1'") H9=("`beta12'") H10=("`sd2_2'") I12=("`beta13'") I13=("`sd2_3'") J14=("`beta14'") J15=("`sd2_4'") using "${results}", modify sheet("Appendix Table 2") keepcellformat 
+			 putexcel set "${results}", modify sheet("Appendix Table 2")
+              putexcel C6=("`beta1'") C7=("`sd1_1'")  D9=("`beta2'") D10=("`sd1_2'") E12=("`beta3'") E13=("`sd1_3'") F14=("`beta4'") F15=("`sd1_4'") G6=("`beta11'") G7=("`sd2_1'") H9=("`beta12'") H10=("`sd2_2'") I12=("`beta13'") I13=("`sd2_3'") J14=("`beta14'") J15=("`sd2_4'")
 
 
                 mat obs=J(1,8,0)
@@ -365,7 +366,7 @@ drop if Code98==.
                 }
              
               * Mean and observation
-              putexcel C16=matrix(obs) C17=matrix(dep_y)    using "${results}", modify sheet("Appendix Table 2") keepcellformat
+              putexcel C16=matrix(obs) C17=matrix(dep_y) 
 
 
 * --- --- --- --- --- --- --- --- --- 
@@ -506,7 +507,8 @@ drop if Code98==.
               }
 
                * Export Results
-              putexcel C6=("`beta1'") C7=("`sd1_1'")  D9=("`beta2'") D10=("`sd1_2'") E12=("`beta3'") E13=("`sd1_3'") F14=("`beta4'") F15=("`sd1_4'") G6=("`beta11'") G7=("`sd2_1'") H9=("`beta12'") H10=("`sd2_2'") I12=("`beta13'") I13=("`sd2_3'") J14=("`beta14'") J15=("`sd2_4'") using "${results}", modify sheet("Appendix Table 3") keepcellformat 
+			  putexcel set "${results}", modify sheet("Appendix Table 3")
+              putexcel C6=("`beta1'") C7=("`sd1_1'")  D9=("`beta2'") D10=("`sd1_2'") E12=("`beta3'") E13=("`sd1_3'") F14=("`beta4'") F15=("`sd1_4'") G6=("`beta11'") G7=("`sd2_1'") H9=("`beta12'") H10=("`sd2_2'") I12=("`beta13'") I13=("`sd2_3'") J14=("`beta14'") J15=("`sd2_4'")
 
 
                 mat obs=J(1,8,0)
@@ -520,5 +522,5 @@ drop if Code98==.
                 }
              
               * Mean and observation
-              putexcel C16=matrix(obs) C17=matrix(dep_y)    using "${results}", modify sheet("Appendix Table 3") keepcellformat
+              putexcel C16=matrix(obs) C17=matrix(dep_y)  
 
