@@ -10,15 +10,17 @@
 * Defining Working Paths  
 * --- --- --- --- --- --- --- --- --- 
 	clear all
-    global path_work "/path/where/data/and/dofiles/are/located"
-    global result_table "/path/where/tables/are/located" 
+	* -- JC ----
+    global path_work "/Users/jcmunoz/Library/CloudStorage/OneDrive-UniversidadEAFIT/Projects/2025_Paper_Burundi/household_structure_burundi"
+	cd $path_work
+	global result_table "/path/where/tables/are/located" 
     global results "/excel/file/where/tables/are/located.xlsx" 
  
 * --- --- --- --- --- --- --- --- --- 
 * We include the data preliminaries 
 * --- --- --- --- --- --- --- --- --- 
   
-	run "$path_work/do-files/0_DataPreliminaries_Akresh-etal_2025.do"
+	run "do-files/0_DataPreliminaries_Akresh-etal_2025.do"
   
 * --- --- --- --- --- --- --- --- --- 
 *  Sample 

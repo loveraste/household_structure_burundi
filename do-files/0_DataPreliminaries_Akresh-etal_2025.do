@@ -4,8 +4,8 @@
 *-------- Data Preliminaries ----------------*
 *--------------------------------------------*
 
- global path_work "/path/where/data/and/dofiles/are/located"
- 
+* Note: path_work should be defined before running this file
+* Default path (commented out - define in calling file):
 *--- Initial
 
   cap restore
@@ -17,8 +17,6 @@
   pause on
   set type double, permanently
   set type float, permanently
-
-
 
 *--- Open Data 
 
@@ -72,7 +70,7 @@
  
 *--- Creating Dependent Variables
   
-  qui include "$path_work/do-files/0a_Genvariables_Akresh-etal_2015.do" 
+  qui include "$path_work/do-files/0a_Genvariables_Akresh-etal_2025.do" 
 
 *--- Adding labels
 
