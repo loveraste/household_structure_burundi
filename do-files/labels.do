@@ -7,7 +7,6 @@ cap label var hh_deathwounded "Sum of dead and wounded"
 cap label var d_leave_hh "At least 1 person left the household in a given year (yes=1)"
 cap label var leave_hh "Average number of people leaving the household in a given year"
 
-
 cap label var hh_cff_income "Average annual coffee income"
 cap label var  hh_livestock "Average annual livestock holdings (in tlu)*"
 cap label var sk_vl_rob_money "Theft of money (yes=1) for a household in a given year"
@@ -32,7 +31,6 @@ cap label var lag_deathwounded_100 "Lag sum of dead and wounded (by 100 people)"
 
 cap labe var leave_hh_t "Number of member of household that leave"
 cap label var d_leave_hh_t "Fraction of individuals that ever left the household"
-
 
 cap labe var a_coffee_produc_97 "Area (ha) of coffee production in a productive age ($<= 8$ years old) in 1997"
 cap labe var density_97 "Crop Density (trees x ha) (1997)"
