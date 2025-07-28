@@ -26,12 +26,12 @@
  *******************************************************************************/
 
 // Clear workspace and set environment
-clear all
-set more off
+	clear all
+	set more off
 
 // Load data with preliminaries
   
-	run "$path_work/do-files/00_DataPreliminaries_Akresh-etal_2025.do"
+	run "do-files/00_DataPreliminaries_Akresh-etal_2025.do"
 
 /*------------------------------------------------------------------------------
  * 1. SAMPLE SELECTION AND DATA PREPARATION
@@ -101,17 +101,19 @@ set more off
 	
 	/* 3E. Natural Shocks PCA (Comprehensive)
 	 * Variables: sk_nt_crop_bad (bad harvest), sk_nt_crop_good (good harvest),
-	 *           sk_nt_erosion (soil erosion), sk_nt_drought, sk_nt_rain
-	 * Captures: All natural/environmental shocks affecting agriculture */
+	 *           sk_nt_erosion (soil erosion)
+	 * Captures:Environmental shocks affecting agriculture */
 	pca sk_nt_crop_bad sk_nt_crop_good sk_nt_erosion sk_nt_drought sk_nt_rain, components(1)
 	predict pca_natural, score  
 
-	// Alternative specification (identical to above - consider removing)
+	/* 3F. All weather and natural Shocks PCA
+	 * Variables: All natural and weather shocks
+	 *Capture: General impacts on households due to climate or nature*/
 	pca sk_nt_crop_bad sk_nt_crop_good sk_nt_erosion sk_nt_drought sk_nt_rain, components(1)
 	predict pca_natural_all, score  
 
 /*------------------------------------------------------------------------------
- * 3F. TRANSFORM PCA SCORES TO POSITIVE VALUES
+ * 3G. TRANSFORM PCA SCORES TO POSITIVE VALUES
  *----------------------------------------------------------------------------*/
 
 	// Transform PCA scores to positive scale (min-max normalization to 0-100)
@@ -182,18 +184,25 @@ set more off
 		pca_agri_logmod pca_asset_logmod pca_all_logmod pca_natural_logmod pca_weather_logmod pca_natural_all_logmod
 
 	// Ensure all variables are labeled appropriately
-
 	foreach i in pca_agri pca_asset pca_all pca_natural pca_weather pca_natural_all {
 		replace `i' = `i'_pos/100
 		bys id_hh: egen `i'_hh = mean(`i') if !missing(`i')
 	}
 
 	// Gen a Household-level
-
 	keep id_hh year pca_agri pca_asset pca_all pca_all_abovemean pca_natural pca_weather pca_natural_all *_hh
-
-
 	
+	// labels 
+	
+	label variable pca_agri      "Index of Agricultural Related Losses (land and/or crops) - PCA"
+	label variable pca_asset     "Index of Asset Related Losses (money, goods and/or house) - PCA"
+	label variable pca_all       "Index of Household Losses (all) - PCA"
+	label variable pca_all_abovemean     "Index of household Losses (all) - PCA - above the mean (yes=1)"   
+
+	label variable pca_agri_hh   "Index of Agricultural Related Losses (land and/or crops) - PCA"
+	label variable pca_asset_hh  "Index of Asset Related Losses (money, goods and/or house) - PCA"
+	label variable pca_all_hh    "Index of Household Losses (all) - PCA"
+
 	// Save PCA dataset for use in subsequent analyses
 	save "$path_work/data/job/pca.dta", replace
 	
@@ -211,3 +220,6 @@ set more off
 	display "  *_log (log of positive scale), *_logshift (shifted log), *_logmod (signed log)"
 	display ""
 	display "Dataset saved to: $path_work/data/job/pca.dta"
+	
+	
+	

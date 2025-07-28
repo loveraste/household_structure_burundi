@@ -4,25 +4,24 @@
 * --- --- --- --- --- --- --- --- --- 
 * Defining Working Paths  
 * --- --- --- --- --- --- --- --- --- 
-	clear all
+
 	* -- JC ----
-    global path_work "/Users/jcmunoz/Library/CloudStorage/OneDrive-UniversidadEAFIT/Projects/2025_Paper_Burundi/household_structure_burundi"
-	cd $path_work
-	global result_table "/path/where/tables/are/located" 
-    
-
-
+    * global path_work "/Users/jcmunoz/Library/CloudStorage/OneDrive-UniversidadEAFIT/Projects/2025_Paper_Burundi/household_structure_burundi"
+	
+	* --- SL ---
+	 global path_work "C:/Users/Stefany Lopez/OneDrive - Universidad EAFIT/VP/Burundi/nuevo"
+	 global path_results "$path_work/out" 
+	 cd "$path_work"
+	
 *--- Initial
 
-  cap restore
-  clear all
-  *set mem 2g
-  set more off
-  set logtype smcl
-  set matsize 8000
-  pause on
-  set type double, permanently
-  set type float, permanently
+	  clear all
+	  set more off
+	  set logtype smcl
+	  set matsize 8000
+	  pause on
+	  set type double, permanently
+	  set type float, permanently
 
 
  

@@ -38,8 +38,8 @@
 				* Index for household level
 				gen index_agri=sk_vl_rob_land+sk_vl_rob_product
 				gen index_asset=sk_vl_rob_money+sk_vl_rob_goods+sk_vl_rob_destruction
-
-				foreach i in sk_vl_rob_land sk_vl_rob_product sk_vl_rob_money  sk_vl_rob_goods sk_vl_rob_destruction   index_agri index_asset{
+				
+			foreach i in sk_vl_rob_land sk_vl_rob_product sk_vl_rob_money  sk_vl_rob_goods sk_vl_rob_destruction   index_agri index_asset{
 				sort id_hh year
 				bys id_hh: gen lag_`i'=`i'[_n-1]
 				}

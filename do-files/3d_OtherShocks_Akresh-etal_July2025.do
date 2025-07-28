@@ -146,7 +146,21 @@
 		keep if hh==1
 		xtset id_hh year
 		eststo clear
+		
 		foreach j in $tables {
 			eststo: xtreg leave `j' i.year province_trend, cluster(reczd) fe 
 		}
-		
+
+* --- --- --- --- --- --- --- --- --- 
+* TABLE IV
+* --- --- --- --- --- --- --- --- ---
+
+		global coffee ""cff_coffee" "cff_tree" "cff_income" "livestock""
+	
+		foreach j in $coffee {
+			eststo: xtreg `j' leave i.year province_trend, cluster(reczd) fe 
+		}
+
+* --- --- --- --- --- --- --- --- --- 
+* TABLE V
+* --- --- --- --- --- --- --- --- ---

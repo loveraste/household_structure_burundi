@@ -6,7 +6,7 @@
 
 *--- Open Data 
 
-  use "$path_work/data/final/panel_individual.dta", clear
+	use "data/final/panel_individual.dta", clear
 
 *--- Data preparation
 
@@ -61,11 +61,13 @@
 
   qui include "$path_work/do-files/labels.do" 
 
-* Merging the poverty status information.
+*--- Merging the poverty status information.
       sort reczd numen
       merge m:1 reczd numen using "$path_work/data/origin/poverty_status98.dta", nogenerate keep(master matched)
 
       merge m:1 reczd numen using "$path_work/data/origin/poverty_status98-07.dta", nogenerate keep(master matched)
+	 
+		
 
       
 

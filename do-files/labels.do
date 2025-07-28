@@ -1,9 +1,9 @@
 cap label var d_leave_ind "Fraction of individuals that ever left the household"
-cap label var d_violence "Dummy presence of violence (presence=1)"
-cap label var deathwounded "Sum of dead and wounded by 100 people"
+cap label var d_violence "Violence in a given year (yes=1)"
+cap label var deathwounded_100 "Number of causalties in a given year"
 cap label var leave "Fraction of years when individual left the household"
-cap label var hh_d_violence "Dummy presence of violence"
-cap label var hh_deathwounded "Sum of dead and wounded"
+cap label var hh_d_violence "Violence in a given year (yes=1)"
+cap label var hh_deathwounded "Number of causalties in a given year"
 cap label var d_leave_hh "At least 1 person left the household in a given year (yes=1)"
 cap label var leave_hh "Average number of people leaving the household in a given year"
 
@@ -21,15 +21,13 @@ cap label var hh_sk_vl_rob_goods  "Household ever experienced theft or destructi
 cap label var hh_sk_vl_rob_destruction "Household ever experienced destruction of house"
 cap label var  hh_sk_vl_rob_land "Household ever experienced loss of land"
 
-cap label var v_d_violence "Fraction of years when village experienced violence"
-cap label var v_deathwounded "Sum of dead and wounded"
-cap label var v1_d_violence "Fraction of villages that ever experienced violence"
+cap label var v_d_violence "Number of causalties in a given year"
+cap label var v_deathwounded "Fraction of years when village experienced violence"
+cap label var v1_d_violence "Fraction of villages that ever experienced violence at least one year during 1998-2007"
 
-cap label var lag_d_violence "Lag dummy violence (presence=1)"
-cap label var deathwounded_100 "Sum of dead and wounded (by 100 people)"
-cap label var lag_deathwounded_100 "Lag sum of dead and wounded (by 100 people)"
+cap label var deathwounded_100 "Number of causalties in a given year"
 
-cap labe var leave_hh_t "Number of member of household that leave"
+cap labe var leave_hh_t "Number of member of household that migrated outside household "
 cap label var d_leave_hh_t "Fraction of individuals that ever left the household"
 
 cap labe var a_coffee_produc_97 "Area (ha) of coffee production in a productive age ($<= 8$ years old) in 1997"
