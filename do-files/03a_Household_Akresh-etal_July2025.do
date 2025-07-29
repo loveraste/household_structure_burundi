@@ -324,11 +324,11 @@
 			local obs     = string(obs, "%9.0f")   // Number of observations
 
 			* --- Export coefficient with stars ---
-			putexcel `=char(`col'+64)'`row' = ("`b_fmt'`stars'"), overwrite italic
+			putexcel `=char(`col'+64)'`row' = ("`b_fmt'`stars'"), overwrite 
 
 			* --- Export standard error in brackets (row below) ---
 			local r1 = `row' + 1
-			putexcel `=char(`col'+64)'`r1' = ("[`se_fmt']"), overwrite italic
+			putexcel `=char(`col'+64)'`r1' = ("[`se_fmt']"), overwrite 
 
 			* --- Export regression statistics below the table ---
 			putexcel `=char(`col'+64)'`row_s' = `obs', overwrite italic
@@ -494,13 +494,13 @@
 			local obs     = string(obs, "%9.0f")   // Number of observations
 			
 			* --- Export coefficient and standar error with stars ---
-			putexcel `=char(`col'+64)'`row' = ("`b_fmt'`stars'"), overwrite italic
+			putexcel `=char(`col'+64)'`row' = ("`b_fmt'`stars'"), overwrite 
 			local r1=`row'+1
-			putexcel `=char(`col'+64)'`r1' = ("[`se_fmt']"), overwrite italic
+			putexcel `=char(`col'+64)'`r1' = ("[`se_fmt']"), overwrite 
 			local r2=`row'+2
-			putexcel `=char(`col'+64)'`r2' = ("`bL_fmt'`starsL'"), overwrite italic
+			putexcel `=char(`col'+64)'`r2' = ("`bL_fmt'`starsL'"), overwrite 
 			local r3=`row'+3
-			putexcel `=char(`col'+64)'`r3' = ("[`seL_fmt']"), overwrite italic
+			putexcel `=char(`col'+64)'`r3' = ("[`seL_fmt']"), overwrite 
 
 			* --- Export regression statistics below the table ---
 			putexcel `=char(`col'+64)'`row_s' = `obs', overwrite italic

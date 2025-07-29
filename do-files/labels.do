@@ -6,6 +6,7 @@ cap label var hh_d_violence "Violence in a given year (yes=1)"
 cap label var hh_deathwounded "Number of causalties in a given year"
 cap label var d_leave_hh "At least 1 person left the household in a given year (yes=1)"
 cap label var leave_hh "Average number of people leaving the household in a given year"
+cap label var v_s_violence "Number of years with presence of violence during 1998-2007"
 
 cap label var hh_cff_income "Average annual coffee income"
 cap label var  hh_livestock "Average annual livestock holdings (in tlu)*"
