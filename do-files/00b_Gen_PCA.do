@@ -68,7 +68,7 @@
  *----------------------------------------------------------------------------*/
 
 	// Drop existing PCA variables if they exist
-	cap drop pca_agri pca_asset pca_all
+	cap drop pca_*
 		
 	/* 3A. Agricultural Losses PCA
 	 * Variables: sk_vl_rob_land (land robbery), sk_vl_rob_product (crop/product theft)
@@ -103,15 +103,27 @@
 	 * Variables: sk_nt_crop_bad (bad harvest), sk_nt_crop_good (good harvest),
 	 *           sk_nt_erosion (soil erosion)
 	 * Captures:Environmental shocks affecting agriculture */
-	pca sk_nt_crop_bad sk_nt_crop_good sk_nt_erosion sk_nt_drought sk_nt_rain, components(1)
+	pca sk_nt_crop_bad sk_nt_crop_good sk_nt_erosion, components(1)
 	predict pca_natural, score  
-
+	
 	/* 3F. All weather and natural Shocks PCA
 	 * Variables: All natural and weather shocks
 	 *Capture: General impacts on households due to climate or nature*/
 	pca sk_nt_crop_bad sk_nt_crop_good sk_nt_erosion sk_nt_drought sk_nt_rain, components(1)
 	predict pca_natural_all, score  
 
+	* New version
+	pca  sk_nt_erosion sk_nt_destru_rain sk_nt_crop_bad sk_nt_disease sk_nt_drought sk_nt_rain, components(1)
+	predict pca_natural_all_v2, score  
+	
+	/* 3F. Economic Shocks PCA
+	* Variables: sk_ec_input_access (Acces to inputs), sk_ec_input_price (Input prices), sk_ec_nonmarket (no market access)
+	* sk_ec_output_price (outout prices), sk_ec_sell_land (land sale), sk_ec_sell_other (sale other assets), sk_ec_rec_help (reciving help)
+	* Capture: Composite index of exposure to market disruptions (input/output access & prices)
+	*  and liquidity-coping responses (asset sales, external help).*/
+	pca sk_ec_input_access sk_ec_input_price sk_ec_nonmarket sk_ec_output_price sk_ec_sell_land sk_ec_sell_other sk_ec_rec_help
+	predict pca_economic, score
+	
 /*------------------------------------------------------------------------------
  * 3G. TRANSFORM PCA SCORES TO POSITIVE VALUES
  *----------------------------------------------------------------------------*/
@@ -119,21 +131,21 @@
 	// Transform PCA scores to positive scale (min-max normalization to 0-100)
 	// This makes interpretation easier and ensures all values are positive
 	
-	foreach var in pca_agri pca_asset pca_all pca_natural pca_weather pca_natural_all {
+	foreach var in pca_agri pca_asset pca_all pca_natural pca_weather pca_natural_all pca_natural_all_v2 pca_economic {
 		quietly summarize `var'
 		gen `var'_pos = ((`var' - r(min)) / (r(max) - r(min))) * 100
 		label variable `var'_pos "`var' transformed to 0-100 scale"
 	}
 	
 	// Alternative: Standardize and shift to positive (mean=50, sd=10)
-	foreach var in pca_agri pca_asset pca_all pca_natural pca_weather pca_natural_all {
+	foreach var in pca_agri pca_asset pca_all pca_natural pca_weather pca_natural_all pca_natural_all_v2 pca_economic{
 		quietly summarize `var'
 		gen `var'_std = ((`var' - r(mean)) / r(sd)) * 10 + 50
 		label variable `var'_std "`var' standardized (mean=50, sd=10)"
 	}
 	
 	// Create binary indicators based on positive transformations
-	foreach var in pca_agri pca_asset pca_all pca_natural pca_weather pca_natural_all {
+	foreach var in pca_agri pca_asset pca_all pca_natural pca_weather pca_natural_all pca_natural_all_v2 pca_economic {
 		quietly summarize `var'_pos
 		gen `var'_high = (`var'_pos > r(mean)) if !missing(`var'_pos)
 		label variable `var'_high "High `var' (above mean of positive scale)"
@@ -153,7 +165,7 @@
 
 // Logarithmic transformations for PCA variables
 	// Note: Adding constant to handle negative values and zeros
-	foreach var in pca_agri pca_asset pca_all pca_natural pca_weather pca_natural_all {
+	foreach var in pca_agri pca_asset pca_all pca_natural pca_weather pca_natural_all pca_natural_all_v2 pca_economic {
 		quietly summarize `var'
 		// Method 1: Log of positive transformation (recommended)
 		gen `var'_log = ln(`var'_pos + 1)
@@ -175,8 +187,8 @@
 
 	// Keep essential variables including all transformations
 	keep id_hh year ///
-		pca_agri pca_asset pca_all pca_all_abovemean pca_natural pca_weather pca_natural_all ///
-		pca_agri_pos pca_asset_pos pca_all_pos pca_natural_pos pca_weather_pos pca_natural_all_pos ///
+		pca_agri pca_asset pca_all pca_all_abovemean pca_natural pca_weather pca_natural_all pca_natural_all_v2 pca_economic ///
+		pca_agri_pos pca_asset_pos pca_all_pos pca_natural_pos pca_weather_pos pca_natural_all_pos pca_natural_all_v2_pos pca_economic_pos ///
 		pca_agri_std pca_asset_std pca_all_std pca_natural_std pca_weather_std pca_natural_all_std ///
 		pca_agri_high pca_asset_high pca_all_high pca_natural_high pca_weather_high pca_natural_all_high ///
 		pca_agri_log pca_asset_log pca_all_log pca_natural_log pca_weather_log pca_natural_all_log ///
@@ -184,24 +196,31 @@
 		pca_agri_logmod pca_asset_logmod pca_all_logmod pca_natural_logmod pca_weather_logmod pca_natural_all_logmod
 
 	// Ensure all variables are labeled appropriately
-	foreach i in pca_agri pca_asset pca_all pca_natural pca_weather pca_natural_all {
+	foreach i in pca_agri pca_asset pca_all pca_natural pca_weather pca_natural_all pca_economic {
 		replace `i' = `i'_pos/100
 		bys id_hh: egen `i'_hh = mean(`i') if !missing(`i')
 	}
 
 	// Gen a Household-level
-	keep id_hh year pca_agri pca_asset pca_all pca_all_abovemean pca_natural pca_weather pca_natural_all *_hh
+	keep id_hh year pca_agri pca_asset pca_all pca_all_abovemean pca_natural pca_weather pca_natural_all pca_natural_all_v2 pca_economic *_hh
 	
 	// labels 
 	
 	label variable pca_agri      "Index of Agricultural Related Losses (land and/or crops) - PCA"
 	label variable pca_asset     "Index of Asset Related Losses (money, goods and/or house) - PCA"
 	label variable pca_all       "Index of Household Losses (all) - PCA"
-	label variable pca_all_abovemean     "Index of household Losses (all) - PCA - above the mean (yes=1)"   
-
+	label variable pca_all_abovemean     "Index of household Losses (all) - PCA - above the mean (yes=1)"  
+	label variable pca_natural	 "Index of  Natural Related Shocks (low harvest, good harvest and erosion) - PCA"
+	label variable pca_weather   "Index of  Weather Shocks (droughts and extreme rain) - PCA"
+	label variable pca_natural_all "Index of  Natural Shocks (all) - PCA"
+	label variable pca_natural_all_v2 "Index of Natural Shocks (Extreme rarin, drought, crop disease, low harvest, destruction by rain, erosion) - PCA"
 	label variable pca_agri_hh   "Index of Agricultural Related Losses (land and/or crops) - PCA"
 	label variable pca_asset_hh  "Index of Asset Related Losses (money, goods and/or house) - PCA"
 	label variable pca_all_hh    "Index of Household Losses (all) - PCA"
+	label variable pca_natural_hh	 "Index of  Natural Related Shocks (low harvest, good harvest and erosion) - PCA"
+	label variable pca_weather_hh  "Index of  Weather Shocks (droughts and extreme rain) - PCA"
+	label variable pca_natural_all_hh "Index of  Natural Shocks (all) - PCA"
+	label variable pca_economic " Index of economic shocks (market disruptions and liquidity-coping responses) - PCA"
 
 	// Save PCA dataset for use in subsequent analyses
 	save "$path_work/data/job/pca.dta", replace
