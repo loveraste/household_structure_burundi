@@ -124,7 +124,7 @@ bys id_hh year: gen tag_hhy = _n==1
 * -----------------------------------------------------------
 * Shocks variables
 * -----------------------------------------------------------
-		local shocks sk_vl_rob_land sk_vl_rob_product sk_vl_rob_money sk_vl_rob_goods sk_vl_rob_destruction sk_jail sk_movi sk_att sk_kidnap sk_workforced sk_torture sk_contribution sk_nt_rain sk_nt_drought sk_nt_disease sk_nt_crop_good sk_nt_crop_bad sk_nt_destru_rain sk_nt_erosion  sk_ec_input_access sk_ec_input_price sk_ec_nonmarket sk_ec_output_price sk_ec_sell_land sk_ec_sell_other sk_ec_rec_help
+		local shocks sk_vl_rob_land sk_vl_rob_product sk_vl_rob_money sk_vl_rob_goods sk_vl_rob_destruction sk_jail sk_movi sk_att sk_kidnap sk_workforced sk_torture sk_contribution sk_nt_rain sk_nt_drought sk_nt_disease sk_nt_crop_bad sk_nt_destru_rain sk_nt_erosion  sk_ec_input_access sk_ec_input_price sk_ec_nonmarket sk_ec_output_price sk_ec_sell_land sk_ec_sell_other sk_ec_rec_help
 
 		foreach v of local shocks {
 			replace `v' = 0 if missing(`v')
@@ -141,7 +141,7 @@ bys id_hh year: gen tag_hhy = _n==1
 * PCA variables
 * -----------------------------------------------------------
 
-		local pcas pca_agri pca_asset pca_economic pca_weather pca_natural pca_natural_all  pca_natural_all_v2 pca_all
+		local pcas pca_agri pca_asset pca_economic pca_coping pca_weather pca_natural pca_natural_all pca_all
 		
 		foreach x of local pcas {
 
@@ -196,7 +196,7 @@ bys id_hh year: gen tag_hhy = _n==1
 *------------------------------------------------------------------------
 		keep if n_hh == 1
 		
-		global base_vars "any_violence years_violence avg_deathwounded_100 any_sk_vl_rob_land any_sk_vl_rob_product any_sk_vl_rob_money any_sk_vl_rob_goods any_sk_vl_rob_destruction any_sk_jail any_sk_movi any_sk_att any_sk_kidnap any_sk_workforced any_sk_torture any_sk_contribution any_sk_nt_rain any_sk_nt_drought any_sk_nt_disease any_sk_nt_crop_good any_sk_nt_crop_bad any_sk_nt_destru_rain any_sk_nt_erosion any_sk_ec_input_access any_sk_ec_input_price any_sk_ec_nonmarket any_sk_ec_output_price any_sk_ec_sell_land any_sk_ec_sell_other any_sk_ec_rec_help years_sk_vl_rob_land years_sk_vl_rob_product years_sk_vl_rob_money years_sk_vl_rob_goods years_sk_vl_rob_destruction years_sk_jail years_sk_movi years_sk_att years_sk_kidnap years_sk_workforced years_sk_torture years_sk_contribution years_sk_nt_rain years_sk_nt_drought years_sk_nt_disease years_sk_nt_crop_good years_sk_nt_crop_bad years_sk_nt_destru_rain years_sk_nt_erosion  years_sk_ec_input_access years_sk_ec_input_price years_sk_ec_nonmarket years_sk_ec_output_price years_sk_ec_sell_land years_sk_ec_sell_other years_sk_ec_rec_help pca_agri_mean pca_asset_mean pca_economic_mean pca_weather_mean pca_natural_mean pca_natural_all_mean pca_natural_all_v2_mean pca_all_mean"
+		global base_vars "any_violence years_violence avg_deathwounded_100 any_sk_vl_rob_land any_sk_vl_rob_product any_sk_vl_rob_money any_sk_vl_rob_goods any_sk_vl_rob_destruction any_sk_jail any_sk_movi any_sk_att any_sk_kidnap any_sk_workforced any_sk_torture any_sk_contribution any_sk_nt_rain any_sk_nt_drought any_sk_nt_disease  any_sk_nt_crop_bad any_sk_nt_destru_rain any_sk_nt_erosion any_sk_ec_input_access any_sk_ec_input_price any_sk_ec_nonmarket any_sk_ec_output_price any_sk_ec_sell_land any_sk_ec_sell_other any_sk_ec_rec_help years_sk_vl_rob_land years_sk_vl_rob_product years_sk_vl_rob_money years_sk_vl_rob_goods years_sk_vl_rob_destruction years_sk_jail years_sk_movi years_sk_att years_sk_kidnap years_sk_workforced years_sk_torture years_sk_contribution years_sk_nt_rain years_sk_nt_drought years_sk_nt_disease years_sk_nt_crop_bad years_sk_nt_destru_rain years_sk_nt_erosion  years_sk_ec_input_access years_sk_ec_input_price years_sk_ec_nonmarket years_sk_ec_output_price years_sk_ec_sell_land years_sk_ec_sell_other years_sk_ec_rec_help pca_agri_mean pca_asset_mean pca_economic_mean pca_coping_mean pca_weather_mean pca_natural_mean pca_natural_all_mean pca_all_mean"
 
 				
 		global controls "hh_head_female_1998 hh_head_age_1998 altitude_av__m_ rainfall_av__mm_ temp_av i.province"

@@ -79,16 +79,15 @@ forvalues i = 1/`=wordcount("`codes'")' {
 }
 
 
-local pcas  "pca_all       pca_agri       pca_asset       pca_economic       pca_weather       pca_natural       pca_natural_all       pca_natural_all_v2"
+local pcas  "pca_all_mean pca_agri_mean pca_asset_mean pca_economic_mean pca_coping_mean pca_weather_mean pca_natural_mean pca_natural_all_mean"
 
-local texts `" "Index of Household Losses (all)" "Index of Agricultural Related Losses (land and/or crops)" "Index of Asset Related Losses (money, goods and/or house)" "Index of Economic Shocks (market disruptions and liquidity-coping responses)"  "Index of Weather Shocks (droughts and extreme rain)"  "Index of Natural Related Shocks (low harvest, good harvest and erosion)"  "Index of Natural Shocks (all)"  "Index of Natural Shocks (Extreme rain, drought, crop disease, low harvest, destruction by rain, erosion)" "'
+local texts `"  "Conflict-caused losses of land/crops and assets"  "Conflict-caused loss of land/crops"  "Conflict-caused loss of assets"  "Economic shocks (input prices, market access)"  "Coping strategies (asset/land sales, external help)"  "Extreme rain/drought shocks"  "Bad harvest/soil erosion shocks" "Extreme rain/drought/bad harvest/soil erosion shocks" "'
 
 forvalues i = 1/`=wordcount("`pcas'")' {
     local p : word `i' of `pcas'
     local t : word `i' of `texts'
 
-    cap label var `p'_mean        "`t' - PCA mean"
-    cap label var `p'_above_mean  "`t' - PCA above the mean"
+    cap label variable `p' "`t'"
 }
 
 cap label var Poverty_status_98 "Poverty status of the household in 1998 (yes=1)"
