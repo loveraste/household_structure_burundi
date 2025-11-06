@@ -1,0 +1,53 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run STATA (Batch Mode) - Current File",
+            "type": "shell",
+            "command": "/usr/local/bin/stata-se",
+            "args": [
+                "-b",
+                "do",
+                "${file}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "isBackground": false
+        },
+        {
+            "label": "Run STATA Master File",
+            "type": "shell",
+            "command": "/usr/local/bin/stata-se",
+            "args": [
+                "-b",
+                "do",
+                "${workspaceFolder}/do-files/Master_Do-Files.do"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "new"
+            },
+            "isBackground": false
+        },
+        {
+            "label": "Run STATA Interactive",
+            "type": "shell",
+            "command": "/usr/local/bin/stata-se",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "new"
+            },
+            "isBackground": false
+        }
+    ]
+}

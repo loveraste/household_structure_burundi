@@ -1,0 +1,19 @@
+{
+    "stata.stataPath": "/usr/local/bin/stata-se",
+    "stata.executionMode": "do",
+    "stata.doFileDir": "${workspaceFolder}/do-files",
+    "files.associations": {
+        "*.do": "stata"
+    },
+    "[stata]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true,
+        "editor.wordWrap": "on"
+    },
+    "editor.formatOnSave": false,
+    "editor.rulers": [80, 120],
+    "search.exclude": {
+        "**/out": true,
+        "**/.git": true
+    }
+}
