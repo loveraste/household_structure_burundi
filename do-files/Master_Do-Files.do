@@ -6,11 +6,16 @@
 * --- --- --- --- --- --- --- --- --- 
 
 	* -- JC ----
-    * global path_work "/Users/jcmunoz/Library/CloudStorage/OneDrive-UniversidadEAFIT/Projects/2025_Paper_Burundi/household_structure_burundi"
+    global path_work "/Users/jcmunoz/Library/CloudStorage/OneDrive-UniversidadEAFIT/Projects/2025_Paper_Burundi/household_structure_burundi"
+	global path_results "$path_work/out"
+
+	* -- JM (macOS Local) ----
+	global path_work "/Users/jmunozm1/Documents/GitHub/household_structure_burundi/"
+	global path_results "$path_work/out"
 	
 	* --- SL ---
-	 global path_work "C:/Users/Stefany Lopez/OneDrive - Universidad EAFIT/VP/Burundi/nuevo"
-	 global path_results "$path_work/out" 
+	* global path_work "C:/Users/Stefany Lopez/OneDrive - Universidad EAFIT/VP/Burundi/nuevo"
+	* global path_results "$path_work/out" 
 	 cd "$path_work"
 	
 *--- Initial

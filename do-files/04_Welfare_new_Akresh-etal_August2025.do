@@ -3,7 +3,9 @@
 * --- --- --- --- --- --- --- --- --- 
   
 	run "do-files/00_DataPreliminaries_Akresh-etal_2025.do"
-	global results "$path_results/Akresh_etal_20250708_household.xlsx" 
+	global results "$path_results/Akresh_etal_20250708_household" 
+	global path_work "/Users/jmunozm1/Documents/GitHub/household_structure_burundi/"
+	global path_results "$path_work/out"
   
 * --- --- --- --- --- --- --- --- --- 
 *  Sample 
@@ -146,11 +148,11 @@ bys id_hh year: gen tag_hhy = _n==1
 		foreach x of local pcas {
 
 			* PCA mean
-			bys id_hh: egen `x'_mean = mean(cond(tag_hhy, `x', .))
+			cap bys id_hh: egen `x'_mean = mean(cond(tag_hhy, `x', .))
 			* Umbral = media muestral del promedio por hogar
 			quietly summarize `x'_mean if n_hh == 1
 			local cutoff_mean = r(mean)
-			gen `x'_above_mean = (`x'_mean > `cutoff_mean') if `x'_mean < .
+			cap gen `x'_above_mean = (`x'_mean > `cutoff_mean') if `x'_mean < .
 		}
 
 * -------------------------------------------------------------
@@ -232,7 +234,7 @@ global interactions "any_leave total_leave share_leave"
 		}
 
 		*---- Exporta solo lo principal (b, z, b#z) y sin controles ----*
-		esttab m* using "${path_results}/results_welfare_all.html", ///
+		esttab m* using "$path_results/results_welfare_all.csv", ///
 			replace                             ///
 			keep(Poverty_status_98 $base_vars $interactions *#*)                           ///
 			order(Poverty_status_98 $base_vars $interactions *#*) ///
@@ -276,7 +278,7 @@ global interactions "any_leave_adult total_leave_adult share_leave_adult"
 		}
 		
 		*---- Exporta solo lo principal (b, z, b#z) y sin controles ----*
-		esttab m* using "${path_results}/results_welfare_adult.html", ///
+		esttab m* using "$path_results/results_welfare_adult.csv", ///
 			replace                             ///
 			keep(Poverty_status_98 $base_vars $interactions *#*)                           ///
 			order(Poverty_status_98 $base_vars $interactions *#*) ///
@@ -319,7 +321,7 @@ global interactions "any_leave_child total_leave_child share_leave_child"
 			}
 		}
 		
-		esttab m* using "${path_results}/results_welfare_child.html", ///
+		esttab m* using "$path_results/results_welfare_child.csv", ///
 			replace                             ///
 			keep(Poverty_status_98 $base_vars $interactions *#*)                           ///
 			order(Poverty_status_98 $base_vars $interactions *#*) ///
@@ -357,7 +359,7 @@ global interactions "any_leave_woman total_leave_woman share_leave_woman"
 			}
 		}
 		
-		esttab m* using "${path_results}/results_welfare_woman.html", ///
+		esttab m* using "$path_results/results_welfare_woman.csv", ///
 			replace                             ///
 			keep(Poverty_status_98 $base_vars $interactions *#*)                           ///
 			order(Poverty_status_98 $base_vars $interactions *#*) ///
@@ -395,7 +397,7 @@ global interactions "any_leave_man total_leave_man share_leave_man"
 			}
 		}
 		
-		esttab m* using "${path_results}/results_welfare_man.html", ///
+		esttab m* using "$path_results/results_welfare_man.csv", ///
 			replace                             ///
 			keep(Poverty_status_98 $base_vars $interactions *#*)                           ///
 			order(Poverty_status_98 $base_vars $interactions *#*) ///
@@ -405,3 +407,32 @@ global interactions "any_leave_man total_leave_man share_leave_man"
 			nonumbers ///
 			label ///
 			compress
+
+* --- --- --- --- --- --- --- --- --- 
+* Convertir archivos CSV a Excel
+* --- --- --- --- --- --- --- --- --- 
+
+di ""
+di "=========================================="
+di "Convirtiendo resultados a Excel..."
+di "=========================================="
+
+local csv_files "results_welfare_all results_welfare_adult results_welfare_child results_welfare_woman results_welfare_man"
+
+foreach file of local csv_files {
+    di "Procesando: `file'"
+    cap {
+        import delimited "$path_results/`file'.csv", clear
+        export excel using "$path_results/`file'.xlsx", replace first(var)
+        di "  ✓ `file'.xlsx creado"
+    }
+    if _rc != 0 {
+        di "  ✗ Error procesando `file': " _rc
+    }
+}
+
+di ""
+di "=========================================="
+di "✓ Proceso completado"
+di "Resultados en: $path_results"
+di "=========================================="
