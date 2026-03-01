@@ -10,10 +10,7 @@
 * Defining Working Paths  
 * --- --- --- --- --- --- --- --- --- 
 	clear all
-    global path_work "/path/where/data/and/dofiles/are/located"
-    global result_table "/path/where/tables/are/located" 
-    global results "/excel/file/where/tables/are/located.xlsx" 
- 
+	
 * --- --- --- --- --- --- --- --- --- 
 * We include the data preliminaries 
 * --- --- --- --- --- --- --- --- --- 

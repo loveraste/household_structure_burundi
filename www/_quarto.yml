@@ -1,0 +1,65 @@
+project:
+  type: website
+  output-dir: ../docs
+
+website:
+  title: "Civil War and Household Structure"
+  description: "Technical Supplement — Akresh, Muñoz-Mora & Verwimp (2025)"
+  favicon: assets/favicon.ico
+
+  navbar:
+    left:
+      - href: index.qmd
+        text: Overview
+      - href: data.qmd
+        text: Data
+      - href: results.qmd
+        text: Results
+      - href: robustness.qmd
+        text: Robustness
+    right:
+      - icon: file-earmark-pdf
+        href: "https://github.com/jcmunozm/household_structure_burundi"
+        text: Paper
+        aria-label: Paper PDF
+      - icon: github
+        href: "https://github.com/jcmunozm/household_structure_burundi"
+        aria-label: GitHub Repository
+
+  page-footer:
+    left: |
+      **Akresh, Muñoz-Mora & Verwimp (2025)**
+      Civil War and Household Structure: Evidence from Burundi
+    right: |
+      Technical supplement. Last updated {{< meta date >}}.
+
+  sidebar: false
+
+format:
+  html:
+    theme: flatly
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    toc-title: "Contents"
+    number-sections: false
+    smooth-scroll: true
+    code-fold: true
+    code-tools: true
+    highlight-style: github
+    fig-align: center
+    fig-dpi: 200
+    df-print: paged
+
+bibliography: ../manuscript/references.bib
+csl: https://www.zotero.org/styles/apa
+
+execute:
+  echo: false
+  warning: false
+  message: false
+  freeze: auto
+
+knitr:
+  opts_chunk:
+    comment: ""

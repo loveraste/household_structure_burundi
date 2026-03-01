@@ -1,0 +1,27 @@
+project:
+  type: default
+
+format:
+  docx:
+    reference-doc: custom-reference.docx
+    toc: false
+    number-sections: false
+    highlight-style: github
+    fig-dpi: 300
+    fig-width: 6.5
+    fig-height: 4.5
+
+bibliography: references.bib
+csl: https://www.zotero.org/styles/apa
+cite-method: citeproc
+
+execute:
+  echo: false
+  warning: false
+  message: false
+  cache: false
+
+knitr:
+  opts_chunk:
+    comment: ""
+    fig.align: "center"

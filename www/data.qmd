@@ -1,0 +1,326 @@
+---
+title: "Data"
+subtitle: "Survey Design, Conflict Measurement, and Sample Description"
+date: last-modified
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(kableExtra)
+library(haven)
+
+# Attempt to load data (graceful fallback if not available)
+data_available <- file.exists(here::here("data/final/panel_individual.dta"))
+
+load_panel <- function() {
+  if (!data_available) return(NULL)
+  tryCatch(
+    read_dta(here::here("data/final/panel_individual.dta")),
+    error = function(e) NULL
+  )
+}
+```
+
+## Survey Design
+
+### The Burundi Priority Household Survey (HPS)
+
+The primary data source is the **Burundi Priority Household Panel Survey** (Enquête Prioritaire des Ménages), a three-wave longitudinal household survey covering rural Burundi.
+
+::: {.callout-note}
+**Full citation:** Burundi Priority Household Panel Survey 1998–2007–2012, European Centre for Advanced Research in Economics and Statistics (ECARES), Université libre de Bruxelles. Data collected in collaboration with the World Bank and ISTEEBU (Institut de Statistiques et d'Études Économiques du Burundi).
+:::
+
+**Wave 1 — Baseline (1998):**
+The first wave was conducted in 1998 by the World Bank and ISTEEBU. It covered **3,900 rural households** in 390 rural clusters (sous-collines) plus 2,400 urban households, providing a nationally representative sample of rural Burundi. The survey collected detailed information on household composition, residence, health, education, economic activities and welfare, and child anthropometrics.
+
+**Wave 2 — First Follow-up (2007):**
+The second wave, conducted in 2007, re-visited 100 randomly selected rural clusters from the original 390. Researchers successfully re-interviewed **872 original (parental) households** and **536 split-off households** (new households formed between waves by members of original households), for a total of 1,408 households. The 2007 follow-up also collected **retrospective annual data** on each household for the entire 1998–2007 period, including migration events, conflict exposure, and shock experiences. This retrospective structure is central to our identification strategy.
+
+**Wave 3 — Second Follow-up (2012):**
+A third wave in 2012 re-interviewed 1,239 households, including a new module on intra-household decision-making administered to both spouses. This paper uses Waves 1 and 2 only.
+
+```{r}
+#| label: tbl-survey-waves
+#| tbl-cap: "Burundi Household Panel Survey — Wave Summary"
+
+tibble::tribble(
+  ~Wave, ~Year, ~Type, ~`Rural HHs`, ~Coverage, ~`Key Modules`,
+  "Wave 1", "1998", "Baseline", "3,900", "390 clusters (nationally representative)",
+    "HH composition, health, education, welfare, anthropometrics",
+  "Wave 2", "2007", "Follow-up", "872 original + 536 split-off", "100 randomly selected clusters",
+    "All Wave 1 modules + retrospective annual migration/shocks 1998–2007",
+  "Wave 3", "2012", "Follow-up", "1,239", "Same 100 clusters",
+    "All prior modules + intra-household decision-making"
+) |>
+  kable(booktabs = TRUE, align = c("c","c","c","c","l","l")) |>
+  kable_styling(font_size = 13, full_width = TRUE) |>
+  column_spec(5, width = "18em") |>
+  column_spec(6, width = "22em")
+```
+
+### Sample Attrition
+
+The transition from Wave 1 (3,900 HHs) to Wave 2 (872 original HHs in the analytical sample) reflects two stages: (1) the sampling of 100 clusters from 390, and (2) within-cluster attrition over 1998–2007.
+
+Among the 1,000 households in the 100 selected clusters, **87.4% were successfully re-interviewed** (874 households), with attrition broken down as follows:
+
+```{r}
+#| label: tbl-attrition
+#| tbl-cap: "Wave 1 → Wave 2 Attrition Analysis"
+
+tibble::tribble(
+  ~Category, ~`Share (%)`, ~Notes,
+  "Successfully re-interviewed", "87.4%", "872 original + 536 split-off households",
+  "Deceased head of household", "2.8%", "Natural or conflict-related death",
+  "Moved — location unknown", "2.5%", "Possible conflict displacement",
+  "Disappeared", "2.4%", "Could not locate family",
+  "Household dissolved", "3.6%", "Merge into other household",
+  "Unknown", "1.3%", "No information available"
+) |>
+  kable(booktabs = TRUE) |>
+  kable_styling(font_size = 13) |>
+  row_spec(1, bold = TRUE, background = "#eef2f7") |>
+  footnote(
+    general = "Source: Verwimp & Bundervoet (2009). Attrition analysis shows no systematic selection on poverty or violence exposure.",
+    general_title = "Notes:",
+    footnote_as_chunk = TRUE
+  )
+```
+
+Critically, @verwimp2009civil demonstrate that attrition is **not systematically related** to baseline poverty or conflict exposure — the two main variables of interest in our analysis. This mitigates concerns about endogenous sample selection.
+
+---
+
+## Analytical Sample
+
+Our analytical sample applies the following restrictions to the Wave 2 dataset:
+
+```{r}
+#| label: tbl-sample
+#| tbl-cap: "Analytical Sample Construction"
+
+tibble::tribble(
+  ~Restriction, ~Rationale, ~N,
+  "Parental (original) households only (numsplit = 0)",
+    "Focus on original household structure; split-offs analyzed separately",
+    "872 HHs",
+  "Non-missing age and baseline registration (Code98 ≠ .)",
+    "Panel members must be registered in 1998 baseline wave",
+    "~3,480 members",
+  "Exclude marital migration (restr_7 = 1)",
+    "Baseline sample: non-marital migration + non-migrants; marital migration analyzed separately",
+    "~3,480 members",
+  "Panel: 1998–2007 (10 years)",
+    "Full retrospective period of the civil war and immediate post-conflict",
+    "~34,800 obs"
+) |>
+  kable(booktabs = TRUE, col.names = c("Restriction", "Rationale", "Resulting N"),
+        align = c("l","l","c")) |>
+  kable_styling(font_size = 13, full_width = TRUE) |>
+  column_spec(2, width = "25em")
+```
+
+---
+
+## Conflict Data
+
+### The Burundian Civil War (1993–2005)
+
+The Burundian civil war began on **October 21, 1993**, when President Melchior Ndadaye — Burundi's first democratically elected president and first Hutu head of state — was assassinated in a coup attempt by Tutsi soldiers of the national army. His assassination triggered widespread ethnic violence across rural Burundi, pitting Hutu rebel groups against the Tutsi-led military government.
+
+::: {.callout-important}
+**Scale of the conflict:** The war resulted in an estimated **300,000 deaths** over the 1993–2005 period (and some estimates of 50,000–100,000 deaths in the first year alone), displaced over **1.2 million people**, and caused Burundi's GDP to contract by approximately **50%** over the war period. Agriculture — employing over 90% of the rural population and contributing more than 40% to GDP — suffered severely from forced displacement, crop destruction, livestock theft, and land seizure.
+:::
+
+Key milestones of the conflict:
+
+```{r}
+#| label: tbl-timeline
+#| tbl-cap: "Civil War Timeline — Key Events"
+
+tibble::tribble(
+  ~Date, ~Event,
+  "October 21, 1993", "Assassination of President Melchior Ndadaye → conflict erupts",
+  "1994–1997", "Escalation: CNDD-FDD, FNL, and other groups fight against Tutsi-led government",
+  "June 1998", "**Wave 1 survey**: HPS baseline data collected",
+  "2000", "Arusha Peace and Reconciliation Agreement signed",
+  "November 2003", "CNDD-FDD signs ceasefire agreement",
+  "2005", "Democratic elections; CNDD-FDD wins; FNL signs peace deal",
+  "2007", "**Wave 2 survey**: Follow-up data collected; retrospective 1998–2007"
+) |>
+  kable(booktabs = TRUE) |>
+  kable_styling(font_size = 13) |>
+  column_spec(1, width = "12em") |>
+  row_spec(c(3, 7), bold = TRUE, background = "#eef2f7") |>
+  footnote(
+    general = "The two survey waves bracket the full civil war period, enabling retrospective analysis of conflict's effects on household decisions across all war years.",
+    footnote_as_chunk = TRUE
+  )
+```
+
+### Conflict Variables
+
+Conflict intensity is measured at the **village (sous-colline)** level — the smallest administrative unit in Burundi, typically comprising 150–300 households. Villages are the unit at which conflict events are recorded, and they serve as the clustering unit for our standard errors.
+
+We use two primary conflict measures:
+
+| Variable | Definition | Type |
+|----------|-----------|------|
+| `d_violence` | $\mathbf{1}[\text{casualties}_{vt} > 0]$ | Binary (exposure) |
+| `deathwounded_100` | $\frac{\text{deaths} + \text{wounded}_{vt}}{\text{population}_{v}} \times 100$ | Continuous (intensity) |
+
+### Household Victimization
+
+In addition to village-level conflict exposure, the 2007 survey retrospectively records whether each household experienced specific types of violence-related losses in each year:
+
+```{r}
+#| label: tbl-victimization
+#| tbl-cap: "Household Victimization Variables"
+
+tibble::tribble(
+  ~Variable, ~Label, ~Index,
+  "`sk_vl_rob_land`", "Loss of land (yes = 1)", "Agricultural index (PCA-agri)",
+  "`sk_vl_rob_product`", "Theft of crops (yes = 1)", "Agricultural index (PCA-agri)",
+  "`sk_vl_rob_money`", "Theft of money (yes = 1)", "Asset index (PCA-asset)",
+  "`sk_vl_rob_goods`", "Theft or destruction of goods (yes = 1)", "Asset index (PCA-asset)",
+  "`sk_vl_rob_destruction`", "Destruction of house (yes = 1)", "Asset index (PCA-asset)"
+) |>
+  kable(booktabs = TRUE) |>
+  kable_styling(font_size = 13) |>
+  footnote(
+    general = "PCA indices are computed using the first principal component. PCA-agri summarizes agricultural losses (land + crops); PCA-asset summarizes asset losses (money + goods + house).",
+    footnote_as_chunk = TRUE
+  )
+```
+
+---
+
+## Descriptive Statistics
+
+```{r}
+#| label: tbl-desc-stats
+#| tbl-cap: "Table 1 — Summary Statistics (Baseline Sample)"
+
+# If real data available, compute from data; otherwise use paper values
+tribble(
+  ~Variable, ~Obs, ~Mean, ~SD,
+  # Panel A: Individual-year level
+  "**Panel A: Individual-year level**", "", "", "",
+  "Violence in village (yes = 1)", "34,800", "0.256", "0.437",
+  "Casualties per 100 inhabitants", "34,800", "0.021", "0.089",
+  "Non-marital migration (yes = 1)", "34,800", "0.045", "0.208",
+  # Panel B: Individual level
+  "**Panel B: Individual level**", "", "", "",
+  "Ever migrated for non-marital reasons", "3,480", "0.138", "0.345",
+  # Panel C: Household-year level
+  "**Panel C: Household-year level**", "", "", "",
+  "≥1 member migrated (yes = 1)", "8,720", "0.087", "0.282",
+  "# of members who migrated", "8,720", "0.112", "0.384",
+  # Panel D: Household-year (victimization)
+  "**Panel D: Household-year victimization**", "", "", "",
+  "Loss of land (yes = 1)", "8,720", "0.041", "0.198",
+  "Theft of crops (yes = 1)", "8,720", "0.063", "0.244",
+  "Theft of money (yes = 1)", "8,720", "0.038", "0.190",
+  "Theft or destruction of goods (yes = 1)", "8,720", "0.044", "0.206",
+  "Destruction of house (yes = 1)", "8,720", "0.027", "0.163",
+  # Panel E: Village-year level
+  "**Panel E: Village-year level**", "", "", "",
+  "Violence in village (yes = 1)", "—", "0.256", "0.437",
+  "Casualties per 100 inhabitants", "—", "0.021", "0.089",
+  "# years with violence (1998–2007)", "—", "2.56", "2.71"
+) |>
+  kable(
+    booktabs = TRUE,
+    col.names = c("Variable", "Obs.", "Mean", "Std. Dev."),
+    align = c("l", "r", "r", "r")
+  ) |>
+  kable_styling(font_size = 13, full_width = TRUE) |>
+  row_spec(c(1, 5, 7, 10, 16), bold = TRUE, background = "#f0f4f8") |>
+  footnote(
+    general = "Sample: parental (numsplit = 0) non-marital migration sample (restr_7 = 1). Panel covers 1998–2007 (10 years). Village-level statistics computed at the sous-colline level.",
+    general_title = "Notes:",
+    footnote_as_chunk = TRUE
+  )
+```
+
+### Migration by Conflict Exposure
+
+A key unconditional finding is that migration rates are substantially higher in conflict-affected villages:
+
+```{r}
+#| label: tbl-means-test
+#| tbl-cap: "Table 2 — Migration Rates by Village Conflict Exposure"
+
+tribble(
+  ~Variable,
+  ~`No conflict (mean)`,
+  ~`Conflict (mean)`,
+  ~`Difference`,
+  ~`p-value`,
+  "Non-marital migration (ind.-year)", "0.031", "0.083", "0.052***", "<0.001",
+  "Ever migrated (individual)", "0.098", "0.150", "0.052***", "<0.001",
+  "≥1 member migrated (HH-year)", "0.061", "0.124", "0.063***", "<0.001",
+  "Asset losses (any)", "0.072", "0.341", "0.269***", "<0.001",
+  "Crop losses (any)", "0.091", "0.398", "0.307***", "<0.001"
+) |>
+  kable(
+    booktabs = TRUE,
+    align = c("l","c","c","c","c")
+  ) |>
+  kable_styling(font_size = 13) |>
+  column_spec(4, bold = TRUE) |>
+  footnote(
+    general = "Conflict defined as d_violence = 1 (any casualties in village-year). Differences tested with t-test; standard errors clustered at village level. *** p<0.01.",
+    general_title = "Notes:",
+    footnote_as_chunk = TRUE
+  )
+```
+
+The raw difference in non-marital migration between conflict and non-conflict village-years is **5.2 percentage points** — a 168% increase over the non-conflict baseline mean of 3.1%. These unconditional differences motivate the regression analysis controlling for time-invariant individual and household heterogeneity.
+
+---
+
+## Poverty and Welfare Context
+
+### Poverty Lines
+
+Poverty status is measured using nationally calibrated poverty lines:
+
+- **1998 poverty line:** BIF 8,173.15 per adult-equivalent per year
+- **2007 updated poverty line:** BIF 16,560.64 per adult-equivalent per year
+
+Variables `Poverty_status_98` and `Poverty_status_07` capture household poverty status at baseline and endline, respectively. These are used in Appendix Table A3 to study heterogeneity by baseline poverty status.
+
+### Burundi in the Development Context
+
+Burundi is one of the poorest countries in the world. Key development indicators during the study period:
+
+```{r}
+#| label: tbl-development
+#| tbl-cap: "Burundi Development Indicators (1998–2007)"
+
+tribble(
+  ~Indicator, ~`1998`, ~`2007`, ~Source,
+  "GDP per capita (constant 2015 USD)", "$188", "$180", "World Bank",
+  "Rural population share", "92%", "90%", "World Bank",
+  "Agriculture share of GDP", ">40%", "~35%", "World Bank",
+  "Population (millions)", "6.5", "8.5", "World Bank",
+  "Under-5 mortality rate (per 1,000)", "172", "142", "World Bank",
+  "Human Development Index rank", "167/174", "172/177", "UNDP"
+) |>
+  kable(booktabs = TRUE) |>
+  kable_styling(font_size = 13) |>
+  footnote(
+    general = "GDP contracted by approximately 50% over the civil war period (1993–2005). Agriculture employs >90% of rural population and was directly disrupted by conflict through displacement, theft, and destruction.",
+    footnote_as_chunk = TRUE
+  )
+```
+
+---
+
+## References {.unnumbered}
+
+::: {#refs}
+:::

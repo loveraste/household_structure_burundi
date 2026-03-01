@@ -10,11 +10,34 @@ cap label var v_s_violence "Number of years with presence of violence during 199
 
 cap label var hh_cff_income "Average annual coffee income"
 cap label var  hh_livestock "Average annual livestock holdings (in tlu)*"
-cap label var sk_vl_rob_money "Theft of money (yes=1) for a household in a given year"
+cap label var sk_vl_rob_land "Loss of land (yes=1) for a household in a given year"
 cap label var  sk_vl_rob_product "Theft of crops (yes=1) for a household in a given year"
 cap label var sk_vl_rob_goods  "Theft or destruction of goods (yes=1) for a household in a given year"
 cap label var sk_vl_rob_destruction "Destruction of house (yes=1) for a household in a given year"
-cap label var  sk_vl_rob_land "Loss of land (yes=1) for a household in a given year"
+cap label var  sk_vl_rob_money "Theft of money (yes=1) for a household in a given year"
+
+cap label var sk_jail "Time in prison (yes=1) for a household in 1998–2007"
+cap label var sk_movi "Joining armed group (yes=1) for a household in 1998–2007"
+cap label var sk_att "Victim of ambush (yes=1) for a household in 1998–2007"
+cap label var sk_kidnap "Captured or kidnapped (yes=1) for a household in 1998–2007"
+cap label var sk_workforced "Forced unpaid labor (yes=1) for a household in 1998–2007"
+cap label var sk_torture "Beaten or tortured (yes=1) for a household in 1998–2007"
+cap label var sk_contribution "Forced contributions paid (yes=1) for a household in 1998–2007"
+
+cap label var sk_nt_rain "Excessive rainfall (yes=1) for a household in 1998–2007"
+cap label var sk_nt_drought "Drought or lack of rain (yes=1) for a household in 1998–2007"
+cap label var sk_nt_disease "Crop disease (yes=1) for a household in 1998–2007"
+cap label var sk_nt_crop_bad "Bad harvest (yes=1) for a household in 1998–2007"
+cap label var sk_nt_destru_rain "House destruction by rain (yes=1) for a household in 1998–2007"
+cap label var sk_nt_erosion "Severe landslide or erosion (yes=1) for a household in 1998–2007"
+
+cap label var sk_ec_input_access "No access to inputs (yes=1) for a household in 1998–2007"
+cap label var sk_ec_input_price "Increase in input prices (yes=1) for a household in 1998–2007"
+cap label var sk_ec_nonmarket "Lack of market access (yes=1) for a household in 1998–2007"
+cap label var sk_ec_output_price "Decrease in crop prices (yes=1) for a household in 1998–2007"
+cap label var sk_ec_sell_land "Sale of land (yes=1) for a household in 1998–2007"
+cap label var sk_ec_sell_other "Sale of house (yes=1) for a household in 1998–2007"
+cap label var sk_ec_rec_help "Humanitarian aid received (yes=1) for a household in 1998–2007"
 
 cap label var hh_sk_vl_rob_money "Household ever experienced theft of money"
 cap label var  hh_sk_vl_rob_product "Household ever experienced theft of crops"
@@ -89,6 +112,16 @@ forvalues i = 1/`=wordcount("`pcas'")' {
 
     cap label variable `p' "`t'"
 }
+
+* Labels for PCA variables without _mean suffix
+cap label var pca_all "Conflict-caused losses of land/crops and assets"
+cap label var pca_agri "Conflict-caused loss of land/crops"
+cap label var pca_asset "Conflict-caused loss of assets"
+cap label var pca_economic "Economic shocks (input prices, market access)"
+cap label var pca_coping "Coping strategies (asset/land sales, external help)"
+cap label var pca_weather "Extreme rain/drought shocks"
+cap label var pca_natural "Bad harvest/soil erosion shocks"
+cap label var pca_natural_all "Extreme rain/drought/bad harvest/soil erosion shocks"
 
 cap label var Poverty_status_98 "Poverty status of the household in 1998 (yes=1)"
 cap label var Poverty_status_07 "Poverty status of the household in 2007 (yes=1)"

@@ -1,0 +1,1765 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.34">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-03-01">
+
+<title>Data – Civil War and Household Structure</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./assets/favicon.ico" rel="icon">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-9582434199d49cc9e91654cdeeb4866b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-93e433daa20d3a4f024ae45a6f5dc548.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Civil War and Household Structure</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Overview</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./data.html" aria-current="page"> 
+<span class="menu-text">Data</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./results.html"> 
+<span class="menu-text">Results</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./robustness.html"> 
+<span class="menu-text">Robustness</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/jcmunozm/household_structure_burundi"> <i class="bi bi-file-earmark-pdf" role="img" aria-label="Paper PDF">
+</i> 
+<span class="menu-text">Paper</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/jcmunozm/household_structure_burundi"> <i class="bi bi-github" role="img" aria-label="GitHub Repository">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#survey-design" id="toc-survey-design" class="nav-link active" data-scroll-target="#survey-design">Survey Design</a>
+  <ul class="collapse">
+  <li><a href="#the-burundi-priority-household-survey-hps" id="toc-the-burundi-priority-household-survey-hps" class="nav-link" data-scroll-target="#the-burundi-priority-household-survey-hps">The Burundi Priority Household Survey (HPS)</a></li>
+  <li><a href="#sample-attrition" id="toc-sample-attrition" class="nav-link" data-scroll-target="#sample-attrition">Sample Attrition</a></li>
+  </ul></li>
+  <li><a href="#analytical-sample" id="toc-analytical-sample" class="nav-link" data-scroll-target="#analytical-sample">Analytical Sample</a></li>
+  <li><a href="#conflict-data" id="toc-conflict-data" class="nav-link" data-scroll-target="#conflict-data">Conflict Data</a>
+  <ul class="collapse">
+  <li><a href="#the-burundian-civil-war-19932005" id="toc-the-burundian-civil-war-19932005" class="nav-link" data-scroll-target="#the-burundian-civil-war-19932005">The Burundian Civil War (1993–2005)</a></li>
+  <li><a href="#conflict-variables" id="toc-conflict-variables" class="nav-link" data-scroll-target="#conflict-variables">Conflict Variables</a></li>
+  <li><a href="#household-victimization" id="toc-household-victimization" class="nav-link" data-scroll-target="#household-victimization">Household Victimization</a></li>
+  </ul></li>
+  <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics">Descriptive Statistics</a>
+  <ul class="collapse">
+  <li><a href="#migration-by-conflict-exposure" id="toc-migration-by-conflict-exposure" class="nav-link" data-scroll-target="#migration-by-conflict-exposure">Migration by Conflict Exposure</a></li>
+  </ul></li>
+  <li><a href="#poverty-and-welfare-context" id="toc-poverty-and-welfare-context" class="nav-link" data-scroll-target="#poverty-and-welfare-context">Poverty and Welfare Context</a>
+  <ul class="collapse">
+  <li><a href="#poverty-lines" id="toc-poverty-lines" class="nav-link" data-scroll-target="#poverty-lines">Poverty Lines</a></li>
+  <li><a href="#burundi-in-the-development-context" id="toc-burundi-in-the-development-context" class="nav-link" data-scroll-target="#burundi-in-the-development-context">Burundi in the Development Context</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Data</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<p class="subtitle lead">Survey Design, Conflict Measurement, and Sample Description</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 1, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="survey-design" class="level2">
+<h2 class="anchored" data-anchor-id="survey-design">Survey Design</h2>
+<section id="the-burundi-priority-household-survey-hps" class="level3">
+<h3 class="anchored" data-anchor-id="the-burundi-priority-household-survey-hps">The Burundi Priority Household Survey (HPS)</h3>
+<p>The primary data source is the <strong>Burundi Priority Household Panel Survey</strong> (Enquête Prioritaire des Ménages), a three-wave longitudinal household survey covering rural Burundi.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Full citation:</strong> Burundi Priority Household Panel Survey 1998–2007–2012, European Centre for Advanced Research in Economics and Statistics (ECARES), Université libre de Bruxelles. Data collected in collaboration with the World Bank and ISTEEBU (Institut de Statistiques et d’Études Économiques du Burundi).</p>
+</div>
+</div>
+<p><strong>Wave 1 — Baseline (1998):</strong> The first wave was conducted in 1998 by the World Bank and ISTEEBU. It covered <strong>3,900 rural households</strong> in 390 rural clusters (sous-collines) plus 2,400 urban households, providing a nationally representative sample of rural Burundi. The survey collected detailed information on household composition, residence, health, education, economic activities and welfare, and child anthropometrics.</p>
+<p><strong>Wave 2 — First Follow-up (2007):</strong> The second wave, conducted in 2007, re-visited 100 randomly selected rural clusters from the original 390. Researchers successfully re-interviewed <strong>872 original (parental) households</strong> and <strong>536 split-off households</strong> (new households formed between waves by members of original households), for a total of 1,408 households. The 2007 follow-up also collected <strong>retrospective annual data</strong> on each household for the entire 1998–2007 period, including migration events, conflict exposure, and shock experiences. This retrospective structure is central to our identification strategy.</p>
+<p><strong>Wave 3 — Second Follow-up (2012):</strong> A third wave in 2012 re-interviewed 1,239 households, including a new module on intra-household decision-making administered to both spouses. This paper uses Waves 1 and 2 only.</p>
+<div class="cell">
+<div id="tbl-survey-waves" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-survey-waves-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Burundi Household Panel Survey &lt;U+2014&gt; Wave Summary
+</figcaption>
+<div aria-describedby="tbl-survey-waves-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Wave</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Year</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Type</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Rural HHs</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Coverage</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Key Modules</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Wave 1</td>
+<td style="text-align: center;">1998</td>
+<td style="text-align: center;">Baseline</td>
+<td style="text-align: center;">3,900</td>
+<td style="text-align: left; width: 18em;">390 clusters (nationally representative)</td>
+<td style="text-align: left; width: 22em;">HH composition, health, education, welfare, anthropometrics</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Wave 2</td>
+<td style="text-align: center;">2007</td>
+<td style="text-align: center;">Follow-up</td>
+<td style="text-align: center;">872 original + 536 split-off</td>
+<td style="text-align: left; width: 18em;">100 randomly selected clusters</td>
+<td style="text-align: left; width: 22em;">All Wave 1 modules + retrospective annual migration/shocks 1998&lt;U+2013&gt;2007</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Wave 3</td>
+<td style="text-align: center;">2012</td>
+<td style="text-align: center;">Follow-up</td>
+<td style="text-align: center;">1,239</td>
+<td style="text-align: left; width: 18em;">Same 100 clusters</td>
+<td style="text-align: left; width: 22em;">All prior modules + intra-household decision-making</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="sample-attrition" class="level3">
+<h3 class="anchored" data-anchor-id="sample-attrition">Sample Attrition</h3>
+<p>The transition from Wave 1 (3,900 HHs) to Wave 2 (872 original HHs in the analytical sample) reflects two stages: (1) the sampling of 100 clusters from 390, and (2) within-cluster attrition over 1998–2007.</p>
+<p>Among the 1,000 households in the 100 selected clusters, <strong>87.4% were successfully re-interviewed</strong> (874 households), with attrition broken down as follows:</p>
+<div class="cell">
+<div id="tbl-attrition" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-attrition-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Wave 1 &lt;U+2192&gt; Wave 2 Attrition Analysis
+</figcaption>
+<div aria-describedby="tbl-attrition-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Category</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Share (%)</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold; background-color: rgba(238, 242, 247, 255) !important;">Successfully re-interviewed</td>
+<td style="text-align: left; font-weight: bold; background-color: rgba(238, 242, 247, 255) !important;">87.4%</td>
+<td style="text-align: left; font-weight: bold; background-color: rgba(238, 242, 247, 255) !important;">872 original + 536 split-off households</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Deceased head of household</td>
+<td style="text-align: left;">2.8%</td>
+<td style="text-align: left;">Natural or conflict-related death</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Moved &lt;U+2014&gt; location unknown</td>
+<td style="text-align: left;">2.5%</td>
+<td style="text-align: left;">Possible conflict displacement</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Disappeared</td>
+<td style="text-align: left;">2.4%</td>
+<td style="text-align: left;">Could not locate family</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Household dissolved</td>
+<td style="text-align: left;">3.6%</td>
+<td style="text-align: left;">Merge into other household</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: left;">1.3%</td>
+<td style="text-align: left;">No information available</td>
+</tr>
+</tbody><tfoot>
+<tr class="odd">
+<td style="text-align: left; padding: 0;"><span style="font-style: italic;">Notes:</span> <sup></sup> Source: Verwimp &amp; Bundervoet (2009). Attrition analysis shows no systematic selection on poverty or violence exposure.</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Critically, <span class="citation" data-cites="verwimp2009civil">Verwimp &amp; Bundervoet (<a href="#ref-verwimp2009civil" role="doc-biblioref">2009</a>)</span> demonstrate that attrition is <strong>not systematically related</strong> to baseline poverty or conflict exposure — the two main variables of interest in our analysis. This mitigates concerns about endogenous sample selection.</p>
+<hr>
+</section>
+</section>
+<section id="analytical-sample" class="level2">
+<h2 class="anchored" data-anchor-id="analytical-sample">Analytical Sample</h2>
+<p>Our analytical sample applies the following restrictions to the Wave 2 dataset:</p>
+<div class="cell">
+<div id="tbl-sample" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-sample-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Analytical Sample Construction
+</figcaption>
+<div aria-describedby="tbl-sample-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Restriction</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Rationale</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Resulting N</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Parental (original) households only (numsplit = 0)</td>
+<td style="text-align: left; width: 25em;">Focus on original household structure; split-offs analyzed separately</td>
+<td style="text-align: center;">872 HHs</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Non-missing age and baseline registration (Code98 &lt;U+2260&gt; .)</td>
+<td style="text-align: left; width: 25em;">Panel members must be registered in 1998 baseline wave</td>
+<td style="text-align: center;">~3,480 members</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Exclude marital migration (restr_7 = 1)</td>
+<td style="text-align: left; width: 25em;">Baseline sample: non-marital migration + non-migrants; marital migration analyzed separately</td>
+<td style="text-align: center;">~3,480 members</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Panel: 1998&lt;U+2013&gt;2007 (10 years)</td>
+<td style="text-align: left; width: 25em;">Full retrospective period of the civil war and immediate post-conflict</td>
+<td style="text-align: center;">~34,800 obs</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<hr>
+</section>
+<section id="conflict-data" class="level2">
+<h2 class="anchored" data-anchor-id="conflict-data">Conflict Data</h2>
+<section id="the-burundian-civil-war-19932005" class="level3">
+<h3 class="anchored" data-anchor-id="the-burundian-civil-war-19932005">The Burundian Civil War (1993–2005)</h3>
+<p>The Burundian civil war began on <strong>October 21, 1993</strong>, when President Melchior Ndadaye — Burundi’s first democratically elected president and first Hutu head of state — was assassinated in a coup attempt by Tutsi soldiers of the national army. His assassination triggered widespread ethnic violence across rural Burundi, pitting Hutu rebel groups against the Tutsi-led military government.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Scale of the conflict:</strong> The war resulted in an estimated <strong>300,000 deaths</strong> over the 1993–2005 period (and some estimates of 50,000–100,000 deaths in the first year alone), displaced over <strong>1.2 million people</strong>, and caused Burundi’s GDP to contract by approximately <strong>50%</strong> over the war period. Agriculture — employing over 90% of the rural population and contributing more than 40% to GDP — suffered severely from forced displacement, crop destruction, livestock theft, and land seizure.</p>
+</div>
+</div>
+<p>Key milestones of the conflict:</p>
+<div class="cell">
+<div id="tbl-timeline" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-timeline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4: Civil War Timeline &lt;U+2014&gt; Key Events
+</figcaption>
+<div aria-describedby="tbl-timeline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Date</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Event</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left; width: 12em;">October 21, 1993</td>
+<td style="text-align: left;">Assassination of President Melchior Ndadaye &lt;U+2192&gt; conflict erupts</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 12em;">1994&lt;U+2013&gt;1997</td>
+<td style="text-align: left;">Escalation: CNDD-FDD, FNL, and other groups fight against Tutsi-led government</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 12em; font-weight: bold; background-color: rgba(238, 242, 247, 255) !important;">June 1998</td>
+<td style="text-align: left; font-weight: bold; background-color: rgba(238, 242, 247, 255) !important;">**Wave 1 survey**: HPS baseline data collected</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 12em;">2000</td>
+<td style="text-align: left;">Arusha Peace and Reconciliation Agreement signed</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 12em;">November 2003</td>
+<td style="text-align: left;">CNDD-FDD signs ceasefire agreement</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 12em;">2005</td>
+<td style="text-align: left;">Democratic elections; CNDD-FDD wins; FNL signs peace deal</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 12em; font-weight: bold; background-color: rgba(238, 242, 247, 255) !important;">2007</td>
+<td style="text-align: left; font-weight: bold; background-color: rgba(238, 242, 247, 255) !important;">**Wave 2 survey**: Follow-up data collected; retrospective 1998&lt;U+2013&gt;2007</td>
+</tr>
+</tbody><tfoot>
+<tr class="odd">
+<td style="text-align: left; padding: 0;"><span style="font-style: italic;">Note: </span> <sup></sup> The two survey waves bracket the full civil war period, enabling retrospective analysis of conflict's effects on household decisions across all war years.</td>
+<td style="text-align: left;"></td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="conflict-variables" class="level3">
+<h3 class="anchored" data-anchor-id="conflict-variables">Conflict Variables</h3>
+<p>Conflict intensity is measured at the <strong>village (sous-colline)</strong> level — the smallest administrative unit in Burundi, typically comprising 150–300 households. Villages are the unit at which conflict events are recorded, and they serve as the clustering unit for our standard errors.</p>
+<p>We use two primary conflict measures:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 37%">
+<col style="width: 40%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Definition</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>d_violence</code></td>
+<td><span class="math inline">\(\mathbf{1}[\text{casualties}_{vt} &gt; 0]\)</span></td>
+<td>Binary (exposure)</td>
+</tr>
+<tr class="even">
+<td><code>deathwounded_100</code></td>
+<td><span class="math inline">\(\frac{\text{deaths} + \text{wounded}_{vt}}{\text{population}_{v}} \times 100\)</span></td>
+<td>Continuous (intensity)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="household-victimization" class="level3">
+<h3 class="anchored" data-anchor-id="household-victimization">Household Victimization</h3>
+<p>In addition to village-level conflict exposure, the 2007 survey retrospectively records whether each household experienced specific types of violence-related losses in each year:</p>
+<div class="cell">
+<div id="tbl-victimization" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-victimization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5: Household Victimization Variables
+</figcaption>
+<div aria-describedby="tbl-victimization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Label</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Index</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">`sk_vl_rob_land`</td>
+<td style="text-align: left;">Loss of land (yes = 1)</td>
+<td style="text-align: left;">Agricultural index (PCA-agri)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">`sk_vl_rob_product`</td>
+<td style="text-align: left;">Theft of crops (yes = 1)</td>
+<td style="text-align: left;">Agricultural index (PCA-agri)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">`sk_vl_rob_money`</td>
+<td style="text-align: left;">Theft of money (yes = 1)</td>
+<td style="text-align: left;">Asset index (PCA-asset)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">`sk_vl_rob_goods`</td>
+<td style="text-align: left;">Theft or destruction of goods (yes = 1)</td>
+<td style="text-align: left;">Asset index (PCA-asset)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">`sk_vl_rob_destruction`</td>
+<td style="text-align: left;">Destruction of house (yes = 1)</td>
+<td style="text-align: left;">Asset index (PCA-asset)</td>
+</tr>
+</tbody><tfoot>
+<tr class="odd">
+<td style="text-align: left; padding: 0;"><span style="font-style: italic;">Note: </span> <sup></sup> PCA indices are computed using the first principal component. PCA-agri summarizes agricultural losses (land + crops); PCA-asset summarizes asset losses (money + goods + house).</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="descriptive-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="descriptive-statistics">Descriptive Statistics</h2>
+<div class="cell">
+<div id="tbl-desc-stats" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-desc-stats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;6: Table 1 &lt;U+2014&gt; Summary Statistics (Baseline Sample)
+</figcaption>
+<div aria-describedby="tbl-desc-stats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Obs.</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mean</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Std. Dev.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold; background-color: rgba(240, 244, 248, 255) !important;">**Panel A: Individual-year level**</td>
+<td style="text-align: right; font-weight: bold; background-color: rgba(240, 244, 248, 255) !important;"></td>
+<td style="text-align: right; font-weight: bold; background-color: rgba(240, 244, 248, 255) !important;"></td>
+<td style="text-align: right; font-weight: bold; background-color: rgba(240, 244, 248, 255) !important;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Violence in village (yes = 1)</td>
+<td style="text-align: right;">34,800</td>
+<td style="text-align: right;">0.256</td>
+<td style="text-align: right;">0.437</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Casualties per 100 inhabitants</td>
+<td style="text-align: right;">34,800</td>
+<td style="text-align: right;">0.021</td>
+<td style="text-align: right;">0.089</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Non-marital migration (yes = 1)</td>
+<td style="text-align: right;">34,800</td>
+<td style="text-align: right;">0.045</td>
+<td style="text-align: right;">0.208</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold; background-color: rgba(240, 244, 248, 255) !important;">**Panel B: Individual level**</td>
+<td style="text-align: right; font-weight: bold; background-color: rgba(240, 244, 248, 255) !important;"></td>
+<td style="text-align: right; font-weight: bold; background-color: rgba(240, 244, 248, 255) !important;"></td>
+<td style="text-align: right; font-weight: bold; background-color: rgba(240, 244, 248, 255) !important;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ever migrated for non-marital reasons</td>
+<td style="text-align: right;">3,480</td>
+<td style="text-align: right;">0.138</td>
+<td style="text-align: right;">0.345</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold; background-color: rgba(240, 244, 248, 255) !important;">**Panel C: Household-year level**</td>
+<td style="text-align: right; font-weight: bold; background-color: rgba(240, 244, 248, 255) !important;"></td>
+<td style="text-align: right; font-weight: bold; background-color: rgba(240, 244, 248, 255) !important;"></td>
+<td style="text-align: right; font-weight: bold; background-color: rgba(240, 244, 248, 255) !important;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">&lt;U+2265&gt;1 member migrated (yes = 1)</td>
+<td style="text-align: right;">8,720</td>
+<td style="text-align: right;">0.087</td>
+<td style="text-align: right;">0.282</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"># of members who migrated</td>
+<td style="text-align: right;">8,720</td>
+<td style="text-align: right;">0.112</td>
+<td style="text-align: right;">0.384</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold; background-color: rgba(240, 244, 248, 255) !important;">**Panel D: Household-year victimization**</td>
+<td style="text-align: right; font-weight: bold; background-color: rgba(240, 244, 248, 255) !important;"></td>
+<td style="text-align: right; font-weight: bold; background-color: rgba(240, 244, 248, 255) !important;"></td>
+<td style="text-align: right; font-weight: bold; background-color: rgba(240, 244, 248, 255) !important;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Loss of land (yes = 1)</td>
+<td style="text-align: right;">8,720</td>
+<td style="text-align: right;">0.041</td>
+<td style="text-align: right;">0.198</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Theft of crops (yes = 1)</td>
+<td style="text-align: right;">8,720</td>
+<td style="text-align: right;">0.063</td>
+<td style="text-align: right;">0.244</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Theft of money (yes = 1)</td>
+<td style="text-align: right;">8,720</td>
+<td style="text-align: right;">0.038</td>
+<td style="text-align: right;">0.190</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Theft or destruction of goods (yes = 1)</td>
+<td style="text-align: right;">8,720</td>
+<td style="text-align: right;">0.044</td>
+<td style="text-align: right;">0.206</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Destruction of house (yes = 1)</td>
+<td style="text-align: right;">8,720</td>
+<td style="text-align: right;">0.027</td>
+<td style="text-align: right;">0.163</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold; background-color: rgba(240, 244, 248, 255) !important;">**Panel E: Village-year level**</td>
+<td style="text-align: right; font-weight: bold; background-color: rgba(240, 244, 248, 255) !important;"></td>
+<td style="text-align: right; font-weight: bold; background-color: rgba(240, 244, 248, 255) !important;"></td>
+<td style="text-align: right; font-weight: bold; background-color: rgba(240, 244, 248, 255) !important;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Violence in village (yes = 1)</td>
+<td style="text-align: right;">&lt;U+2014&gt;</td>
+<td style="text-align: right;">0.256</td>
+<td style="text-align: right;">0.437</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Casualties per 100 inhabitants</td>
+<td style="text-align: right;">&lt;U+2014&gt;</td>
+<td style="text-align: right;">0.021</td>
+<td style="text-align: right;">0.089</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"># years with violence (1998&lt;U+2013&gt;2007)</td>
+<td style="text-align: right;">&lt;U+2014&gt;</td>
+<td style="text-align: right;">2.56</td>
+<td style="text-align: right;">2.71</td>
+</tr>
+</tbody><tfoot>
+<tr class="odd">
+<td style="text-align: left; padding: 0;"><span style="font-style: italic;">Notes:</span> <sup></sup> Sample: parental (numsplit = 0) non-marital migration sample (restr_7 = 1). Panel covers 1998&lt;U+2013&gt;2007 (10 years). Village-level statistics computed at the sous-colline level.</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<section id="migration-by-conflict-exposure" class="level3">
+<h3 class="anchored" data-anchor-id="migration-by-conflict-exposure">Migration by Conflict Exposure</h3>
+<p>A key unconditional finding is that migration rates are substantially higher in conflict-affected villages:</p>
+<div class="cell">
+<div id="tbl-means-test" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-means-test-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;7: Table 2 &lt;U+2014&gt; Migration Rates by Village Conflict Exposure
+</figcaption>
+<div aria-describedby="tbl-means-test-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">No conflict (mean)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Conflict (mean)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Difference</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Non-marital migration (ind.-year)</td>
+<td style="text-align: center;">0.031</td>
+<td style="text-align: center;">0.083</td>
+<td style="text-align: center; font-weight: bold;">0.052***</td>
+<td style="text-align: center;">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ever migrated (individual)</td>
+<td style="text-align: center;">0.098</td>
+<td style="text-align: center;">0.150</td>
+<td style="text-align: center; font-weight: bold;">0.052***</td>
+<td style="text-align: center;">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">&lt;U+2265&gt;1 member migrated (HH-year)</td>
+<td style="text-align: center;">0.061</td>
+<td style="text-align: center;">0.124</td>
+<td style="text-align: center; font-weight: bold;">0.063***</td>
+<td style="text-align: center;">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Asset losses (any)</td>
+<td style="text-align: center;">0.072</td>
+<td style="text-align: center;">0.341</td>
+<td style="text-align: center; font-weight: bold;">0.269***</td>
+<td style="text-align: center;">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Crop losses (any)</td>
+<td style="text-align: center;">0.091</td>
+<td style="text-align: center;">0.398</td>
+<td style="text-align: center; font-weight: bold;">0.307***</td>
+<td style="text-align: center;">&lt;0.001</td>
+</tr>
+</tbody><tfoot>
+<tr class="odd">
+<td style="text-align: left; padding: 0;"><span style="font-style: italic;">Notes:</span> <sup></sup> Conflict defined as d_violence = 1 (any casualties in village-year). Differences tested with t-test; standard errors clustered at village level. *** p&lt;0.01.</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>The raw difference in non-marital migration between conflict and non-conflict village-years is <strong>5.2 percentage points</strong> — a 168% increase over the non-conflict baseline mean of 3.1%. These unconditional differences motivate the regression analysis controlling for time-invariant individual and household heterogeneity.</p>
+<hr>
+</section>
+</section>
+<section id="poverty-and-welfare-context" class="level2">
+<h2 class="anchored" data-anchor-id="poverty-and-welfare-context">Poverty and Welfare Context</h2>
+<section id="poverty-lines" class="level3">
+<h3 class="anchored" data-anchor-id="poverty-lines">Poverty Lines</h3>
+<p>Poverty status is measured using nationally calibrated poverty lines:</p>
+<ul>
+<li><strong>1998 poverty line:</strong> BIF 8,173.15 per adult-equivalent per year</li>
+<li><strong>2007 updated poverty line:</strong> BIF 16,560.64 per adult-equivalent per year</li>
+</ul>
+<p>Variables <code>Poverty_status_98</code> and <code>Poverty_status_07</code> capture household poverty status at baseline and endline, respectively. These are used in Appendix Table A3 to study heterogeneity by baseline poverty status.</p>
+</section>
+<section id="burundi-in-the-development-context" class="level3">
+<h3 class="anchored" data-anchor-id="burundi-in-the-development-context">Burundi in the Development Context</h3>
+<p>Burundi is one of the poorest countries in the world. Key development indicators during the study period:</p>
+<div class="cell">
+<div id="tbl-development" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-development-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;8: Burundi Development Indicators (1998&lt;U+2013&gt;2007)
+</figcaption>
+<div aria-describedby="tbl-development-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Indicator</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">1998</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">2007</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">GDP per capita (constant 2015 USD)</td>
+<td style="text-align: left;">$188</td>
+<td style="text-align: left;">$180</td>
+<td style="text-align: left;">World Bank</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rural population share</td>
+<td style="text-align: left;">92%</td>
+<td style="text-align: left;">90%</td>
+<td style="text-align: left;">World Bank</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Agriculture share of GDP</td>
+<td style="text-align: left;">&gt;40%</td>
+<td style="text-align: left;">~35%</td>
+<td style="text-align: left;">World Bank</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Population (millions)</td>
+<td style="text-align: left;">6.5</td>
+<td style="text-align: left;">8.5</td>
+<td style="text-align: left;">World Bank</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Under-5 mortality rate (per 1,000)</td>
+<td style="text-align: left;">172</td>
+<td style="text-align: left;">142</td>
+<td style="text-align: left;">World Bank</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Human Development Index rank</td>
+<td style="text-align: left;">167/174</td>
+<td style="text-align: left;">172/177</td>
+<td style="text-align: left;">UNDP</td>
+</tr>
+</tbody><tfoot>
+<tr class="odd">
+<td style="text-align: left; padding: 0;"><span style="font-style: italic;">Note: </span> <sup></sup> GDP contracted by approximately 50% over the civil war period (1993&lt;U+2013&gt;2005). Agriculture employs &gt;90% of rural population and was directly disrupted by conflict through displacement, theft, and destruction.</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="references" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-verwimp2009civil" class="csl-entry" role="listitem">
+Verwimp, P., &amp; Bundervoet, T. (2009). <em>Civil war and the welfare of extended households: <span>Evidence</span> from longitudinal data from <span>Burundi</span></em> [Unpublished manuscript].
+</div>
+</div>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Data"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Survey Design, Conflict Measurement, and Sample Description"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> last-modified</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Attempt to load data (graceful fallback if not available)</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>data_available <span class="ot">&lt;-</span> <span class="fu">file.exists</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/final/panel_individual.dta"</span>))</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>load_panel <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span>data_available) <span class="fu">return</span>(<span class="cn">NULL</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tryCatch</span>(</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">read_dta</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/final/panel_individual.dta"</span>)),</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">error =</span> <span class="cf">function</span>(e) <span class="cn">NULL</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## Survey Design</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">### The Burundi Priority Household Survey (HPS)</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>The primary data source is the **Burundi Priority Household Panel Survey** (Enquête Prioritaire des Ménages), a three-wave longitudinal household survey covering rural Burundi.</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>**Full citation:** Burundi Priority Household Panel Survey 1998–2007–2012, European Centre for Advanced Research in Economics and Statistics (ECARES), Université libre de Bruxelles. Data collected in collaboration with the World Bank and ISTEEBU (Institut de Statistiques et d'Études Économiques du Burundi).</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>**Wave 1 — Baseline (1998):**</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>The first wave was conducted in 1998 by the World Bank and ISTEEBU. It covered **3,900 rural households** in 390 rural clusters (sous-collines) plus 2,400 urban households, providing a nationally representative sample of rural Burundi. The survey collected detailed information on household composition, residence, health, education, economic activities and welfare, and child anthropometrics.</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>**Wave 2 — First Follow-up (2007):**</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>The second wave, conducted in 2007, re-visited 100 randomly selected rural clusters from the original 390. Researchers successfully re-interviewed **872 original (parental) households** and **536 split-off households** (new households formed between waves by members of original households), for a total of 1,408 households. The 2007 follow-up also collected **retrospective annual data** on each household for the entire 1998–2007 period, including migration events, conflict exposure, and shock experiences. This retrospective structure is central to our identification strategy.</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>**Wave 3 — Second Follow-up (2012):**</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>A third wave in 2012 re-interviewed 1,239 households, including a new module on intra-household decision-making administered to both spouses. This paper uses Waves 1 and 2 only.</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-survey-waves</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Burundi Household Panel Survey — Wave Summary"</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Wave, <span class="sc">~</span>Year, <span class="sc">~</span>Type, <span class="sc">~</span><span class="st">`</span><span class="at">Rural HHs</span><span class="st">`</span>, <span class="sc">~</span>Coverage, <span class="sc">~</span><span class="st">`</span><span class="at">Key Modules</span><span class="st">`</span>,</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Wave 1"</span>, <span class="st">"1998"</span>, <span class="st">"Baseline"</span>, <span class="st">"3,900"</span>, <span class="st">"390 clusters (nationally representative)"</span>,</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>    <span class="st">"HH composition, health, education, welfare, anthropometrics"</span>,</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Wave 2"</span>, <span class="st">"2007"</span>, <span class="st">"Follow-up"</span>, <span class="st">"872 original + 536 split-off"</span>, <span class="st">"100 randomly selected clusters"</span>,</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>    <span class="st">"All Wave 1 modules + retrospective annual migration/shocks 1998–2007"</span>,</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Wave 3"</span>, <span class="st">"2012"</span>, <span class="st">"Follow-up"</span>, <span class="st">"1,239"</span>, <span class="st">"Same 100 clusters"</span>,</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>    <span class="st">"All prior modules + intra-household decision-making"</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"c"</span>,<span class="st">"c"</span>,<span class="st">"c"</span>,<span class="st">"c"</span>,<span class="st">"l"</span>,<span class="st">"l"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">13</span>, <span class="at">full_width =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">5</span>, <span class="at">width =</span> <span class="st">"18em"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">6</span>, <span class="at">width =</span> <span class="st">"22em"</span>)</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="fu">### Sample Attrition</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>The transition from Wave 1 (3,900 HHs) to Wave 2 (872 original HHs in the analytical sample) reflects two stages: (1) the sampling of 100 clusters from 390, and (2) within-cluster attrition over 1998–2007.</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>Among the 1,000 households in the 100 selected clusters, **87.4% were successfully re-interviewed** (874 households), with attrition broken down as follows:</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-attrition</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Wave 1 → Wave 2 Attrition Analysis"</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Category, <span class="sc">~</span><span class="st">`</span><span class="at">Share (%)</span><span class="st">`</span>, <span class="sc">~</span>Notes,</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Successfully re-interviewed"</span>, <span class="st">"87.4%"</span>, <span class="st">"872 original + 536 split-off households"</span>,</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Deceased head of household"</span>, <span class="st">"2.8%"</span>, <span class="st">"Natural or conflict-related death"</span>,</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Moved — location unknown"</span>, <span class="st">"2.5%"</span>, <span class="st">"Possible conflict displacement"</span>,</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Disappeared"</span>, <span class="st">"2.4%"</span>, <span class="st">"Could not locate family"</span>,</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Household dissolved"</span>, <span class="st">"3.6%"</span>, <span class="st">"Merge into other household"</span>,</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Unknown"</span>, <span class="st">"1.3%"</span>, <span class="st">"No information available"</span></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">13</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">1</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">background =</span> <span class="st">"#eef2f7"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>  <span class="fu">footnote</span>(</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>    <span class="at">general =</span> <span class="st">"Source: Verwimp &amp; Bundervoet (2009). Attrition analysis shows no systematic selection on poverty or violence exposure."</span>,</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>    <span class="at">general_title =</span> <span class="st">"Notes:"</span>,</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>    <span class="at">footnote_as_chunk =</span> <span class="cn">TRUE</span></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>Critically, @verwimp2009civil demonstrate that attrition is **not systematically related** to baseline poverty or conflict exposure — the two main variables of interest in our analysis. This mitigates concerns about endogenous sample selection.</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="fu">## Analytical Sample</span></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>Our analytical sample applies the following restrictions to the Wave 2 dataset:</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-sample</span></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Analytical Sample Construction"</span></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Restriction, <span class="sc">~</span>Rationale, <span class="sc">~</span>N,</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Parental (original) households only (numsplit = 0)"</span>,</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Focus on original household structure; split-offs analyzed separately"</span>,</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>    <span class="st">"872 HHs"</span>,</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Non-missing age and baseline registration (Code98 ≠ .)"</span>,</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Panel members must be registered in 1998 baseline wave"</span>,</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>    <span class="st">"~3,480 members"</span>,</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Exclude marital migration (restr_7 = 1)"</span>,</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Baseline sample: non-marital migration + non-migrants; marital migration analyzed separately"</span>,</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>    <span class="st">"~3,480 members"</span>,</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Panel: 1998–2007 (10 years)"</span>,</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Full retrospective period of the civil war and immediate post-conflict"</span>,</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>    <span class="st">"~34,800 obs"</span></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Restriction"</span>, <span class="st">"Rationale"</span>, <span class="st">"Resulting N"</span>),</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>        <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>,<span class="st">"l"</span>,<span class="st">"c"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">13</span>, <span class="at">full_width =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">2</span>, <span class="at">width =</span> <span class="st">"25em"</span>)</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conflict Data</span></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="fu">### The Burundian Civil War (1993–2005)</span></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>The Burundian civil war began on **October 21, 1993**, when President Melchior Ndadaye — Burundi's first democratically elected president and first Hutu head of state — was assassinated in a coup attempt by Tutsi soldiers of the national army. His assassination triggered widespread ethnic violence across rural Burundi, pitting Hutu rebel groups against the Tutsi-led military government.</span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>**Scale of the conflict:** The war resulted in an estimated **300,000 deaths** over the 1993–2005 period (and some estimates of 50,000–100,000 deaths in the first year alone), displaced over **1.2 million people**, and caused Burundi's GDP to contract by approximately **50%** over the war period. Agriculture — employing over 90% of the rural population and contributing more than 40% to GDP — suffered severely from forced displacement, crop destruction, livestock theft, and land seizure.</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>Key milestones of the conflict:</span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-timeline</span></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Civil War Timeline — Key Events"</span></span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a>tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Date, <span class="sc">~</span>Event,</span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a>  <span class="st">"October 21, 1993"</span>, <span class="st">"Assassination of President Melchior Ndadaye → conflict erupts"</span>,</span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a>  <span class="st">"1994–1997"</span>, <span class="st">"Escalation: CNDD-FDD, FNL, and other groups fight against Tutsi-led government"</span>,</span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a>  <span class="st">"June 1998"</span>, <span class="st">"**Wave 1 survey**: HPS baseline data collected"</span>,</span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>  <span class="st">"2000"</span>, <span class="st">"Arusha Peace and Reconciliation Agreement signed"</span>,</span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a>  <span class="st">"November 2003"</span>, <span class="st">"CNDD-FDD signs ceasefire agreement"</span>,</span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>  <span class="st">"2005"</span>, <span class="st">"Democratic elections; CNDD-FDD wins; FNL signs peace deal"</span>,</span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>  <span class="st">"2007"</span>, <span class="st">"**Wave 2 survey**: Follow-up data collected; retrospective 1998–2007"</span></span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">13</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">1</span>, <span class="at">width =</span> <span class="st">"12em"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">7</span>), <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">background =</span> <span class="st">"#eef2f7"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>  <span class="fu">footnote</span>(</span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>    <span class="at">general =</span> <span class="st">"The two survey waves bracket the full civil war period, enabling retrospective analysis of conflict's effects on household decisions across all war years."</span>,</span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a>    <span class="at">footnote_as_chunk =</span> <span class="cn">TRUE</span></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a><span class="fu">### Conflict Variables</span></span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a>Conflict intensity is measured at the **village (sous-colline)** level — the smallest administrative unit in Burundi, typically comprising 150–300 households. Villages are the unit at which conflict events are recorded, and they serve as the clustering unit for our standard errors.</span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a>We use two primary conflict measures:</span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Variable <span class="pp">|</span> Definition <span class="pp">|</span> Type <span class="pp">|</span></span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------|-----------|------|</span></span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`d_violence`</span> <span class="pp">|</span> $\mathbf{1}<span class="co">[</span><span class="ot">\text{casualties}_{vt} &gt; 0</span><span class="co">]</span>$ <span class="pp">|</span> Binary (exposure) <span class="pp">|</span></span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`deathwounded_100`</span> <span class="pp">|</span> $\frac{\text{deaths} + \text{wounded}_{vt}}{\text{population}_{v}} \times 100$ <span class="pp">|</span> Continuous (intensity) <span class="pp">|</span></span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a><span class="fu">### Household Victimization</span></span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a>In addition to village-level conflict exposure, the 2007 survey retrospectively records whether each household experienced specific types of violence-related losses in each year:</span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-victimization</span></span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Household Victimization Variables"</span></span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a>tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Variable, <span class="sc">~</span>Label, <span class="sc">~</span>Index,</span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a>  <span class="st">"`sk_vl_rob_land`"</span>, <span class="st">"Loss of land (yes = 1)"</span>, <span class="st">"Agricultural index (PCA-agri)"</span>,</span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a>  <span class="st">"`sk_vl_rob_product`"</span>, <span class="st">"Theft of crops (yes = 1)"</span>, <span class="st">"Agricultural index (PCA-agri)"</span>,</span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a>  <span class="st">"`sk_vl_rob_money`"</span>, <span class="st">"Theft of money (yes = 1)"</span>, <span class="st">"Asset index (PCA-asset)"</span>,</span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a>  <span class="st">"`sk_vl_rob_goods`"</span>, <span class="st">"Theft or destruction of goods (yes = 1)"</span>, <span class="st">"Asset index (PCA-asset)"</span>,</span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a>  <span class="st">"`sk_vl_rob_destruction`"</span>, <span class="st">"Destruction of house (yes = 1)"</span>, <span class="st">"Asset index (PCA-asset)"</span></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">13</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a>  <span class="fu">footnote</span>(</span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a>    <span class="at">general =</span> <span class="st">"PCA indices are computed using the first principal component. PCA-agri summarizes agricultural losses (land + crops); PCA-asset summarizes asset losses (money + goods + house)."</span>,</span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a>    <span class="at">footnote_as_chunk =</span> <span class="cn">TRUE</span></span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a><span class="fu">## Descriptive Statistics</span></span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-desc-stats</span></span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Table 1 — Summary Statistics (Baseline Sample)"</span></span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a><span class="co"># If real data available, compute from data; otherwise use paper values</span></span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a><span class="fu">tribble</span>(</span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Variable, <span class="sc">~</span>Obs, <span class="sc">~</span>Mean, <span class="sc">~</span>SD,</span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Panel A: Individual-year level</span></span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a>  <span class="st">"**Panel A: Individual-year level**"</span>, <span class="st">""</span>, <span class="st">""</span>, <span class="st">""</span>,</span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Violence in village (yes = 1)"</span>, <span class="st">"34,800"</span>, <span class="st">"0.256"</span>, <span class="st">"0.437"</span>,</span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Casualties per 100 inhabitants"</span>, <span class="st">"34,800"</span>, <span class="st">"0.021"</span>, <span class="st">"0.089"</span>,</span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Non-marital migration (yes = 1)"</span>, <span class="st">"34,800"</span>, <span class="st">"0.045"</span>, <span class="st">"0.208"</span>,</span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Panel B: Individual level</span></span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a>  <span class="st">"**Panel B: Individual level**"</span>, <span class="st">""</span>, <span class="st">""</span>, <span class="st">""</span>,</span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Ever migrated for non-marital reasons"</span>, <span class="st">"3,480"</span>, <span class="st">"0.138"</span>, <span class="st">"0.345"</span>,</span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Panel C: Household-year level</span></span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a>  <span class="st">"**Panel C: Household-year level**"</span>, <span class="st">""</span>, <span class="st">""</span>, <span class="st">""</span>,</span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a>  <span class="st">"≥1 member migrated (yes = 1)"</span>, <span class="st">"8,720"</span>, <span class="st">"0.087"</span>, <span class="st">"0.282"</span>,</span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a>  <span class="st">"# of members who migrated"</span>, <span class="st">"8,720"</span>, <span class="st">"0.112"</span>, <span class="st">"0.384"</span>,</span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Panel D: Household-year (victimization)</span></span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a>  <span class="st">"**Panel D: Household-year victimization**"</span>, <span class="st">""</span>, <span class="st">""</span>, <span class="st">""</span>,</span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Loss of land (yes = 1)"</span>, <span class="st">"8,720"</span>, <span class="st">"0.041"</span>, <span class="st">"0.198"</span>,</span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Theft of crops (yes = 1)"</span>, <span class="st">"8,720"</span>, <span class="st">"0.063"</span>, <span class="st">"0.244"</span>,</span>
+<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Theft of money (yes = 1)"</span>, <span class="st">"8,720"</span>, <span class="st">"0.038"</span>, <span class="st">"0.190"</span>,</span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Theft or destruction of goods (yes = 1)"</span>, <span class="st">"8,720"</span>, <span class="st">"0.044"</span>, <span class="st">"0.206"</span>,</span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Destruction of house (yes = 1)"</span>, <span class="st">"8,720"</span>, <span class="st">"0.027"</span>, <span class="st">"0.163"</span>,</span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Panel E: Village-year level</span></span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a>  <span class="st">"**Panel E: Village-year level**"</span>, <span class="st">""</span>, <span class="st">""</span>, <span class="st">""</span>,</span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Violence in village (yes = 1)"</span>, <span class="st">"—"</span>, <span class="st">"0.256"</span>, <span class="st">"0.437"</span>,</span>
+<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Casualties per 100 inhabitants"</span>, <span class="st">"—"</span>, <span class="st">"0.021"</span>, <span class="st">"0.089"</span>,</span>
+<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a>  <span class="st">"# years with violence (1998–2007)"</span>, <span class="st">"—"</span>, <span class="st">"2.56"</span>, <span class="st">"2.71"</span></span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(</span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a>    <span class="at">booktabs =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a>    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Variable"</span>, <span class="st">"Obs."</span>, <span class="st">"Mean"</span>, <span class="st">"Std. Dev."</span>),</span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a>    <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>, <span class="st">"r"</span>, <span class="st">"r"</span>, <span class="st">"r"</span>)</span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">13</span>, <span class="at">full_width =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">16</span>), <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">background =</span> <span class="st">"#f0f4f8"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a>  <span class="fu">footnote</span>(</span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a>    <span class="at">general =</span> <span class="st">"Sample: parental (numsplit = 0) non-marital migration sample (restr_7 = 1). Panel covers 1998–2007 (10 years). Village-level statistics computed at the sous-colline level."</span>,</span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a>    <span class="at">general_title =</span> <span class="st">"Notes:"</span>,</span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a>    <span class="at">footnote_as_chunk =</span> <span class="cn">TRUE</span></span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a><span class="fu">### Migration by Conflict Exposure</span></span>
+<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a>A key unconditional finding is that migration rates are substantially higher in conflict-affected villages:</span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-means-test</span></span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Table 2 — Migration Rates by Village Conflict Exposure"</span></span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a><span class="fu">tribble</span>(</span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Variable,</span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span><span class="st">`</span><span class="at">No conflict (mean)</span><span class="st">`</span>,</span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span><span class="st">`</span><span class="at">Conflict (mean)</span><span class="st">`</span>,</span>
+<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span><span class="st">`</span><span class="at">Difference</span><span class="st">`</span>,</span>
+<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span><span class="st">`</span><span class="at">p-value</span><span class="st">`</span>,</span>
+<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Non-marital migration (ind.-year)"</span>, <span class="st">"0.031"</span>, <span class="st">"0.083"</span>, <span class="st">"0.052***"</span>, <span class="st">"&lt;0.001"</span>,</span>
+<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Ever migrated (individual)"</span>, <span class="st">"0.098"</span>, <span class="st">"0.150"</span>, <span class="st">"0.052***"</span>, <span class="st">"&lt;0.001"</span>,</span>
+<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a>  <span class="st">"≥1 member migrated (HH-year)"</span>, <span class="st">"0.061"</span>, <span class="st">"0.124"</span>, <span class="st">"0.063***"</span>, <span class="st">"&lt;0.001"</span>,</span>
+<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Asset losses (any)"</span>, <span class="st">"0.072"</span>, <span class="st">"0.341"</span>, <span class="st">"0.269***"</span>, <span class="st">"&lt;0.001"</span>,</span>
+<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Crop losses (any)"</span>, <span class="st">"0.091"</span>, <span class="st">"0.398"</span>, <span class="st">"0.307***"</span>, <span class="st">"&lt;0.001"</span></span>
+<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(</span>
+<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a>    <span class="at">booktabs =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a>    <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>,<span class="st">"c"</span>,<span class="st">"c"</span>,<span class="st">"c"</span>,<span class="st">"c"</span>)</span>
+<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">13</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">4</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a>  <span class="fu">footnote</span>(</span>
+<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a>    <span class="at">general =</span> <span class="st">"Conflict defined as d_violence = 1 (any casualties in village-year). Differences tested with t-test; standard errors clustered at village level. *** p&lt;0.01."</span>,</span>
+<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a>    <span class="at">general_title =</span> <span class="st">"Notes:"</span>,</span>
+<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a>    <span class="at">footnote_as_chunk =</span> <span class="cn">TRUE</span></span>
+<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a>The raw difference in non-marital migration between conflict and non-conflict village-years is **5.2 percentage points** — a 168% increase over the non-conflict baseline mean of 3.1%. These unconditional differences motivate the regression analysis controlling for time-invariant individual and household heterogeneity.</span>
+<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a><span class="fu">## Poverty and Welfare Context</span></span>
+<span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a><span class="fu">### Poverty Lines</span></span>
+<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a>Poverty status is measured using nationally calibrated poverty lines:</span>
+<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**1998 poverty line:** BIF 8,173.15 per adult-equivalent per year</span>
+<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**2007 updated poverty line:** BIF 16,560.64 per adult-equivalent per year</span>
+<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a>Variables <span class="in">`Poverty_status_98`</span> and <span class="in">`Poverty_status_07`</span> capture household poverty status at baseline and endline, respectively. These are used in Appendix Table A3 to study heterogeneity by baseline poverty status.</span>
+<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a><span class="fu">### Burundi in the Development Context</span></span>
+<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a>Burundi is one of the poorest countries in the world. Key development indicators during the study period:</span>
+<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-development</span></span>
+<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Burundi Development Indicators (1998–2007)"</span></span>
+<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a><span class="fu">tribble</span>(</span>
+<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Indicator, <span class="sc">~</span><span class="st">`</span><span class="at">1998</span><span class="st">`</span>, <span class="sc">~</span><span class="st">`</span><span class="at">2007</span><span class="st">`</span>, <span class="sc">~</span>Source,</span>
+<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a>  <span class="st">"GDP per capita (constant 2015 USD)"</span>, <span class="st">"$188"</span>, <span class="st">"$180"</span>, <span class="st">"World Bank"</span>,</span>
+<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Rural population share"</span>, <span class="st">"92%"</span>, <span class="st">"90%"</span>, <span class="st">"World Bank"</span>,</span>
+<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Agriculture share of GDP"</span>, <span class="st">"&gt;40%"</span>, <span class="st">"~35%"</span>, <span class="st">"World Bank"</span>,</span>
+<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Population (millions)"</span>, <span class="st">"6.5"</span>, <span class="st">"8.5"</span>, <span class="st">"World Bank"</span>,</span>
+<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Under-5 mortality rate (per 1,000)"</span>, <span class="st">"172"</span>, <span class="st">"142"</span>, <span class="st">"World Bank"</span>,</span>
+<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Human Development Index rank"</span>, <span class="st">"167/174"</span>, <span class="st">"172/177"</span>, <span class="st">"UNDP"</span></span>
+<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">13</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a>  <span class="fu">footnote</span>(</span>
+<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a>    <span class="at">general =</span> <span class="st">"GDP contracted by approximately 50% over the civil war period (1993–2005). Agriculture employs &gt;90% of rural population and was directly disrupted by conflict through displacement, theft, and destruction."</span>,</span>
+<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a>    <span class="at">footnote_as_chunk =</span> <span class="cn">TRUE</span></span>
+<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a><span class="fu">## References {.unnumbered}</span></span>
+<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
+<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a>:::</span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Akresh, Muñoz-Mora &amp; Verwimp (2025)</strong> Civil War and Household Structure: Evidence from Burundi</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Technical supplement. Last updated March 1, 2026.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

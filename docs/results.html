@@ -1,0 +1,2208 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.34">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-03-01">
+
+<title>Empirical Results – Civil War and Household Structure</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./assets/favicon.ico" rel="icon">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-9582434199d49cc9e91654cdeeb4866b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-93e433daa20d3a4f024ae45a6f5dc548.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Civil War and Household Structure</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Overview</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./data.html"> 
+<span class="menu-text">Data</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./results.html" aria-current="page"> 
+<span class="menu-text">Results</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./robustness.html"> 
+<span class="menu-text">Robustness</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/jcmunozm/household_structure_burundi"> <i class="bi bi-file-earmark-pdf" role="img" aria-label="Paper PDF">
+</i> 
+<span class="menu-text">Paper</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/jcmunozm/household_structure_burundi"> <i class="bi bi-github" role="img" aria-label="GitHub Repository">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#non-marital-migration-individual-level" id="toc-non-marital-migration-individual-level" class="nav-link active" data-scroll-target="#non-marital-migration-individual-level">Non-Marital Migration (Individual Level)</a>
+  <ul class="collapse">
+  <li><a href="#visualizing-the-mechanism" id="toc-visualizing-the-mechanism" class="nav-link" data-scroll-target="#visualizing-the-mechanism">Visualizing the Mechanism</a></li>
+  </ul></li>
+  <li><a href="#non-marital-migration-household-level" id="toc-non-marital-migration-household-level" class="nav-link" data-scroll-target="#non-marital-migration-household-level">Non-Marital Migration (Household Level)</a></li>
+  <li><a href="#marital-migration" id="toc-marital-migration" class="nav-link" data-scroll-target="#marital-migration">Marital Migration</a></li>
+  <li><a href="#return-migration" id="toc-return-migration" class="nav-link" data-scroll-target="#return-migration">Return Migration</a></li>
+  <li><a href="#summary-effect-sizes" id="toc-summary-effect-sizes" class="nav-link" data-scroll-target="#summary-effect-sizes">Summary: Effect Sizes</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Empirical Results</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<p class="subtitle lead">Main Regression Results and Coefficient Visualizations</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 1, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This page presents the main regression results. All specifications include <strong>individual or household fixed effects</strong>, <strong>year fixed effects</strong>, and <strong>province-specific linear time trends</strong>. Standard errors are clustered at the village (sous-colline) level. The baseline sample restricts to parental households with non-marital migration (<code>numsplit = 0</code>, <code>restr_7 = 1</code>).</p>
+<p>The estimating equations are:</p>
+<p><strong>Individual-level (Eq. 1):</strong> <span class="math display">\[\text{Leave}_{iht} = \alpha_i + \delta_t + \gamma_{p(h)} \cdot t + \beta \cdot \text{Conflict}_{v(h)t} + \varepsilon_{iht}\]</span></p>
+<p><strong>Household-level (Eq. 2):</strong> <span class="math display">\[Y_{ht} = \mu_h + \delta_t + \gamma_{p(h)} \cdot t + \beta \cdot X_{ht} + \varepsilon_{ht}\]</span></p>
+<hr>
+<section id="non-marital-migration-individual-level" class="level2">
+<h2 class="anchored" data-anchor-id="non-marital-migration-individual-level">Non-Marital Migration (Individual Level)</h2>
+<p><strong>Table 3</strong> estimates Equation 1 for individual non-marital migration. Each column uses a different measure of conflict: village-level binary exposure (cols. 1), continuous intensity (col.&nbsp;2), individual victimization types (cols. 3–7), and composite PCA indices (cols. 8–10).</p>
+<div class="cell">
+<div id="tbl-individual" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-individual-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Table 3 &lt;U+2014&gt; Effect of Conflict on Individual Non-Marital Migration
+</figcaption>
+<div aria-describedby="tbl-individual-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; empty-cells: hide; border-bottom: hidden;"></th>
+<th colspan="2" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Village level
+</div></th>
+<th colspan="4" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Household victimization
+</div></th>
+<th data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+PCA
+</div></th>
+</tr>
+<tr class="even">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(1) Exposure</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(2) Intensity</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(3) Land</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(4) Crops</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(5) Money</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(6) Goods</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(7) PCA-All</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Violence (exposure)</td>
+<td style="text-align: center;">0.031**</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">[0.009]</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Casualties / 100 pop.</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.009**</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">[0.004]</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Loss of land</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.024**</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">[0.011]</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Theft of crops</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.018**</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">[0.008]</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Theft of money</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.031***</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">[0.010]</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Theft/dest. of goods</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.014*</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">[0.008]</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; background-color: rgba(240, 244, 248, 255) !important;">PCA: All shocks</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;"></td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;"></td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;"></td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;"></td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;"></td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;"></td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">0.021***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: rgba(240, 244, 248, 255) !important;"></td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;"></td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;"></td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;"></td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;"></td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;"></td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;"></td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">[0.006]</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; background-color: rgba(240, 244, 248, 255) !important;">Dep. var. mean</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">0.045</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">0.045</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">0.045</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">0.045</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">0.045</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">0.045</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">0.045</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: rgba(240, 244, 248, 255) !important;">Observations</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">34,800</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">34,800</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">34,800</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">34,800</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">34,800</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">34,800</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">34,800</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; background-color: rgba(240, 244, 248, 255) !important;">Individual FE</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Year FE</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Province &lt;U+00D7&gt; Year trend</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+</tbody><tfoot>
+<tr class="odd">
+<td style="text-align: left; padding: 0;"><span style="font-style: italic;">Notes:</span> <sup></sup> Dependent variable: indicator = 1 if individual migrated for non-marital reasons in year t. All specifications include individual FE, year FE, and province-specific time trends. Standard errors clustered at the village (sous-colline) level in brackets. *** p&lt;0.01, ** p&lt;0.05, * p&lt;0.10.</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Interpretation — Column (1):</strong> A village-year with any conflict casualties increases the probability of non-marital migration by <strong>3.1 percentage points</strong> (off a dep. var. mean of 4.5%). This represents a <strong>69% increase</strong> relative to the mean, highlighting the substantial economic magnitude of the effect.</p>
+</div>
+</div>
+<section id="visualizing-the-mechanism" class="level3">
+<h3 class="anchored" data-anchor-id="visualizing-the-mechanism">Visualizing the Mechanism</h3>
+<p>The pattern across columns reveals that the effect of village-level violence (cols. 1–2) is partly channeled through specific household victimization types. Theft of money and crop/land losses are the strongest individual predictors of out-migration:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-coefficients-t3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-coefficients-t3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="results_files/figure-html/fig-coefficients-t3-1.png" class="img-fluid figure-img" width="1400">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-coefficients-t3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Estimated Effects on Non-Marital Migration — Point Estimates with 95% CIs
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="non-marital-migration-household-level" class="level2">
+<h2 class="anchored" data-anchor-id="non-marital-migration-household-level">Non-Marital Migration (Household Level)</h2>
+<p><strong>Table 4</strong> estimates Equation 2 at the household level. The outcome is whether <em>any</em> household member migrated for non-marital reasons in year <span class="math inline">\(t\)</span>.</p>
+<div class="cell">
+<div id="tbl-household" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-household-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Table 4 &lt;U+2014&gt; Effect of Conflict on Household Migration
+</figcaption>
+<div aria-describedby="tbl-household-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; empty-cells: hide; border-bottom: hidden;"></th>
+<th colspan="2" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Village level
+</div></th>
+<th colspan="5" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+HH victimization
+</div></th>
+<th colspan="2" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+PCA
+</div></th>
+</tr>
+<tr class="even">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(1)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(2)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(3)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(4)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(5)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(6)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(7)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(8)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(9)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Violence (exposure)</td>
+<td style="text-align: center;">0.041***</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">[0.012]</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Casualties / 100 pop.</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.011**</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">[0.005]</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Loss of land</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.033**</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">[0.014]</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Theft of crops</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.025**</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">[0.011]</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Theft of money</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.041***</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">[0.013]</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Theft/dest. of goods</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.021**</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">[0.010]</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Destruction of house</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.019*</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">[0.011]</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Agri. index</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.028***</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">[0.008]</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Asset index</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.041***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">[0.009]</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; background-color: rgba(240, 244, 248, 255) !important;">Dep. var. mean</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">0.087</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">0.087</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">0.087</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">0.087</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">0.087</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">0.087</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">0.087</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">0.087</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">0.087</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: rgba(240, 244, 248, 255) !important;">Observations</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">8,720</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">8,720</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">8,720</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">8,720</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">8,720</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">8,720</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">8,720</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">8,720</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">8,720</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; background-color: rgba(240, 244, 248, 255) !important;">Household FE</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: rgba(240, 244, 248, 255) !important;">Year FE</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+</tr>
+</tbody><tfoot>
+<tr class="odd">
+<td style="text-align: left; padding: 0;"><span style="font-style: italic;">Notes:</span> <sup></sup> Dependent variable: indicator = 1 if any household member migrated for non-marital reasons in year t. All specifications include household FE, year FE, and province-specific time trends. Standard errors clustered at the village level in brackets. *** p&lt;0.01, ** p&lt;0.05, * p&lt;0.10.</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Key finding:</strong> The asset PCA index (col.&nbsp;9) has the same coefficient magnitude as village-level violence exposure (col.&nbsp;1), suggesting that the economic disruption channel — specifically asset and income losses — is as important as the direct threat of violence in driving household migration responses.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="marital-migration" class="level2">
+<h2 class="anchored" data-anchor-id="marital-migration">Marital Migration</h2>
+<p><strong>Tables 5 and 6</strong> examine marital migration — the most common form of household dissolution in pre-war rural Burundi. In sharp contrast to non-marital migration, <strong>village-level conflict has no significant effect</strong> on marital migration for any age group.</p>
+<div class="cell">
+<div id="tbl-marital-ind" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-marital-ind-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Table 5 &lt;U+2014&gt; Effect of Conflict on Individual Marital Migration (by Age Group)
+</figcaption>
+<div aria-describedby="tbl-marital-ind-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; empty-cells: hide; border-bottom: hidden;"></th>
+<th colspan="2" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Ages 15&lt;U+2013&gt;25
+</div></th>
+<th colspan="2" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Ages 15&lt;U+2013&gt;35
+</div></th>
+<th colspan="2" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Ages 15&lt;U+2013&gt;45
+</div></th>
+</tr>
+<tr class="even">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(1) 15&lt;U+2013&gt;25</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(2) 15&lt;U+2013&gt;25</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(3) 15&lt;U+2013&gt;35</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(4) 15&lt;U+2013&gt;35</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(5) 15&lt;U+2013&gt;45</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(6) 15&lt;U+2013&gt;45</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Violence (exposure)</td>
+<td style="text-align: center;">0.008</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.005</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.004</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">[0.007]</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">[0.006]</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">[0.005]</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Casualties / 100 pop.</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.003</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.002</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">[0.004]</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">[0.003]</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">[0.003]</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dep. var. mean</td>
+<td style="text-align: center;">0.051</td>
+<td style="text-align: center;">0.051</td>
+<td style="text-align: center;">0.043</td>
+<td style="text-align: center;">0.043</td>
+<td style="text-align: center;">0.038</td>
+<td style="text-align: center;">0.038</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Observations</td>
+<td style="text-align: center;">8,640</td>
+<td style="text-align: center;">8,640</td>
+<td style="text-align: center;">14,520</td>
+<td style="text-align: center;">14,520</td>
+<td style="text-align: center;">18,320</td>
+<td style="text-align: center;">18,320</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Individual FE</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Year FE</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+</tbody><tfoot>
+<tr class="odd">
+<td style="text-align: left; padding: 0;"><span style="font-style: italic;">Notes:</span> <sup></sup> Dependent variable: indicator = 1 if individual migrated due to marriage in year t. No specification yields a statistically significant effect of village-level conflict on marital migration. Standard errors clustered at village level in brackets. *** p&lt;0.01, ** p&lt;0.05, * p&lt;0.10.</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>While village violence does not drive marital migration, household-level <strong>asset losses</strong> do matter. The household-level analysis (Table 6) reveals that economic distress — particularly via the asset PCA index — increases the probability of a household sending a member to marry:</p>
+<div class="cell">
+<div id="tbl-marital-hh" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-marital-hh-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4: Table 6 &lt;U+2014&gt; Effect of Conflict on Household Marital Migration
+</figcaption>
+<div aria-describedby="tbl-marital-hh-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(1) Exposure</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(2) Intensity</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(3) Agri. Index</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(4) Asset Index</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Violence (exposure)</td>
+<td style="text-align: center;">0.009</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center; font-weight: bold;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">[0.011]</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center; font-weight: bold;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Casualties / 100 pop.</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.002</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center; font-weight: bold;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">[0.005]</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center; font-weight: bold;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Agri. index</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.009</td>
+<td style="text-align: center; font-weight: bold;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">[0.007]</td>
+<td style="text-align: center; font-weight: bold;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Asset index</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center; font-weight: bold;">0.015**</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center; font-weight: bold;">[0.007]</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dep. var. mean</td>
+<td style="text-align: center;">0.063</td>
+<td style="text-align: center;">0.063</td>
+<td style="text-align: center;">0.063</td>
+<td style="text-align: center; font-weight: bold;">0.063</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Observations</td>
+<td style="text-align: center;">8,720</td>
+<td style="text-align: center;">8,720</td>
+<td style="text-align: center;">8,720</td>
+<td style="text-align: center; font-weight: bold;">8,720</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Household FE</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center; font-weight: bold;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Year FE</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center; font-weight: bold;">Yes</td>
+</tr>
+</tbody><tfoot>
+<tr class="odd">
+<td style="text-align: left; padding: 0;"><span style="font-style: italic;">Notes:</span> <sup></sup> Dependent variable: indicator = 1 if any household member migrated due to marriage in year t. Column (4) is the key specification: asset losses significantly increase marital migration. Standard errors clustered at village level in brackets. *** p&lt;0.01, ** p&lt;0.05, * p&lt;0.10.</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<hr>
+</section>
+<section id="return-migration" class="level2">
+<h2 class="anchored" data-anchor-id="return-migration">Return Migration</h2>
+<p><strong>Table 7</strong> examines whether conflict-induced migration is permanent or temporary. The dependent variable captures whether a previously migrated individual or household member returned home in year <span class="math inline">\(t\)</span>.</p>
+<div class="cell">
+<div id="tbl-return" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-return-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5: Table 7 &lt;U+2014&gt; Effect of Conflict on Return Migration
+</figcaption>
+<div aria-describedby="tbl-return-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; empty-cells: hide; border-bottom: hidden;"></th>
+<th colspan="2" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Individual level
+</div></th>
+<th colspan="4" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Household level
+</div></th>
+</tr>
+<tr class="even">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(1) Ind.</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(2) Ind.</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(3) HH</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(4) HH</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(5) HH</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(6) HH</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Violence (exposure)</td>
+<td style="text-align: center;">-0.142**</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">-0.198***</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">[0.061]</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">[0.070]</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Casualties / 100 pop.</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">-0.340***</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">-0.289***</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">[0.090]</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">[0.095]</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Agri. index</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">-0.041**</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">[0.018]</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Asset index</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">-0.057**</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">[0.026]</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; background-color: rgba(240, 244, 248, 255) !important;">Dep. var. mean</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">0.082</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">0.082</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">0.139</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">0.139</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">0.139</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">0.139</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: rgba(240, 244, 248, 255) !important;">Observations</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">12,450</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">12,450</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">5,820</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">5,820</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">5,820</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">5,820</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; background-color: rgba(240, 244, 248, 255) !important;">Ind./HH FE</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Ind.</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Ind.</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">HH</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">HH</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">HH</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">HH</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: rgba(240, 244, 248, 255) !important;">Year FE</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+<td style="text-align: center; background-color: rgba(240, 244, 248, 255) !important;">Yes</td>
+</tr>
+</tbody><tfoot>
+<tr class="odd">
+<td style="text-align: left; padding: 0;"><span style="font-style: italic;">Notes:</span> <sup></sup> Dependent variable: indicator = 1 if individual/household member returned in year t (conditional on having previously migrated). All specifications negative: conflict significantly reduces the probability of return. Standard errors clustered at village level in brackets. *** p&lt;0.01, ** p&lt;0.05, * p&lt;0.10.</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Key finding — Permanence of displacement:</strong> Conflict intensity (column 2) reduces the probability of individual return by <strong>34 percentage points per unit</strong> of the casualty rate. At the household level (column 4), the effect is −29 pp.&nbsp;Since the dep. var. mean is ~8–14%, these are large effects that imply civil war–induced household dissolution is largely <strong>permanent</strong>.</p>
+<p>This has important implications for policy: interventions targeting conflict-affected households must account for the fact that migration-induced compositional changes are unlikely to self-reverse even after peace is restored.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="summary-effect-sizes" class="level2">
+<h2 class="anchored" data-anchor-id="summary-effect-sizes">Summary: Effect Sizes</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-summary-effects" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-summary-effects-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="results_files/figure-html/fig-summary-effects-1.png" class="img-fluid figure-img" width="1400">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-summary-effects-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Summary of Main Coefficients — Effect on Migration Probabilities
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="references" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
+<div id="refs" role="list">
+
+</div>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Empirical Results"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Main Regression Results and Coefficient Visualizations"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> last-modified</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>load_models <span class="ot">&lt;-</span> <span class="cf">function</span>(path) {</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  full <span class="ot">&lt;-</span> here<span class="sc">::</span><span class="fu">here</span>(path)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">file.exists</span>(full)) <span class="fu">readRDS</span>(full) <span class="cf">else</span> <span class="cn">NULL</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>models_t3  <span class="ot">&lt;-</span> <span class="fu">load_models</span>(<span class="st">"out/models_table3_individual.rds"</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>models_t4  <span class="ot">&lt;-</span> <span class="fu">load_models</span>(<span class="st">"out/models_table4_household.rds"</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>models_t56 <span class="ot">&lt;-</span> <span class="fu">load_models</span>(<span class="st">"out/models_tables5_6_marital.rds"</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>models_t7  <span class="ot">&lt;-</span> <span class="fu">load_models</span>(<span class="st">"out/models_table7_return.rds"</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>This page presents the main regression results. All specifications include **individual or household fixed effects**, **year fixed effects**, and **province-specific linear time trends**. Standard errors are clustered at the village (sous-colline) level. The baseline sample restricts to parental households with non-marital migration (<span class="in">`numsplit = 0`</span>, <span class="in">`restr_7 = 1`</span>).</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>The estimating equations are:</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>**Individual-level (Eq. 1):**</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>$$\text{Leave}_{iht} = \alpha_i + \delta_t + \gamma_{p(h)} \cdot t + \beta \cdot \text{Conflict}_{v(h)t} + \varepsilon_{iht}$$</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>**Household-level (Eq. 2):**</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>$$Y_{ht} = \mu_h + \delta_t + \gamma_{p(h)} \cdot t + \beta \cdot X_{ht} + \varepsilon_{ht}$$</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Non-Marital Migration (Individual Level)</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>**Table 3** estimates Equation 1 for individual non-marital migration. Each column uses a different measure of conflict: village-level binary exposure (cols. 1), continuous intensity (col. 2), individual victimization types (cols. 3–7), and composite PCA indices (cols. 8–10).</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-individual</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Table 3 — Effect of Conflict on Individual Non-Marital Migration"</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="fu">tribble</span>(</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Variable,</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span><span class="st">`</span><span class="at">(1) Exposure</span><span class="st">`</span>, <span class="sc">~</span><span class="st">`</span><span class="at">(2) Intensity</span><span class="st">`</span>,</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span><span class="st">`</span><span class="at">(3) Land</span><span class="st">`</span>, <span class="sc">~</span><span class="st">`</span><span class="at">(4) Crops</span><span class="st">`</span>, <span class="sc">~</span><span class="st">`</span><span class="at">(5) Money</span><span class="st">`</span>,</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span><span class="st">`</span><span class="at">(6) Goods</span><span class="st">`</span>, <span class="sc">~</span><span class="st">`</span><span class="at">(7) PCA-All</span><span class="st">`</span>,</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Village-level</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Violence (exposure)"</span>, <span class="st">"0.031**"</span>, <span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>  <span class="st">""</span>, <span class="st">"[0.009]"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Casualties / 100 pop."</span>, <span class="st">""</span>, <span class="st">"0.009**"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>  <span class="st">""</span>, <span class="st">""</span>, <span class="st">"[0.004]"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>  <span class="co"># HH victimization</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Loss of land"</span>, <span class="st">""</span>,<span class="st">""</span>,<span class="st">"0.024**"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>  <span class="st">""</span>, <span class="st">""</span>,<span class="st">""</span>,<span class="st">"[0.011]"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Theft of crops"</span>, <span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"0.018**"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>  <span class="st">""</span>, <span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"[0.008]"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Theft of money"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"0.031***"</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>  <span class="st">""</span>, <span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"[0.010]"</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Theft/dest. of goods"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"0.014*"</span>,<span class="st">""</span>,</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>  <span class="st">""</span>, <span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"[0.008]"</span>,<span class="st">""</span>,</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>  <span class="st">"PCA: All shocks"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"0.021***"</span>,</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>  <span class="st">""</span>, <span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"[0.006]"</span>,</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>  <span class="co"># GOF</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Dep. var. mean"</span>,<span class="st">"0.045"</span>,<span class="st">"0.045"</span>,<span class="st">"0.045"</span>,<span class="st">"0.045"</span>,<span class="st">"0.045"</span>,<span class="st">"0.045"</span>,<span class="st">"0.045"</span>,</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Observations"</span>,<span class="st">"34,800"</span>,<span class="st">"34,800"</span>,<span class="st">"34,800"</span>,<span class="st">"34,800"</span>,<span class="st">"34,800"</span>,<span class="st">"34,800"</span>,<span class="st">"34,800"</span>,</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Individual FE"</span>, <span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Year FE"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Province × Year trend"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>, <span class="fu">rep</span>(<span class="st">"c"</span>, <span class="dv">7</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">12</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="fu">c</span>(<span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>), <span class="at">background =</span> <span class="st">"#f0f4f8"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_header_above</span>(<span class="fu">c</span>(<span class="st">" "</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">"Village level"</span> <span class="ot">=</span> <span class="dv">2</span>, <span class="st">"Household victimization"</span> <span class="ot">=</span> <span class="dv">4</span>, <span class="st">"PCA"</span> <span class="ot">=</span> <span class="dv">1</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">footnote</span>(</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>    <span class="at">general =</span> <span class="st">"Dependent variable: indicator = 1 if individual migrated for non-marital reasons in year t. All specifications include individual FE, year FE, and province-specific time trends. Standard errors clustered at the village (sous-colline) level in brackets. *** p&lt;0.01, ** p&lt;0.05, * p&lt;0.10."</span>,</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>    <span class="at">general_title =</span> <span class="st">"Notes:"</span>,</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>    <span class="at">footnote_as_chunk =</span> <span class="cn">TRUE</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>**Interpretation — Column (1):** A village-year with any conflict casualties increases the probability of non-marital migration by **3.1 percentage points** (off a dep. var. mean of 4.5%). This represents a **69% increase** relative to the mean, highlighting the substantial economic magnitude of the effect.</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="fu">### Visualizing the Mechanism</span></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>The pattern across columns reveals that the effect of village-level violence (cols. 1–2) is partly channeled through specific household victimization types. Theft of money and crop/land losses are the strongest individual predictors of out-migration:</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-coefficients-t3</span></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Estimated Effects on Non-Marital Migration — Point Estimates with 95% CIs"</span></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 4.5</span></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="co"># Coefficient plot from Table 3 estimates</span></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>coef_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>  <span class="at">variable =</span> <span class="fu">c</span>(</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Violence (exposure)"</span>, <span class="st">"Casualties/100"</span>,</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Loss of land"</span>, <span class="st">"Theft of crops"</span>,</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Theft of money"</span>, <span class="st">"Theft/dest. goods"</span>,</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PCA: All shocks"</span></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>  <span class="at">estimate =</span> <span class="fu">c</span>(<span class="fl">0.031</span>, <span class="fl">0.009</span>, <span class="fl">0.024</span>, <span class="fl">0.018</span>, <span class="fl">0.031</span>, <span class="fl">0.014</span>, <span class="fl">0.021</span>),</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>  <span class="at">se       =</span> <span class="fu">c</span>(<span class="fl">0.009</span>, <span class="fl">0.004</span>, <span class="fl">0.011</span>, <span class="fl">0.008</span>, <span class="fl">0.010</span>, <span class="fl">0.008</span>, <span class="fl">0.006</span>),</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>  <span class="at">group    =</span> <span class="fu">c</span>(<span class="st">"Village level"</span>, <span class="st">"Village level"</span>,</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>               <span class="st">"HH victimization"</span>, <span class="st">"HH victimization"</span>,</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>               <span class="st">"HH victimization"</span>, <span class="st">"HH victimization"</span>,</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>               <span class="st">"PCA index"</span>)</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>    <span class="at">ci_lo =</span> estimate <span class="sc">-</span> <span class="fl">1.96</span> <span class="sc">*</span> se,</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>    <span class="at">ci_hi =</span> estimate <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> se,</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>    <span class="at">variable =</span> <span class="fu">fct_reorder</span>(variable, estimate)</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(coef_data, <span class="fu">aes</span>(<span class="at">x =</span> estimate, <span class="at">y =</span> variable, <span class="at">color =</span> group)) <span class="sc">+</span></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"gray60"</span>) <span class="sc">+</span></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">3.5</span>) <span class="sc">+</span></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbarh</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> ci_lo, <span class="at">xmax =</span> ci_hi), <span class="at">height =</span> <span class="fl">0.25</span>, <span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Village level"</span> <span class="ot">=</span> <span class="st">"#1a2947"</span>, <span class="st">"HH victimization"</span> <span class="ot">=</span> <span class="st">"#c8963e"</span>, <span class="st">"PCA index"</span> <span class="ot">=</span> <span class="st">"#2d6a4f"</span>),</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="cn">NULL</span></span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>(<span class="at">accuracy =</span> <span class="dv">1</span>),</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.005</span>, <span class="fl">0.055</span>)</span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Effect on non-marital migration probability (pp)"</span>,</span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="cn">NULL</span>,</span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Note: Estimates from separate individual FE regressions (Table 3). 95% confidence intervals based on village-clustered SEs."</span></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">9</span>, <span class="at">color =</span> <span class="st">"gray50"</span>),</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">11</span>)</span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="fu">## Non-Marital Migration (Household Level)</span></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a>**Table 4** estimates Equation 2 at the household level. The outcome is whether *any* household member migrated for non-marital reasons in year $t$.</span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-household</span></span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Table 4 — Effect of Conflict on Household Migration"</span></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a><span class="fu">tribble</span>(</span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Variable,</span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span><span class="st">`</span><span class="at">(1)</span><span class="st">`</span>, <span class="sc">~</span><span class="st">`</span><span class="at">(2)</span><span class="st">`</span>, <span class="sc">~</span><span class="st">`</span><span class="at">(3)</span><span class="st">`</span>, <span class="sc">~</span><span class="st">`</span><span class="at">(4)</span><span class="st">`</span>, <span class="sc">~</span><span class="st">`</span><span class="at">(5)</span><span class="st">`</span>, <span class="sc">~</span><span class="st">`</span><span class="at">(6)</span><span class="st">`</span>, <span class="sc">~</span><span class="st">`</span><span class="at">(7)</span><span class="st">`</span>, <span class="sc">~</span><span class="st">`</span><span class="at">(8)</span><span class="st">`</span>, <span class="sc">~</span><span class="st">`</span><span class="at">(9)</span><span class="st">`</span>,</span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Violence (exposure)"</span>, <span class="st">"0.041***"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a>  <span class="st">""</span>, <span class="st">"[0.012]"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Casualties / 100 pop."</span>, <span class="st">""</span>, <span class="st">"0.011**"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>  <span class="st">""</span>, <span class="st">""</span>, <span class="st">"[0.005]"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Loss of land"</span>, <span class="st">""</span>,<span class="st">""</span>,<span class="st">"0.033**"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>  <span class="st">""</span>, <span class="st">""</span>,<span class="st">""</span>,<span class="st">"[0.014]"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Theft of crops"</span>, <span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"0.025**"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a>  <span class="st">""</span>, <span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"[0.011]"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Theft of money"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"0.041***"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a>  <span class="st">""</span>, <span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"[0.013]"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Theft/dest. of goods"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"0.021**"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a>  <span class="st">""</span>, <span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"[0.010]"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Destruction of house"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"0.019*"</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a>  <span class="st">""</span>, <span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"[0.011]"</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Agri. index"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"0.028***"</span>,<span class="st">""</span>,</span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a>  <span class="st">""</span>, <span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"[0.008]"</span>,<span class="st">""</span>,</span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Asset index"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"0.041***"</span>,</span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a>  <span class="st">""</span>, <span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"[0.009]"</span>,</span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Dep. var. mean"</span>,<span class="st">"0.087"</span>,<span class="st">"0.087"</span>,<span class="st">"0.087"</span>,<span class="st">"0.087"</span>,<span class="st">"0.087"</span>,<span class="st">"0.087"</span>,<span class="st">"0.087"</span>,<span class="st">"0.087"</span>,<span class="st">"0.087"</span>,</span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Observations"</span>,<span class="st">"8,720"</span>,<span class="st">"8,720"</span>,<span class="st">"8,720"</span>,<span class="st">"8,720"</span>,<span class="st">"8,720"</span>,<span class="st">"8,720"</span>,<span class="st">"8,720"</span>,<span class="st">"8,720"</span>,<span class="st">"8,720"</span>,</span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Household FE"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,</span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Year FE"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span></span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>, <span class="fu">rep</span>(<span class="st">"c"</span>, <span class="dv">9</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="fl">10.5</span>, <span class="at">latex_options =</span> <span class="st">"scale_down"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_header_above</span>(<span class="fu">c</span>(<span class="st">" "</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">"Village level"</span> <span class="ot">=</span> <span class="dv">2</span>, <span class="st">"HH victimization"</span> <span class="ot">=</span> <span class="dv">5</span>, <span class="st">"PCA"</span> <span class="ot">=</span> <span class="dv">2</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="fu">c</span>(<span class="dv">19</span>, <span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">22</span>), <span class="at">background =</span> <span class="st">"#f0f4f8"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a>  <span class="fu">footnote</span>(</span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a>    <span class="at">general =</span> <span class="st">"Dependent variable: indicator = 1 if any household member migrated for non-marital reasons in year t. All specifications include household FE, year FE, and province-specific time trends. Standard errors clustered at the village level in brackets. *** p&lt;0.01, ** p&lt;0.05, * p&lt;0.10."</span>,</span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a>    <span class="at">general_title =</span> <span class="st">"Notes:"</span>,</span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a>    <span class="at">footnote_as_chunk =</span> <span class="cn">TRUE</span></span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a>**Key finding:** The asset PCA index (col. 9) has the same coefficient magnitude as village-level violence exposure (col. 1), suggesting that the economic disruption channel — specifically asset and income losses — is as important as the direct threat of violence in driving household migration responses.</span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a><span class="fu">## Marital Migration</span></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a>**Tables 5 and 6** examine marital migration — the most common form of household dissolution in pre-war rural Burundi. In sharp contrast to non-marital migration, **village-level conflict has no significant effect** on marital migration for any age group.</span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-marital-ind</span></span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Table 5 — Effect of Conflict on Individual Marital Migration (by Age Group)"</span></span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a><span class="fu">tribble</span>(</span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Variable,</span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span><span class="st">`</span><span class="at">(1) 15–25</span><span class="st">`</span>, <span class="sc">~</span><span class="st">`</span><span class="at">(2) 15–25</span><span class="st">`</span>, <span class="sc">~</span><span class="st">`</span><span class="at">(3) 15–35</span><span class="st">`</span>, <span class="sc">~</span><span class="st">`</span><span class="at">(4) 15–35</span><span class="st">`</span>, <span class="sc">~</span><span class="st">`</span><span class="at">(5) 15–45</span><span class="st">`</span>, <span class="sc">~</span><span class="st">`</span><span class="at">(6) 15–45</span><span class="st">`</span>,</span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Violence (exposure)"</span>, <span class="st">"0.008"</span>, <span class="st">""</span>,<span class="st">"0.005"</span>,<span class="st">""</span>,<span class="st">"0.004"</span>,<span class="st">""</span>,</span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a>  <span class="st">""</span>, <span class="st">"[0.007]"</span>,<span class="st">""</span>,<span class="st">"[0.006]"</span>,<span class="st">""</span>,<span class="st">"[0.005]"</span>,<span class="st">""</span>,</span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Casualties / 100 pop."</span>, <span class="st">""</span>, <span class="st">"0.003"</span>,<span class="st">""</span>,<span class="st">"0.002"</span>,<span class="st">""</span>,<span class="st">"0.001"</span>,</span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a>  <span class="st">""</span>, <span class="st">""</span>, <span class="st">"[0.004]"</span>,<span class="st">""</span>,<span class="st">"[0.003]"</span>,<span class="st">""</span>,<span class="st">"[0.003]"</span>,</span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Dep. var. mean"</span>,<span class="st">"0.051"</span>,<span class="st">"0.051"</span>,<span class="st">"0.043"</span>,<span class="st">"0.043"</span>,<span class="st">"0.038"</span>,<span class="st">"0.038"</span>,</span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Observations"</span>,<span class="st">"8,640"</span>,<span class="st">"8,640"</span>,<span class="st">"14,520"</span>,<span class="st">"14,520"</span>,<span class="st">"18,320"</span>,<span class="st">"18,320"</span>,</span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Individual FE"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,</span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Year FE"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span></span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>, <span class="fu">rep</span>(<span class="st">"c"</span>, <span class="dv">6</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">12</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_header_above</span>(<span class="fu">c</span>(<span class="st">" "</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">"Ages 15–25"</span> <span class="ot">=</span> <span class="dv">2</span>, <span class="st">"Ages 15–35"</span> <span class="ot">=</span> <span class="dv">2</span>, <span class="st">"Ages 15–45"</span> <span class="ot">=</span> <span class="dv">2</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a>  <span class="fu">footnote</span>(</span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a>    <span class="at">general =</span> <span class="st">"Dependent variable: indicator = 1 if individual migrated due to marriage in year t. No specification yields a statistically significant effect of village-level conflict on marital migration. Standard errors clustered at village level in brackets. *** p&lt;0.01, ** p&lt;0.05, * p&lt;0.10."</span>,</span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a>    <span class="at">general_title =</span> <span class="st">"Notes:"</span>,</span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a>    <span class="at">footnote_as_chunk =</span> <span class="cn">TRUE</span></span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a>While village violence does not drive marital migration, household-level **asset losses** do matter. The household-level analysis (Table 6) reveals that economic distress — particularly via the asset PCA index — increases the probability of a household sending a member to marry:</span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-marital-hh</span></span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Table 6 — Effect of Conflict on Household Marital Migration"</span></span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a><span class="fu">tribble</span>(</span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Variable, <span class="sc">~</span><span class="st">`</span><span class="at">(1) Exposure</span><span class="st">`</span>, <span class="sc">~</span><span class="st">`</span><span class="at">(2) Intensity</span><span class="st">`</span>, <span class="sc">~</span><span class="st">`</span><span class="at">(3) Agri. Index</span><span class="st">`</span>, <span class="sc">~</span><span class="st">`</span><span class="at">(4) Asset Index</span><span class="st">`</span>,</span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Violence (exposure)"</span>, <span class="st">"0.009"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a>  <span class="st">""</span>, <span class="st">"[0.011]"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Casualties / 100 pop."</span>, <span class="st">""</span>, <span class="st">"0.002"</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a>  <span class="st">""</span>, <span class="st">""</span>, <span class="st">"[0.005]"</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Agri. index"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"0.009"</span>,<span class="st">""</span>,</span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a>  <span class="st">""</span>, <span class="st">""</span>,<span class="st">""</span>,<span class="st">"[0.007]"</span>,<span class="st">""</span>,</span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Asset index"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"0.015**"</span>,</span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a>  <span class="st">""</span>, <span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"[0.007]"</span>,</span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Dep. var. mean"</span>,<span class="st">"0.063"</span>,<span class="st">"0.063"</span>,<span class="st">"0.063"</span>,<span class="st">"0.063"</span>,</span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Observations"</span>,<span class="st">"8,720"</span>,<span class="st">"8,720"</span>,<span class="st">"8,720"</span>,<span class="st">"8,720"</span>,</span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Household FE"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,</span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Year FE"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span></span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>,<span class="st">"c"</span>,<span class="st">"c"</span>,<span class="st">"c"</span>,<span class="st">"c"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">12</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">5</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a>  <span class="fu">footnote</span>(</span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a>    <span class="at">general =</span> <span class="st">"Dependent variable: indicator = 1 if any household member migrated due to marriage in year t. Column (4) is the key specification: asset losses significantly increase marital migration. Standard errors clustered at village level in brackets. *** p&lt;0.01, ** p&lt;0.05, * p&lt;0.10."</span>,</span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a>    <span class="at">general_title =</span> <span class="st">"Notes:"</span>,</span>
+<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a>    <span class="at">footnote_as_chunk =</span> <span class="cn">TRUE</span></span>
+<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a><span class="fu">## Return Migration</span></span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a>**Table 7** examines whether conflict-induced migration is permanent or temporary. The dependent variable captures whether a previously migrated individual or household member returned home in year $t$.</span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-return</span></span>
+<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Table 7 — Effect of Conflict on Return Migration"</span></span>
+<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a><span class="fu">tribble</span>(</span>
+<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Variable,</span>
+<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span><span class="st">`</span><span class="at">(1) Ind.</span><span class="st">`</span>, <span class="sc">~</span><span class="st">`</span><span class="at">(2) Ind.</span><span class="st">`</span>, <span class="sc">~</span><span class="st">`</span><span class="at">(3) HH</span><span class="st">`</span>, <span class="sc">~</span><span class="st">`</span><span class="at">(4) HH</span><span class="st">`</span>, <span class="sc">~</span><span class="st">`</span><span class="at">(5) HH</span><span class="st">`</span>, <span class="sc">~</span><span class="st">`</span><span class="at">(6) HH</span><span class="st">`</span>,</span>
+<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Violence (exposure)"</span>, <span class="st">"-0.142**"</span>,<span class="st">""</span>,<span class="st">"-0.198***"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a>  <span class="st">""</span>, <span class="st">"[0.061]"</span>,<span class="st">""</span>,<span class="st">"[0.070]"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Casualties / 100 pop."</span>, <span class="st">""</span>, <span class="st">"-0.340***"</span>,<span class="st">""</span>,<span class="st">"-0.289***"</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a>  <span class="st">""</span>, <span class="st">""</span>, <span class="st">"[0.090]"</span>,<span class="st">""</span>,<span class="st">"[0.095]"</span>,<span class="st">""</span>,<span class="st">""</span>,</span>
+<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Agri. index"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"-0.041**"</span>,<span class="st">""</span>,</span>
+<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a>  <span class="st">""</span>, <span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"[0.018]"</span>,<span class="st">""</span>,</span>
+<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Asset index"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"-0.057**"</span>,</span>
+<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a>  <span class="st">""</span>, <span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"[0.026]"</span>,</span>
+<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Dep. var. mean"</span>,<span class="st">"0.082"</span>,<span class="st">"0.082"</span>,<span class="st">"0.139"</span>,<span class="st">"0.139"</span>,<span class="st">"0.139"</span>,<span class="st">"0.139"</span>,</span>
+<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Observations"</span>,<span class="st">"12,450"</span>,<span class="st">"12,450"</span>,<span class="st">"5,820"</span>,<span class="st">"5,820"</span>,<span class="st">"5,820"</span>,<span class="st">"5,820"</span>,</span>
+<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Ind./HH FE"</span>,<span class="st">"Ind."</span>,<span class="st">"Ind."</span>,<span class="st">"HH"</span>,<span class="st">"HH"</span>,<span class="st">"HH"</span>,<span class="st">"HH"</span>,</span>
+<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Year FE"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span>,<span class="st">"Yes"</span></span>
+<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>, <span class="fu">rep</span>(<span class="st">"c"</span>,<span class="dv">6</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">12</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_header_above</span>(<span class="fu">c</span>(<span class="st">" "</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">"Individual level"</span> <span class="ot">=</span> <span class="dv">2</span>, <span class="st">"Household level"</span> <span class="ot">=</span> <span class="dv">4</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="fu">c</span>(<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>), <span class="at">background =</span> <span class="st">"#f0f4f8"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a>  <span class="fu">footnote</span>(</span>
+<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a>    <span class="at">general =</span> <span class="st">"Dependent variable: indicator = 1 if individual/household member returned in year t (conditional on having previously migrated). All specifications negative: conflict significantly reduces the probability of return. Standard errors clustered at village level in brackets. *** p&lt;0.01, ** p&lt;0.05, * p&lt;0.10."</span>,</span>
+<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a>    <span class="at">general_title =</span> <span class="st">"Notes:"</span>,</span>
+<span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a>    <span class="at">footnote_as_chunk =</span> <span class="cn">TRUE</span></span>
+<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
+<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a>**Key finding — Permanence of displacement:** Conflict intensity (column 2) reduces the probability of individual return by **34 percentage points per unit** of the casualty rate. At the household level (column 4), the effect is −29 pp. Since the dep. var. mean is ~8–14%, these are large effects that imply civil war–induced household dissolution is largely **permanent**.</span>
+<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a>This has important implications for policy: interventions targeting conflict-affected households must account for the fact that migration-induced compositional changes are unlikely to self-reverse even after peace is restored.</span>
+<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summary: Effect Sizes</span></span>
+<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-summary-effects</span></span>
+<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Summary of Main Coefficients — Effect on Migration Probabilities"</span></span>
+<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 5</span></span>
+<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a>summary_data <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>outcome, <span class="sc">~</span>spec, <span class="sc">~</span>estimate, <span class="sc">~</span>se, <span class="sc">~</span>sign,</span>
+<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Non-marital migration</span><span class="sc">\n</span><span class="st">(individual)"</span>, <span class="st">"Village violence"</span>, <span class="fl">0.031</span>, <span class="fl">0.009</span>, <span class="st">"positive"</span>,</span>
+<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Non-marital migration</span><span class="sc">\n</span><span class="st">(individual)"</span>, <span class="st">"Theft of money"</span>, <span class="fl">0.031</span>, <span class="fl">0.010</span>, <span class="st">"positive"</span>,</span>
+<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Non-marital migration</span><span class="sc">\n</span><span class="st">(individual)"</span>, <span class="st">"PCA all shocks"</span>, <span class="fl">0.021</span>, <span class="fl">0.006</span>, <span class="st">"positive"</span>,</span>
+<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Household migration</span><span class="sc">\n</span><span class="st">(any member)"</span>, <span class="st">"Village violence"</span>, <span class="fl">0.041</span>, <span class="fl">0.012</span>, <span class="st">"positive"</span>,</span>
+<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Household migration</span><span class="sc">\n</span><span class="st">(any member)"</span>, <span class="st">"Asset index"</span>, <span class="fl">0.041</span>, <span class="fl">0.009</span>, <span class="st">"positive"</span>,</span>
+<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Marital migration</span><span class="sc">\n</span><span class="st">(individual)"</span>, <span class="st">"Village violence"</span>, <span class="fl">0.008</span>, <span class="fl">0.007</span>, <span class="st">"null"</span>,</span>
+<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Marital migration</span><span class="sc">\n</span><span class="st">(household)"</span>, <span class="st">"Asset index"</span>, <span class="fl">0.015</span>, <span class="fl">0.007</span>, <span class="st">"positive"</span>,</span>
+<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Return migration</span><span class="sc">\n</span><span class="st">(individual)"</span>, <span class="st">"Village violence"</span>, <span class="sc">-</span><span class="fl">0.142</span>, <span class="fl">0.061</span>, <span class="st">"negative"</span>,</span>
+<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Return migration</span><span class="sc">\n</span><span class="st">(individual)"</span>, <span class="st">"Casualty intensity"</span>, <span class="sc">-</span><span class="fl">0.340</span>, <span class="fl">0.090</span>, <span class="st">"negative"</span></span>
+<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a>    <span class="at">ci_lo =</span> estimate <span class="sc">-</span> <span class="fl">1.96</span> <span class="sc">*</span> se,</span>
+<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a>    <span class="at">ci_hi =</span> estimate <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> se,</span>
+<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a>    <span class="at">spec =</span> <span class="fu">fct_reorder</span>(spec, estimate),</span>
+<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a>    <span class="at">outcome =</span> <span class="fu">factor</span>(outcome, <span class="at">levels =</span> <span class="fu">unique</span>(outcome))</span>
+<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summary_data, <span class="fu">aes</span>(<span class="at">x =</span> estimate, <span class="at">y =</span> spec, <span class="at">color =</span> sign)) <span class="sc">+</span></span>
+<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"gray50"</span>) <span class="sc">+</span></span>
+<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbarh</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> ci_lo, <span class="at">xmax =</span> ci_hi), <span class="at">height =</span> <span class="fl">0.3</span>, <span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> outcome, <span class="at">scales =</span> <span class="st">"free"</span>, <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
+<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"positive"</span> <span class="ot">=</span> <span class="st">"#1a2947"</span>, <span class="st">"negative"</span> <span class="ot">=</span> <span class="st">"#c0392b"</span>, <span class="st">"null"</span> <span class="ot">=</span> <span class="st">"#95a5a6"</span>),</span>
+<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a>    <span class="at">guide =</span> <span class="st">"none"</span></span>
+<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>(<span class="at">accuracy =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Estimated effect (percentage points)"</span>,</span>
+<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="cn">NULL</span>,</span>
+<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Note: 95% CIs based on village-clustered standard errors. Blue = positive significant; red = negative significant; gray = not significant."</span></span>
+<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">11</span>) <span class="sc">+</span></span>
+<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#1a2947"</span>),</span>
+<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">size =</span> <span class="dv">9</span>),</span>
+<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">8</span>, <span class="at">color =</span> <span class="st">"gray50"</span>)</span>
+<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a><span class="fu">## References {.unnumbered}</span></span>
+<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
+<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a>:::</span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Akresh, Muñoz-Mora &amp; Verwimp (2025)</strong> Civil War and Household Structure: Evidence from Burundi</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Technical supplement. Last updated March 1, 2026.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

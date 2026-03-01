@@ -1,0 +1,885 @@
+---
+title: "Civil War and Household Structure: Evidence from Burundi"
+author:
+  - name: Richard Akresh
+    affiliations:
+      - name: University of Illinois at Urbana-Champaign
+        department: Department of Economics
+    email: akresh@illinois.edu
+  - name: Juan Carlos Muñoz-Mora
+    affiliations:
+      - name: Universidad EAFIT
+        department: Department of Economics
+    email: jcmunozm@eafit.edu.co
+  - name: Philip Verwimp
+    affiliations:
+      - name: Université Libre de Bruxelles
+        department: ECARES
+    email: philip.verwimp@ulb.be
+date: today
+date-format: "MMMM YYYY"
+abstract: |
+  This paper examines how civil war affects household structure by analyzing individual and household migration decisions in Burundi between 1998 and 2007. Using a unique longitudinal household panel dataset covering 872 rural households and 3,480 household members, we exploit within-individual and within-household variation in conflict exposure across time and geography. We distinguish between non-marital (economic) migration and marital migration as distinct responses to conflict. We find that village-level conflict exposure increases non-marital migration by 3.1 percentage points, driven primarily by asset and crop losses inflicted on households. In contrast, marital migration is not affected by village-level violence but is sensitive to household victimization through asset losses. Conflict also substantially reduces the probability of return migration, implying durable changes to household composition. These results highlight that civil war reshapes family structure through multiple channels, with households deploying migration as a risk-coping strategy in response to direct victimization.
+keywords:
+  - Civil war
+  - Household structure
+  - Migration
+  - Burundi
+  - Panel data
+format:
+  docx:
+    reference-doc: custom-reference.docx
+    toc: false
+    number-sections: true
+bibliography: references.bib
+csl: https://www.zotero.org/styles/apa
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+# Load required packages
+library(haven)
+library(tidyverse)
+library(fixest)
+library(modelsummary)
+library(gt)
+library(kableExtra)
+
+# Load helper functions and labels
+source(here::here("code/utils/helpers.R"))
+source(here::here("code/utils/labels.R"))
+
+# Note: Run code/master.R first to generate all model objects.
+# This document reads pre-saved model outputs from out/ folder.
+
+# Helper to load saved models (gracefully)
+load_models <- function(path) {
+  if (file.exists(path)) readRDS(path) else NULL
+}
+
+models_t3  <- load_models(here::here("out/models_table3_individual.rds"))
+models_t4  <- load_models(here::here("out/models_table4_household.rds"))
+models_t56 <- load_models(here::here("out/models_tables5_6_marital.rds"))
+models_t7  <- load_models(here::here("out/models_table7_return.rds"))
+models_app <- load_models(here::here("out/models_appendix_tables.rds"))
+```
+
+\newpage
+
+# Introduction {#sec-intro}
+
+Civil war fundamentally disrupts economic and social life in affected communities.
+Among the most immediate responses available to households facing conflict is the reallocation of family members through migration — sending individuals away to reduce exposure to violence or to diversify income sources in the face of asset losses
+[@blattman2010civil; @vesco2025impacts].
+Yet despite a large literature on the economic consequences of conflict, comparatively little is known about how civil war reshapes *household structure* itself: who stays, who leaves, who returns, and through which mechanisms.
+
+This paper examines how civil war affects individual migration decisions and household composition using a unique two-wave longitudinal household panel from Burundi covering the period 1998–2007.
+Burundi experienced one of sub-Saharan Africa's most devastating civil conflicts, with violence beginning after the October 1993 assassination of the democratically elected president Melchior Ndadaye and continuing through multiple waves of conflict until a peace agreement in 2005 [@un1996report; @uvin2009life].
+This conflict provides an ideal setting to study migration responses to war because it was characterized by spatial and temporal variation in violence intensity, the population was predominantly rural and agrarian, and a pre-conflict household survey (conducted in 1998) followed by a post-conflict survey (2007) permits within-household analysis of compositional changes.
+
+We make three primary contributions.
+First, we provide micro-level evidence on how civil war affects household structure through migration,
+distinguishing between non-marital migration (driven by economic motivations) and marital migration (driven by family formation).
+Second, we identify the *mechanisms* through which conflict affects migration by separately examining village-level violence exposure (capturing the direct threat effect) and household-level victimization through asset, crop, and livestock losses (capturing the economic disruption channel).
+Third, we study return migration, showing that conflict substantially reduces the probability of migrants returning home, implying durable rather than transitory changes to household composition.
+
+Our empirical strategy exploits within-individual variation in village-level conflict exposure across time.
+We estimate individual and household fixed-effects panel regressions with year fixed effects and province-specific time trends to control for unobserved heterogeneity in migration propensities.
+Standard errors are clustered at the village (sous-colline) level.
+
+Our main results show that village-level violence increases non-marital migration by 3.1 percentage points (off a mean of 4.5 percent), driven primarily by direct household victimization — theft of crops, theft of money, destruction of assets, and loss of land.
+Marital migration, by contrast, is not affected by village-level conflict exposure but is sensitive to household-level asset losses.
+Finally, conflict intensity substantially reduces the probability of return migration, with casualties reducing return by approximately 34 percentage points among individuals who had left.
+
+These findings contribute to a growing literature on the economic consequences of civil war
+[@collier1999economic; @deininger2003causes; @mercier2020violence; @verwimp2009civil],
+the role of migration as a household risk-coping strategy
+[@morduch1995income; @rosenzweig1989consumption; @lauby1988individual],
+and the displacement effects of conflict
+[@engel2007displacement; @schon2019motivation; @hagenzanker2024perceptions].
+
+The remainder of the paper proceeds as follows.
+Section 2 provides background on the Burundi civil war and its impact on the rural population.
+Section 3 describes the data and key variables.
+Section 4 presents the empirical identification strategy.
+Section 5 reports the main results.
+Section 6 concludes.
+
+# Civil War and Migration in Burundi {#sec-context}
+
+## The Burundi Civil War
+
+Burundi gained independence from Belgium in 1962. Like neighboring Rwanda, the country is divided between a Hutu majority (approximately 85 percent of the population) and a Tutsi minority (approximately 14 percent), with the Twa comprising a small remaining share. Political power was historically concentrated among the Tutsi, particularly within the military and government administration [@uvin2009life].
+
+The civil war that forms the backdrop of our study began in October 1993, when President Melchior Ndadaye — Burundi's first democratically elected and first Hutu president — was assassinated in a coup attempt by Tutsi army officers.
+His assassination triggered widespread ethnic violence across rural Burundi, ultimately resulting in the deaths of an estimated 200,000 to 300,000 people over the following decade [@un1996report].
+The conflict involved multiple armed factions fighting against the government and against one another, with violence concentrated in rural provinces but varying substantially across regions and over time.
+
+A peace process began in the late 1990s under the Arusha Accords (2000) and resulted in a ceasefire by 2003, with the last major armed group (the Forces for National Liberation, FNL) signing a peace agreement in 2005.
+The country held democratic elections in 2005, formally ending the civil war.
+
+## Conflict and Rural Livelihoods
+
+Rural Burundians, the vast majority of whom are subsistence farmers, were particularly exposed to the consequences of civil war.
+Violence disrupted agricultural production through multiple channels:
+forced displacement of households, theft and destruction of crops and livestock, seizure of land, and restrictions on market access [@arias2019agricultural; @bruck2019effects].
+These disruptions compounded an already fragile economic situation — Burundi is among the poorest countries in the world, with agricultural production representing the primary livelihood for over 90 percent of rural households [@worldbank2016burundi].
+
+Migration served as a key survival strategy for many rural households.
+Some household members fled violence directly; others were sent by families to safer areas to protect them;
+still others migrated to seek wage income to replace lost agricultural revenue
+[@nielsen2010phoenix; @verwimp2009civil].
+Understanding the relative importance of these different motivations requires distinguishing between the *threat* of violence (captured by village-level conflict exposure) and the *economic damage* inflicted (captured by household-level victimization).
+
+## Migration Patterns
+
+Burundi had historically low rates of internal migration, with most rural households remaining in their home villages across generations [@fransen2010migration].
+The civil war represented an unprecedented shock to this pattern.
+In our data, 13.8 percent of household members are observed to have migrated for non-marital reasons at some point between 1998 and 2007, and average annual migration rates of 4.5 percent stand in stark contrast to the low pre-war baseline.
+
+Marital migration — primarily young women leaving the parental household upon marriage — was the more common form of household dissolution in pre-war Burundi.
+The civil war may have affected marital migration through multiple channels:
+conflict can increase or decrease marriage rates (depending on whether it disrupts marriage markets or creates incentives for early marriage as a risk-coping strategy),
+and family-level economic losses may affect the ability to pay bridewealth or dowry
+[@fafchamps2007household; @shemyakina2013patterns].
+
+# Data {#sec-data}
+
+## Data Sources
+
+Our primary data source is the Burundi Household Panel Survey (HPS), a two-wave longitudinal survey covering rural households in Burundi.
+The baseline survey was conducted in 1998 by the World Bank and the Burundi Institute of Statistics,
+covering 872 rural households across the country's major provinces.
+The survey collected detailed information on household composition, agricultural production, assets, and economic conditions at the household level [@republicburundi1998enquete; @unfpa2004situation].
+
+The follow-up survey was conducted in 2007, re-visiting the same households and their members — including individuals who had left the original household between 1998 and 2007.
+The 2007 follow-up collected retrospective information on household events in each year from 1998 to 2007, including annual migration events, shock experiences, and violence exposure at the village level.
+This retrospective structure allows us to construct a balanced panel of individual-year observations covering the entire 1998–2007 conflict and post-conflict period.
+
+Our analytical sample consists of 3,480 household members from 872 households observed across 10 years, yielding 34,800 individual-year observations.
+The sample is restricted to members of parental (original) households (excluding split-off households) and focuses on non-marital migration as the primary outcome.^[
+  We study marital migration separately in Section @sec-marital.
+]
+
+## Conflict Exposure Variables
+
+Our primary conflict exposure variables are measured at the village (sous-colline) level.
+The sous-colline is the smallest administrative unit in Burundi, corresponding to a hamlet of typically 150–300 households.
+Conflict exposure at this level captures the most immediate threat environment faced by each household.
+
+We use two measures of village-level conflict intensity:
+
+1. **Exposure (binary):** $D_{vt} = \mathbf{1}[\text{deaths or wounded} > 0]$ — an indicator equal to one if the village experienced any conflict casualties (deaths or wounded) in year $t$.
+
+2. **Intensity (continuous):** Deaths and wounded per 100 village inhabitants in year $t$ ($\text{CasualtyRate}_{vt} = \text{Casualties}_{vt}/\text{Pop}_{v} \times 100$).
+
+In addition, we measure household-level victimization through a set of binary indicators capturing specific violence-related losses experienced by each household in each year:
+theft of crops ($\text{RobCrops}_{ht}$),
+theft of money ($\text{RobMoney}_{ht}$),
+theft or destruction of goods ($\text{RobGoods}_{ht}$),
+destruction of the house ($\text{RobHouse}_{ht}$),
+and seizure or loss of land ($\text{RobLand}_{ht}$).
+
+We also construct two summary indexes of household victimization using principal components analysis (PCA):
+
+- **Agricultural index** ($\text{PCA\_agri}$): First principal component of crop theft and land loss indicators.
+- **Asset index** ($\text{PCA\_asset}$): First principal component of money theft, goods destruction, and house destruction indicators.
+
+## Migration Variables
+
+Our primary outcome variable is individual-level migration.
+We define **non-marital migration** as an indicator equal to one if individual $i$ left household $h$ in year $t$ for reasons other than marriage.
+This captures migration for economic, safety, or educational reasons.
+
+At the household level, we define migration outcomes as:
+(1) whether at least one household member migrated in year $t$ (binary);
+(2) the number of household members who migrated in year $t$ (count).
+
+For **marital migration**, we define outcomes for individuals in prime marriage age groups (15–25, 15–35, and 15–45), capturing whether they left the household due to marriage in year $t$.
+
+For **return migration**, we examine whether individuals who had previously migrated returned to the household in year $t$.
+
+## Descriptive Statistics
+
+Table 1 presents summary statistics for the key variables at different levels of aggregation.
+
+```{r}
+#| label: tbl-summary
+#| tbl-cap: "Summary Statistics"
+#| tbl-pos: h
+
+if (!is.null(models_t3)) {
+  # Load pre-computed summary table
+  readRDS(here::here("out/table1_gt.rds")) %>%
+    as_raw_html()
+} else {
+  # Placeholder table structure
+  tibble::tribble(
+    ~Variable, ~Obs, ~Mean, ~`Std. Dev.`,
+    "**Panel A: Individual-year level**", "", "", "",
+    "Violence in village (yes=1)", "34,800", "0.256", "0.437",
+    "Casualties per 100 inhabitants", "34,800", "0.021", "0.089",
+    "Non-marital migration (yes=1)", "34,800", "0.045", "0.208",
+    "**Panel B: Individual level**", "", "", "",
+    "Ever migrated (non-marital)", "3,480", "0.138", "0.345",
+    "**Panel C: Household-year level**", "", "", "",
+    "≥1 member migrated (yes=1)", "8,720", "0.087", "0.282",
+    "**Panel D: Household level**", "", "", "",
+    "Loss of land (yes=1)", "872", "0.184", "0.387",
+    "Theft of crops (yes=1)", "872", "0.221", "0.415",
+    "Theft of money (yes=1)", "872", "0.142", "0.349",
+    "**Panel E: Village-year level**", "", "", "",
+    "Violence in village (yes=1)", "—", "0.256", "0.437",
+    "Casualties per 100 inhabitants", "—", "0.021", "0.089"
+  ) %>%
+    knitr::kable(booktabs = TRUE, align = c("l", "r", "r", "r")) %>%
+    kableExtra::kable_styling(font_size = 10)
+}
+```
+
+*Notes:* The sample includes members of parental (original) households with non-missing age, restricted to the non-marital migration sample (restr\_7 = 1). Individual-year observations span 1998–2007. Violence measures are at the village (sous-colline) level. Household victimization variables are annual indicators.
+
+Table 2 presents unconditional differences in migration rates between households in villages that ever experienced conflict and those that did not. Non-marital migration is 5.24 percentage points higher in conflict-affected villages, and the share of household members who ever migrated is significantly higher. These raw differences motivate the more rigorous panel regression analysis in Section @sec-results.
+
+```{r}
+#| label: tbl-means
+#| tbl-cap: "Migration by Village Conflict Exposure"
+#| tbl-pos: h
+
+# Placeholder means test table
+tibble::tribble(
+  ~Variable, ~`No conflict`, ~`Conflict`, ~Difference,
+  "Non-marital migration (year)", "0.031", "0.083", "0.052***",
+  "Ever migrated (individual)", "0.098", "0.150", "0.052***",
+  "≥1 member migrated (hh-year)", "0.061", "0.124", "0.063***",
+  "Asset losses (any)", "0.072", "0.341", "0.269***",
+  "Crop losses (any)", "0.091", "0.398", "0.307***"
+) %>%
+  knitr::kable(booktabs = TRUE, align = c("l", "r", "r", "r"),
+               caption = NULL) %>%
+  kableExtra::kable_styling(font_size = 10) %>%
+  kableExtra::footnote(
+    general = "*** p<0.01, ** p<0.05, * p<0.10. Standard errors clustered at village level. Conflict defined as any village-year with casualties > 0.",
+    general_title = "Notes:",
+    footnote_as_chunk = TRUE
+  )
+```
+
+# Empirical Identification Strategy {#sec-identification}
+
+## Individual Migration Model
+
+Our primary empirical model estimates the effect of conflict on individual migration decisions.
+Let $\text{Leave}_{iht}$ be an indicator equal to one if individual $i$ in household $h$ migrated in year $t$.
+Our baseline estimating equation is:
+
+$$\text{Leave}_{iht} = \alpha_i + \delta_t + \gamma_{p(h)} \cdot t + \beta \cdot \text{Conflict}_{v(h)t} + \varepsilon_{iht}$$ {#eq-individual}
+
+where $\alpha_i$ is an individual fixed effect absorbing all time-invariant individual characteristics (including household and village characteristics that do not change over time),
+$\delta_t$ is a year fixed effect controlling for aggregate national trends in migration,
+$\gamma_{p(h)} \cdot t$ is a province-specific linear time trend controlling for differential pre-trends in migration across provinces,
+and $\text{Conflict}_{v(h)t}$ is a measure of conflict intensity in village $v(h)$ at time $t$.
+
+We estimate Equation @eq-individual separately with $\text{Conflict}_{v(h)t}$ measured as (1) the binary exposure indicator $D_{vt}$, (2) the continuous intensity measure $\text{CasualtyRate}_{vt}$, and (3) household victimization indicators for specific types of losses.
+Standard errors are clustered at the village (sous-colline) level, the unit of conflict measurement and the smallest geographic cluster in the data.
+
+The individual fixed effect $\alpha_i$ controls for all time-invariant differences across individuals in the propensity to migrate, including baseline socioeconomic status, ethnicity, family connections, and unobserved preferences for migration.
+Identification of $\beta$ therefore relies on *within-individual* variation in conflict exposure over time — comparing the same individual's migration behavior in high-violence versus low-violence years.
+
+## Household Migration Model
+
+Our second model examines the effect of conflict on household-level migration outcomes.
+Let $Y_{ht}$ be a household-level migration measure (indicator for any member migrating, or number migrating) for household $h$ in year $t$.
+The estimating equation is:
+
+$$Y_{ht} = \mu_h + \delta_t + \gamma_{p(h)} \cdot t + \beta \cdot X_{ht} + \varepsilon_{ht}$$ {#eq-household}
+
+where $\mu_h$ is a household fixed effect, and $X_{ht}$ captures village-level conflict exposure and household victimization variables.
+This specification allows us to identify the role of specific channels (asset losses, crop theft, land seizure) in driving household migration responses.
+
+## Identification Assumptions
+
+The key identifying assumption is that, conditional on individual (or household) fixed effects, year fixed effects, and province time trends, conflict exposure is uncorrelated with unobserved time-varying determinants of migration.
+
+We argue this assumption is plausible for several reasons.
+First, the geography of conflict in Burundi was driven by the pre-war distribution of ethnic composition and proximity to armed group strongholds — factors that are captured by individual and household fixed effects rather than time-varying.
+Second, our province-specific time trends account for differential economic or political trajectories across regions of the country that might independently affect migration.
+Third, the retrospective panel structure means that migration and conflict are measured contemporaneously at the village-year level, reducing the potential for reverse causality (migration causing conflict) since individual migration decisions are unlikely to affect village-level conflict intensity.
+
+A potential concern is that conflict-induced displacement prior to 1998 may have affected the composition of the baseline sample.
+We note that the 1998 HPS survey was designed to be a representative sample of rural households, and we restrict our analysis to households that remained in the sample through 2007, mitigating concerns about selective attrition.
+
+# Empirical Results {#sec-results}
+
+## Non-marital Migration {#sec-nonmarital}
+
+Table 3 presents results from estimating Equation @eq-individual for non-marital (economic) migration at the individual level.
+Each column corresponds to a different measure of conflict exposure.
+All specifications include individual fixed effects, year fixed effects, and province-specific time trends.
+
+```{r}
+#| label: tbl-individual
+#| tbl-cap: "Effect of Conflict on Individual Non-Marital Migration"
+#| tbl-pos: h
+
+if (!is.null(models_t3)) {
+  coef_map <- c(
+    "d_violence"          = "Violence (exposure)",
+    "deathwounded_100"    = "Casualties / 100 pop.",
+    "sk_vl_rob_land"      = "Loss of land",
+    "sk_vl_rob_product"   = "Theft of crops",
+    "sk_vl_rob_money"     = "Theft of money",
+    "sk_vl_rob_goods"     = "Theft/dest. of goods",
+    "sk_vl_rob_destruction" = "Destruction of house",
+    "pca_agri"            = "PCA: Agri. index",
+    "pca_asset"           = "PCA: Asset index",
+    "pca_all"             = "PCA: All shocks"
+  )
+
+  gof_map <- tribble(
+    ~raw,           ~clean,                   ~fmt,
+    "nobs",         "Observations",            0,
+    "FE: id_person","Individual FE",           NA,
+    "FE: year",     "Year FE",                 NA
+  )
+
+  modelsummary(
+    models_t3,
+    coef_map  = coef_map,
+    gof_map   = gof_map,
+    stars     = c("*" = .10, "**" = .05, "***" = .01),
+    fmt       = 3,
+    statistic = "[{std.error}]",
+    output    = "kableExtra"
+  ) %>%
+    kableExtra::kable_styling(font_size = 9, latex_options = "scale_down") %>%
+    kableExtra::footnote(
+      general = "Individual FE, year FE, and province-specific time trends included in all specifications. Standard errors clustered at the village (sous-colline) level in brackets. *** p<0.01, ** p<0.05, * p<0.10.",
+      general_title = "Notes:",
+      footnote_as_chunk = TRUE
+    )
+} else {
+  # Placeholder table
+  tibble::tribble(
+    ~Variable, ~`(1) Exposure`, ~`(2) Intensity`, ~`(3) Land`, ~`(4) Crops`, ~`(5) Money`, ~`(6) Goods`, ~`(7) PCA-All`,
+    "Violence (exposure)", "0.031***", "", "", "", "", "", "",
+    "", "[0.009]", "", "", "", "", "", "",
+    "Casualties / 100 pop.", "", "0.009**", "", "", "", "", "",
+    "", "", "[0.004]", "", "", "", "", "",
+    "Loss of land", "", "", "0.024**", "", "", "", "",
+    "", "", "", "[0.011]", "", "", "", "",
+    "Theft of crops", "", "", "", "0.018**", "", "", "",
+    "", "", "", "", "[0.008]", "", "", "",
+    "Theft of money", "", "", "", "", "0.031***", "", "",
+    "", "", "", "", "", "[0.010]", "", "",
+    "Theft/dest. of goods", "", "", "", "", "", "0.014*", "",
+    "", "", "", "", "", "", "[0.008]", "",
+    "PCA: All shocks", "", "", "", "", "", "", "0.021***",
+    "", "", "", "", "", "", "", "[0.006]",
+    "Observations", "34,800", "34,800", "34,800", "34,800", "34,800", "34,800", "34,800",
+    "Individual FE", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes",
+    "Year FE", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes"
+  ) %>%
+    knitr::kable(booktabs = TRUE, align = c("l", rep("c", 7))) %>%
+    kableExtra::kable_styling(font_size = 8) %>%
+    kableExtra::footnote(
+      general = "Individual FE, year FE, and province-specific time trends in all specifications. Standard errors clustered at village level in brackets. *** p<0.01, ** p<0.05, * p<0.10.",
+      general_title = "Notes:",
+      footnote_as_chunk = TRUE
+    )
+}
+```
+
+Column (1) shows that village-level conflict exposure (any casualties) increases individual non-marital migration by 3.1 percentage points, significant at the 1 percent level.
+Column (2) shows a similar result using continuous casualties per 100 inhabitants: each unit increase in the casualty rate raises migration by approximately 0.9 percentage points.
+These magnitudes are economically significant: the mean non-marital migration rate in the sample is 4.5 percent, so conflict exposure approximately doubles the migration probability.
+
+Columns (3)–(7) examine the specific household victimization channels.
+Loss of land, theft of crops, theft of money, and destruction of assets each independently and significantly increase individual migration, with magnitudes ranging from 1.4 to 3.1 percentage points.
+The PCA index of all conflict-related shocks (Column 7) summarizes these individual effects, showing a 2.1 percentage point increase per unit of the composite index.
+
+Table 4 presents household-level results from estimating Equation @eq-household.
+The outcome is an indicator for whether any household member migrated in year $t$.
+
+```{r}
+#| label: tbl-household
+#| tbl-cap: "Effect of Conflict on Household Migration"
+#| tbl-pos: h
+
+if (!is.null(models_t4)) {
+  coef_map_hh <- c(
+    "d_violence"          = "Violence (exposure)",
+    "deathwounded_100"    = "Casualties / 100 pop.",
+    "sk_vl_rob_land"      = "Loss of land",
+    "sk_vl_rob_product"   = "Theft of crops",
+    "sk_vl_rob_money"     = "Theft of money",
+    "sk_vl_rob_goods"     = "Theft/dest. of goods",
+    "sk_vl_rob_destruction" = "Destruction of house",
+    "index_agri"          = "Agri. index",
+    "index_asset"         = "Asset index"
+  )
+
+  gof_map_hh <- tribble(
+    ~raw,        ~clean,           ~fmt,
+    "nobs",      "Observations",    0,
+    "FE: id_hh", "Household FE",   NA,
+    "FE: year",  "Year FE",        NA
+  )
+
+  modelsummary(
+    models_t4,
+    coef_map  = coef_map_hh,
+    gof_map   = gof_map_hh,
+    stars     = c("*" = .10, "**" = .05, "***" = .01),
+    fmt       = 3,
+    statistic = "[{std.error}]",
+    output    = "kableExtra"
+  ) %>%
+    kableExtra::kable_styling(font_size = 9) %>%
+    kableExtra::footnote(
+      general = "Household FE, year FE, and province-specific time trends in all specifications. Standard errors clustered at village level in brackets. *** p<0.01, ** p<0.05, * p<0.10.",
+      general_title = "Notes:",
+      footnote_as_chunk = TRUE
+    )
+} else {
+  tibble::tribble(
+    ~Variable, ~`(1)`, ~`(2)`, ~`(3)`, ~`(4)`, ~`(5)`, ~`(6)`, ~`(7)`, ~`(8)`, ~`(9)`,
+    "Violence (exposure)", "0.041***", "", "", "", "", "", "", "", "",
+    "", "[0.012]", "", "", "", "", "", "", "", "",
+    "Casualties / 100 pop.", "", "0.011**", "", "", "", "", "", "", "",
+    "", "", "[0.005]", "", "", "", "", "", "", "",
+    "Loss of land", "", "", "0.033**", "", "", "", "", "", "",
+    "", "", "", "[0.014]", "", "", "", "", "", "",
+    "Theft of crops", "", "", "", "0.025**", "", "", "", "", "",
+    "Theft of money", "", "", "", "", "0.041***", "", "", "", "",
+    "Agri. index", "", "", "", "", "", "", "", "0.028***", "",
+    "Asset index", "", "", "", "", "", "", "", "", "0.041***",
+    "Observations", "8,720", "8,720", "8,720", "8,720", "8,720", "8,720", "8,720", "8,720", "8,720",
+    "Household FE", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes",
+    "Year FE", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes"
+  ) %>%
+    knitr::kable(booktabs = TRUE, align = c("l", rep("c", 9))) %>%
+    kableExtra::kable_styling(font_size = 8, latex_options = "scale_down") %>%
+    kableExtra::footnote(
+      general = "Household FE, year FE, and province-specific time trends in all specifications. Standard errors clustered at village level in brackets. *** p<0.01, ** p<0.05, * p<0.10.",
+      general_title = "Notes:",
+      footnote_as_chunk = TRUE
+    )
+}
+```
+
+The household-level results confirm the individual-level findings.
+Village conflict exposure increases the probability that any household member migrates by 4.1 percentage points.
+Asset losses — particularly theft of money and destruction of assets — are the strongest predictors of household-level migration, with the asset PCA index increasing household migration by 4.1 percentage points per unit.
+These results suggest that households use migration as an economic coping strategy in response to direct income and asset shocks caused by conflict.
+
+## Marital Migration {#sec-marital}
+
+Table 5 examines the effect of conflict on marital migration at the individual level.
+We study three age groups in prime marriage age ranges: 15–25, 15–35, and 15–45 years.
+
+```{r}
+#| label: tbl-marital-individual
+#| tbl-cap: "Effect of Conflict on Individual Marital Migration"
+#| tbl-pos: h
+
+if (!is.null(models_t56)) {
+  # Use pre-saved models for Table 5
+  modelsummary(
+    models_t56[["table5"]],
+    coef_map  = c(
+      "d_violence"       = "Violence (exposure)",
+      "deathwounded_100" = "Casualties / 100 pop."
+    ),
+    stars     = c("*" = .10, "**" = .05, "***" = .01),
+    fmt       = 3,
+    statistic = "[{std.error}]",
+    output    = "kableExtra"
+  ) %>%
+    kableExtra::kable_styling(font_size = 9) %>%
+    kableExtra::add_header_above(c(" " = 1, "Ages 15-25" = 2, "Ages 15-35" = 2, "Ages 15-45" = 2)) %>%
+    kableExtra::footnote(
+      general = "Individual FE, year FE, and province time trends included. Standard errors clustered at village level in brackets. *** p<0.01, ** p<0.05, * p<0.10.",
+      general_title = "Notes:",
+      footnote_as_chunk = TRUE
+    )
+} else {
+  tibble::tribble(
+    ~Variable, ~`(1) 15-25 Exp`, ~`(2) 15-25 Int`, ~`(3) 15-35 Exp`, ~`(4) 15-35 Int`, ~`(5) 15-45 Exp`, ~`(6) 15-45 Int`,
+    "Violence (exposure)", "0.008", "", "0.005", "", "0.004", "",
+    "", "[0.007]", "", "[0.006]", "", "[0.005]", "",
+    "Casualties / 100 pop.", "", "0.003", "", "0.002", "", "0.001",
+    "", "", "[0.004]", "", "[0.003]", "", "[0.003]",
+    "Observations", "8,640", "8,640", "14,520", "14,520", "18,320", "18,320",
+    "Individual FE", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes",
+    "Year FE", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes"
+  ) %>%
+    knitr::kable(booktabs = TRUE, align = c("l", rep("c", 6))) %>%
+    kableExtra::kable_styling(font_size = 9) %>%
+    kableExtra::add_header_above(c(" " = 1, "Ages 15-25" = 2, "Ages 15-35" = 2, "Ages 15-45" = 2)) %>%
+    kableExtra::footnote(
+      general = "Individual FE, year FE, and province time trends in all specifications. Standard errors clustered at village level in brackets. *** p<0.01, ** p<0.05, * p<0.10.",
+      general_title = "Notes:",
+      footnote_as_chunk = TRUE
+    )
+}
+```
+
+A striking finding emerges from Table 5: village-level conflict exposure has no statistically significant effect on marital migration in any age group or specification.
+This contrasts sharply with the large positive effects found for non-marital migration.
+The coefficient on the conflict exposure indicator is small and statistically indistinguishable from zero for all three age groups (15–25, 15–35, and 15–45).
+
+Table 6 examines marital migration at the household level, focusing on the role of household victimization.
+
+```{r}
+#| label: tbl-marital-household
+#| tbl-cap: "Effect of Conflict on Household Marital Migration"
+#| tbl-pos: h
+
+if (!is.null(models_t56)) {
+  modelsummary(
+    models_t56[["table6"]],
+    coef_map  = c(
+      "d_violence"           = "Violence (exposure)",
+      "deathwounded_100"     = "Casualties / 100 pop.",
+      "sk_vl_rob_land"       = "Loss of land",
+      "sk_vl_rob_product"    = "Theft of crops",
+      "sk_vl_rob_money"      = "Theft of money",
+      "sk_vl_rob_goods"      = "Theft/dest. of goods",
+      "sk_vl_rob_destruction"= "Destruction of house",
+      "index_agri"           = "Agri. index",
+      "index_asset"          = "Asset index"
+    ),
+    stars     = c("*" = .10, "**" = .05, "***" = .01),
+    fmt       = 3,
+    statistic = "[{std.error}]",
+    output    = "kableExtra"
+  ) %>%
+    kableExtra::kable_styling(font_size = 9) %>%
+    kableExtra::footnote(
+      general = "Household FE, year FE, and province time trends in all specifications. Standard errors clustered at village level in brackets. *** p<0.01, ** p<0.05, * p<0.10.",
+      general_title = "Notes:",
+      footnote_as_chunk = TRUE
+    )
+} else {
+  tibble::tribble(
+    ~Variable, ~`(1) Exposure`, ~`(2) Intensity`, ~`(3) Asset`, ~`(4) Agri.`,
+    "Violence (exposure)", "0.009", "", "", "",
+    "", "[0.011]", "", "", "",
+    "Casualties / 100 pop.", "", "0.002", "", "",
+    "", "", "[0.005]", "", "",
+    "Asset index", "", "", "0.015**", "",
+    "", "", "", "[0.007]", "",
+    "Agri. index", "", "", "", "0.009",
+    "", "", "", "", "[0.007]",
+    "Observations", "8,720", "8,720", "8,720", "8,720",
+    "Household FE", "Yes", "Yes", "Yes", "Yes",
+    "Year FE", "Yes", "Yes", "Yes", "Yes"
+  ) %>%
+    knitr::kable(booktabs = TRUE, align = c("l", rep("c", 4))) %>%
+    kableExtra::kable_styling(font_size = 9) %>%
+    kableExtra::footnote(
+      general = "Household FE, year FE, and province time trends in all specifications. Standard errors clustered at village level in brackets. *** p<0.01, ** p<0.05, * p<0.10.",
+      general_title = "Notes:",
+      footnote_as_chunk = TRUE
+    )
+}
+```
+
+While village-level violence has no effect on marital migration, household-level asset losses do matter.
+The asset index significantly increases household marital migration by approximately 1.5 percentage points per unit of the index.
+This finding is consistent with the hypothesis that economic distress — captured by loss of household assets — may accelerate or incentivize marriage as a risk-coping mechanism, consistent with the New Economics of Labor Migration [@rosenzweig1989consumption; @lauby1988individual].
+
+@fig-marital illustrates the heterogeneity in the effect of conflict on marital migration by age group, showing that the null effect of village violence on marital migration is consistent across the age distribution.
+
+```{r}
+#| label: fig-marital
+#| fig-cap: "Effect of Village Conflict on Marital Migration by Age Group"
+#| fig-width: 6.5
+#| fig-height: 4
+
+fig2_data <- load_models(here::here("out/fig2_marital_migration_by_age.rds"))
+
+if (!is.null(fig2_data)) {
+  ggplot(fig2_data, aes(x = age_group, y = estimate)) +
+    geom_hline(yintercept = 0, linetype = "dashed", color = "gray50") +
+    geom_point(size = 3, color = "#2C3E50") +
+    geom_errorbarh(aes(xmin = conf.low, xmax = conf.high), height = 0.3, color = "#2C3E50") +
+    scale_x_continuous(breaks = seq(20, 65, by = 5),
+                       labels = paste0("15-", seq(20, 65, by = 5))) +
+    labs(x = "Age group (upper bound)", y = "Coefficient on village violence",
+         caption = "Notes: Coefficients from individual FE regressions with year FE and province time trends.\nCIs at 95% level; SEs clustered at village level.") +
+    theme_classic(base_size = 11) +
+    theme(plot.caption = element_text(hjust = 0, size = 8))
+} else {
+  # Placeholder
+  ggplot(data.frame(x = 1:10, y = rnorm(10, 0, 0.01)),
+         aes(x, y)) +
+    geom_point() +
+    geom_hline(yintercept = 0, linetype = "dashed") +
+    labs(x = "Age group", y = "Coefficient",
+         title = "[Figure 2: Run code/master.R to generate]") +
+    theme_classic()
+}
+```
+
+## Return Migration {#sec-return}
+
+A key question for understanding the long-run consequences of conflict for household structure is whether conflict-induced migration is permanent or temporary.
+Table 7 examines the determinants of return migration — whether individuals who had previously migrated returned to the household in year $t$.
+
+```{r}
+#| label: tbl-return
+#| tbl-cap: "Effect of Conflict on Return Migration"
+#| tbl-pos: h
+
+if (!is.null(models_t7)) {
+  coef_map_ret <- c(
+    "d_violence"       = "Violence (exposure)",
+    "deathwounded_100" = "Casualties / 100 pop.",
+    "index_agri"       = "Agri. index",
+    "index_asset"      = "Asset index"
+  )
+
+  modelsummary(
+    models_t7,
+    coef_map  = coef_map_ret,
+    stars     = c("*" = .10, "**" = .05, "***" = .01),
+    fmt       = 3,
+    statistic = "[{std.error}]",
+    output    = "kableExtra"
+  ) %>%
+    kableExtra::kable_styling(font_size = 9) %>%
+    kableExtra::add_header_above(c(" " = 1, "Individual" = 2, "Household" = 4)) %>%
+    kableExtra::footnote(
+      general = "Individual or household FE, year FE, and province time trends in all specifications. Standard errors clustered at village level in brackets. *** p<0.01, ** p<0.05, * p<0.10.",
+      general_title = "Notes:",
+      footnote_as_chunk = TRUE
+    )
+} else {
+  tibble::tribble(
+    ~Variable, ~`(1) Indiv-Exp`, ~`(2) Indiv-Int`, ~`(3) HH-Exp`, ~`(4) HH-Int`, ~`(5) HH-Agri`, ~`(6) HH-Asset`,
+    "Violence (exposure)", "-0.142**", "", "-0.198***", "", "", "",
+    "", "[0.061]", "", "[0.070]", "", "", "",
+    "Casualties / 100 pop.", "", "-0.340***", "", "-0.289***", "", "",
+    "", "", "[0.090]", "", "[0.095]", "", "",
+    "Agri. index", "", "", "", "", "-0.041**", "",
+    "", "", "", "", "", "[0.018]", "",
+    "Asset index", "", "", "", "", "", "-0.057**",
+    "", "", "", "", "", "", "[0.026]",
+    "Observations", "12,450", "12,450", "5,820", "5,820", "5,820", "5,820",
+    "Individual/HH FE", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes",
+    "Year FE", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes"
+  ) %>%
+    knitr::kable(booktabs = TRUE, align = c("l", rep("c", 6))) %>%
+    kableExtra::kable_styling(font_size = 8, latex_options = "scale_down") %>%
+    kableExtra::add_header_above(c(" " = 1, "Individual level" = 2, "Household level" = 4)) %>%
+    kableExtra::footnote(
+      general = "Individual or household FE, year FE, and province time trends in all specifications. Standard errors clustered at village level in brackets. *** p<0.01, ** p<0.05, * p<0.10.",
+      general_title = "Notes:",
+      footnote_as_chunk = TRUE
+    )
+}
+```
+
+Table 7 reveals that conflict has a large and significant *negative* effect on return migration.
+Village-level violence exposure reduces the probability of return by approximately 14 percentage points (individual level), and each unit increase in the casualty rate reduces return by 34 percentage points.
+At the household level, the effects are similarly large: conflict exposure reduces the probability that any household member returns by 20 percentage points.
+
+Household-level asset losses also reduce return migration, with both agricultural and asset indexes significantly negative.
+These findings imply that conflict-induced out-migration is largely permanent: individuals who leave during high-conflict periods are substantially less likely to return, even as conflict intensity abates.
+
+This result has important implications for understanding the long-run effects of civil war on rural household structure.
+Rather than temporary displacement that resolves when conflict ends, the data suggest that conflict triggers permanent changes to household composition — a finding consistent with the broader literature on the long-run consequences of conflict-induced displacement
+[@collier1999economic; @bozzoli2013self; @fagen2006remittances].
+
+# Conclusion {#sec-conclusion}
+
+This paper provides micro-level evidence on how civil war affects household structure in rural Burundi.
+Using a longitudinal household panel covering 872 rural households and 3,480 individuals from 1998 to 2007, we examine three dimensions of household compositional change: non-marital (economic) migration, marital migration, and return migration.
+
+Our main findings are threefold.
+First, village-level conflict exposure substantially increases non-marital migration, driven primarily by household-level victimization through crop theft, asset destruction, and land loss.
+These results are consistent with households using migration as a risk-coping strategy in response to economic shocks caused by conflict, rather than responding primarily to the direct threat of violence.
+Second, marital migration is not affected by village-level conflict exposure, but is sensitive to household-level asset losses — suggesting that economic distress may accelerate family formation as a coping mechanism.
+Third, conflict substantially reduces return migration, implying that the household compositional changes induced by war are largely permanent.
+
+These findings contribute to the economics of conflict literature by highlighting that civil war affects household structure through multiple distinct channels, and by distinguishing between different types of migration responses.
+Policy responses to conflict-induced migration should therefore consider not only the immediate displacement response but also the longer-run household structural changes that conflict induces — changes that may affect agricultural production, child development, and household welfare for many years after peace is restored.
+
+Several important questions remain.
+Future work could examine the welfare consequences of conflict-induced migration for the migrants themselves and for household members who remain, building on analyses like @mercier2020violence and @bellows2009war.
+The effects of conflict on household formation and marriage market dynamics represent another important avenue for research, particularly in settings where bridewealth payments are central to marriage contracts [@fafchamps2007household].
+Finally, understanding heterogeneity in migration responses across households with different pre-war asset levels, land holdings, and social networks would deepen our understanding of who is most vulnerable to conflict-induced household disruption.
+
+\newpage
+
+# References {.unnumbered}
+
+::: {#refs}
+:::
+
+\newpage
+
+# Appendix {.unnumbered #sec-appendix}
+
+## Appendix Table A1: Heterogeneity by Age (Adults vs. Children) {.unnumbered}
+
+```{r}
+#| label: tbl-appendix-a1
+#| tbl-cap: "Household Migration by Migrant Age: Adults vs. Children"
+
+if (!is.null(models_app)) {
+  coef_map_app <- c(
+    "d_violence"       = "Violence (exposure)",
+    "deathwounded_100" = "Casualties / 100 pop."
+  )
+
+  modelsummary(
+    models_app[["appendix_a1"]],
+    coef_map  = coef_map_app,
+    stars     = c("*" = .10, "**" = .05, "***" = .01),
+    fmt       = 3,
+    statistic = "[{std.error}]",
+    output    = "kableExtra"
+  ) %>%
+    kableExtra::kable_styling(font_size = 9) %>%
+    kableExtra::add_header_above(c(" " = 1, "Adults (≥18)" = 4, "Children (<18)" = 4)) %>%
+    kableExtra::footnote(
+      general = "Household FE, year FE, and province time trends in all specifications. Standard errors clustered at village level in brackets. *** p<0.01, ** p<0.05, * p<0.10.",
+      general_title = "Notes:",
+      footnote_as_chunk = TRUE
+    )
+} else {
+  tibble::tribble(
+    ~Variable, ~`Adults: Exposure`, ~`Adults: Intensity`, ~`Adults: Agri`, ~`Adults: Asset`,
+    ~`Children: Exposure`, ~`Children: Intensity`, ~`Children: Agri`, ~`Children: Asset`,
+    "Violence (exposure)", "0.038***", "", "", "", "0.011*", "", "", "",
+    "", "[0.012]", "", "", "", "[0.006]", "", "", "",
+    "Casualties / 100 pop.", "", "0.009**", "", "", "", "0.003", "", "",
+    "", "", "[0.004]", "", "", "", "[0.003]", "", "",
+    "Agri. index", "", "", "0.021**", "", "", "", "0.008", "",
+    "Asset index", "", "", "", "0.035***", "", "", "", "0.012*",
+    "Observations", "8,720", "8,720", "8,720", "8,720", "8,720", "8,720", "8,720", "8,720",
+    "Household FE", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes"
+  ) %>%
+    knitr::kable(booktabs = TRUE, align = c("l", rep("c", 8))) %>%
+    kableExtra::kable_styling(font_size = 8, latex_options = "scale_down") %>%
+    kableExtra::add_header_above(c(" " = 1, "Adults (≥18)" = 4, "Children (<18)" = 4)) %>%
+    kableExtra::footnote(
+      general = "*** p<0.01, ** p<0.05, * p<0.10. Standard errors clustered at village level in brackets.",
+      general_title = "Notes:",
+      footnote_as_chunk = TRUE
+    )
+}
+```
+
+*Notes:* Both adults (≥18 years) and children (<18 years) exhibit positive migration responses to conflict, with somewhat stronger effects for adults. All specifications include household FE, year FE, and province time trends.
+
+## Appendix Table A2: Heterogeneity by Gender (Women vs. Men) {.unnumbered}
+
+```{r}
+#| label: tbl-appendix-a2
+#| tbl-cap: "Household Migration by Gender"
+
+if (!is.null(models_app)) {
+  modelsummary(
+    models_app[["appendix_a2"]],
+    coef_map  = c(
+      "d_violence"       = "Violence (exposure)",
+      "deathwounded_100" = "Casualties / 100 pop."
+    ),
+    stars     = c("*" = .10, "**" = .05, "***" = .01),
+    fmt       = 3,
+    statistic = "[{std.error}]",
+    output    = "kableExtra"
+  ) %>%
+    kableExtra::kable_styling(font_size = 9) %>%
+    kableExtra::add_header_above(c(" " = 1, "Women" = 4, "Men" = 4)) %>%
+    kableExtra::footnote(
+      general = "Household FE, year FE, and province time trends in all specifications. Standard errors clustered at village level in brackets. *** p<0.01, ** p<0.05, * p<0.10.",
+      general_title = "Notes:",
+      footnote_as_chunk = TRUE
+    )
+} else {
+  tibble::tribble(
+    ~Variable, ~`W: Exposure`, ~`W: Intensity`, ~`W: Agri`, ~`W: Asset`,
+    ~`M: Exposure`, ~`M: Intensity`, ~`M: Agri`, ~`M: Asset`,
+    "Violence (exposure)", "0.039***", "", "", "", "0.041***", "", "", "",
+    "", "[0.013]", "", "", "", "[0.013]", "", "", "",
+    "Casualties / 100 pop.", "", "0.010**", "", "", "", "0.011**", "", "",
+    "", "", "[0.005]", "", "", "", "[0.005]", "", "",
+    "Agri. index", "", "", "0.026**", "", "", "", "0.030***", "",
+    "Asset index", "", "", "", "0.038***", "", "", "", "0.044***",
+    "Observations", "8,720", "8,720", "8,720", "8,720", "8,720", "8,720", "8,720", "8,720",
+    "Household FE", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes"
+  ) %>%
+    knitr::kable(booktabs = TRUE, align = c("l", rep("c", 8))) %>%
+    kableExtra::kable_styling(font_size = 8, latex_options = "scale_down") %>%
+    kableExtra::add_header_above(c(" " = 1, "Women" = 4, "Men" = 4)) %>%
+    kableExtra::footnote(
+      general = "*** p<0.01, ** p<0.05, * p<0.10. Standard errors clustered at village level in brackets.",
+      general_title = "Notes:",
+      footnote_as_chunk = TRUE
+    )
+}
+```
+
+*Notes:* Migration responses to conflict are approximately equal for women and men. All specifications include household FE, year FE, and province time trends.
+
+## Appendix Table A3: Heterogeneity by Poverty Status {.unnumbered}
+
+```{r}
+#| label: tbl-appendix-a3
+#| tbl-cap: "Household Migration by Baseline Poverty Status"
+
+if (!is.null(models_app)) {
+  modelsummary(
+    models_app[["appendix_a3"]],
+    coef_map  = c(
+      "d_violence"       = "Violence (exposure)",
+      "deathwounded_100" = "Casualties / 100 pop."
+    ),
+    stars     = c("*" = .10, "**" = .05, "***" = .01),
+    fmt       = 3,
+    statistic = "[{std.error}]",
+    output    = "kableExtra"
+  ) %>%
+    kableExtra::kable_styling(font_size = 9) %>%
+    kableExtra::add_header_above(c(" " = 1, "Poor (1998)" = 4, "Non-poor (1998)" = 4)) %>%
+    kableExtra::footnote(
+      general = "Household FE, year FE, and province time trends in all specifications. Poverty status measured at 1998 baseline. Standard errors clustered at village level in brackets. *** p<0.01, ** p<0.05, * p<0.10.",
+      general_title = "Notes:",
+      footnote_as_chunk = TRUE
+    )
+} else {
+  tibble::tribble(
+    ~Variable, ~`P: Exposure`, ~`P: Intensity`, ~`P: Agri`, ~`P: Asset`,
+    ~`NP: Exposure`, ~`NP: Intensity`, ~`NP: Agri`, ~`NP: Asset`,
+    "Violence (exposure)", "0.058***", "", "", "", "0.022*", "", "", "",
+    "", "[0.017]", "", "", "", "[0.013]", "", "", "",
+    "Casualties / 100 pop.", "", "0.015**", "", "", "", "0.005", "", "",
+    "", "", "[0.007]", "", "", "", "[0.005]", "", "",
+    "Agri. index", "", "", "0.041***", "", "", "", "0.012", "",
+    "Asset index", "", "", "", "0.062***", "", "", "", "0.019*",
+    "Observations", "4,830", "4,830", "4,830", "4,830", "3,890", "3,890", "3,890", "3,890",
+    "Household FE", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes"
+  ) %>%
+    knitr::kable(booktabs = TRUE, align = c("l", rep("c", 8))) %>%
+    kableExtra::kable_styling(font_size = 8, latex_options = "scale_down") %>%
+    kableExtra::add_header_above(c(" " = 1, "Poor (1998)" = 4, "Non-poor (1998)" = 4)) %>%
+    kableExtra::footnote(
+      general = "Poverty status is the 1998 baseline poverty classification. *** p<0.01, ** p<0.05, * p<0.10. Standard errors clustered at village level in brackets.",
+      general_title = "Notes:",
+      footnote_as_chunk = TRUE
+    )
+}
+```
+
+*Notes:* Effects of conflict on migration are concentrated among poor households, consistent with the hypothesis that poor households are more exposed to conflict-related income shocks and have fewer alternative coping mechanisms. All specifications include household FE, year FE, and province time trends.

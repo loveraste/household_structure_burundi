@@ -1,0 +1,181 @@
+---
+title: "Civil War and Household Structure: Evidence from Burundi"
+subtitle: "Technical Supplement"
+date: last-modified
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(kableExtra)
+```
+
+::: {.hero-section}
+
+# Civil War and Household Structure: Evidence from Burundi
+
+::: {.subtitle}
+Technical Supplement and Replication Materials
+:::
+
+::: {.authors}
+**Richard Akresh** · University of Illinois at Urbana-Champaign
+**Juan Carlos Muñoz-Mora** · Universidad EAFIT
+**Philip Verwimp** · Université Libre de Bruxelles — ECARES
+:::
+
+::: {.affil}
+*Preliminary draft — December 2025. Please do not cite without permission.*
+:::
+
+:::
+
+---
+
+## Abstract
+
+This paper examines how civil war affects household structure by analyzing individual and household migration decisions in Burundi between 1998 and 2007. Using a unique longitudinal household panel dataset covering 872 rural households and 3,480 household members, we exploit within-individual and within-household variation in conflict exposure across time and geography. We distinguish between non-marital (economic) migration and marital migration as distinct responses to conflict. We find that village-level conflict exposure increases non-marital migration by **3.1 percentage points**, driven primarily by asset and crop losses inflicted on households. In contrast, marital migration is not affected by village-level violence but is sensitive to household victimization through asset losses. Conflict also substantially reduces the probability of return migration, implying durable changes to household composition. These results highlight that civil war reshapes family structure through multiple channels, with households deploying migration as a risk-coping strategy in response to direct victimization.
+
+::: {.callout-note}
+**JEL Classification:**
+<span class="badge-jel">D13</span> Household Production and Intrahousehold Allocation
+<span class="badge-jel">J12</span> Marriage · Marital Dissolution · Family Structure
+<span class="badge-jel">O12</span> Microeconomic Analyses of Economic Development
+
+**Keywords:** Civil war · Household structure · Migration · Burundi · Panel data · Fixed effects
+:::
+
+---
+
+## Key Findings
+
+::: {.stat-grid}
+
+::: {.stat-box}
+[+3.1 pp]{.stat-value}
+[Effect on non-marital migration]{.stat-label}
+:::
+
+::: {.stat-box}
+[+4.1 pp]{.stat-value}
+[Effect on household migration]{.stat-label}
+:::
+
+::: {.stat-box}
+[−34 pp]{.stat-value}
+[Effect on return migration]{.stat-label}
+:::
+
+::: {.stat-box}
+[3,480]{.stat-value}
+[Household members tracked]{.stat-label}
+:::
+
+::: {.stat-box}
+[872]{.stat-value}
+[Rural households]{.stat-label}
+:::
+
+::: {.stat-box}
+[1998–2007]{.stat-value}
+[Panel period]{.stat-label}
+:::
+
+:::
+
+---
+
+## Summary of Results
+
+::: {.finding-card}
+[+3.1 pp]{.number}
+[Non-Marital Migration (Individual Level, Table 3)]{.label}
+::: {.description}
+Village-level conflict exposure significantly increases individual non-marital migration. The effect is concentrated in household-level victimization: theft of crops, money, assets, and land each independently drive out-migration. The asset PCA index increases migration by **2.1 pp** per unit.
+:::
+:::
+
+::: {.finding-card}
+[+4.1 pp]{.number}
+[Household Migration (Household Level, Table 4)]{.label}
+::: {.description}
+At the household level, conflict exposure raises the probability that at least one member migrates. Asset losses — theft of money and destruction of household assets — are the strongest predictors. The household asset index increases migration by **4.1 pp** per unit.
+:::
+:::
+
+::: {.finding-card}
+[No effect]{.number}
+[Marital Migration Not Affected by Village Violence (Table 5)]{.label}
+::: {.description}
+Village-level conflict exposure has no statistically significant effect on marital migration for any age group (15–25, 15–35, or 15–45). However, household-level asset losses do increase marital migration at the household level (**+1.5 pp**, Table 6).
+:::
+:::
+
+::: {.finding-card}
+[−14 to −34 pp]{.number}
+[Return Migration Strongly Suppressed (Table 7)]{.label}
+::: {.description}
+Conflict substantially reduces the probability of return migration. Conflict exposure reduces individual return by **−14 pp**; each unit of the casualty intensity measure reduces return by **−34 pp**. This implies that conflict-induced household compositional changes are largely permanent.
+:::
+:::
+
+---
+
+## Empirical Strategy
+
+The core identification strategy exploits **within-individual (or within-household) variation** in village-level conflict exposure over time:
+
+$$\text{Leave}_{iht} = \alpha_i + \delta_t + \gamma_{p(h)} \cdot t + \beta \cdot \text{Conflict}_{v(h)t} + \varepsilon_{iht}$$
+
+where:
+
+- $\alpha_i$ = **individual fixed effect** (absorbs all time-invariant heterogeneity)
+- $\delta_t$ = **year fixed effect** (absorbs aggregate national trends)
+- $\gamma_{p(h)} \cdot t$ = **province-specific time trend** (controls for differential regional trajectories)
+- $\text{Conflict}_{v(h)t}$ = village-level conflict exposure (binary or continuous intensity)
+- Standard errors clustered at the **village (sous-colline)** level
+
+The individual fixed effect eliminates confounding from time-invariant characteristics such as ethnicity, pre-war socioeconomic status, and location. Identification relies on whether the *same individual* migrates more in years when their village experiences conflict than in years without conflict.
+
+---
+
+## Paper Structure
+
+| Section | Content |
+|---------|---------|
+| [**Data**](data.qmd) | Survey design, conflict data, sample selection, descriptive statistics |
+| [**Results**](results.qmd) | Main regression tables (Tables 1–7), coefficient plots, interpretation |
+| [**Robustness**](robustness.qmd) | Alternative specs, placebo tests, heterogeneity (Appendix A1–A3) |
+
+---
+
+## Related Literature
+
+This paper contributes to three main literatures:
+
+**Economics of Conflict:** @blattman2010civil provide a comprehensive review of the economic consequences of civil war. @vesco2025impacts review the impacts of armed conflict on human development. @collier1999economic and @deininger2003causes examine micro-level economic consequences of civil strife.
+
+**Household Risk and Migration:** @morduch1995income and @rosenzweig1989consumption develop the theoretical framework for migration as a household risk-coping strategy. @lauby1988individual apply this to women's migration in the Philippines.
+
+**Burundi-Specific Evidence:** @mercier2020violence study the effect of violence exposure on household poverty using the same dataset. @verwimp2009civil examine household welfare in extended households. @bozzoli2013self study self-employment and conflict in Colombia in a related setting.
+
+---
+
+## Data and Code Access
+
+::: {.callout-important}
+**Replication materials** are available at the project repository. The analysis pipeline runs in R using `fixest` for panel fixed-effects estimation.
+
+The data (*Burundi Priority Household Panel Survey 1998–2007*) were collected by the World Bank and ISTEEBU. Researchers seeking access should contact the corresponding author.
+
+**Citation:** Akresh, R., Muñoz-Mora, J.C., & Verwimp, P. (2025). *Civil War and Household Structure: Evidence from Burundi*. Preliminary draft.
+
+**Data acknowledgment:** Burundi Priority Household Panel Survey 1998-2007-2012, European Centre for Advanced Research in Economics and Statistics (ECARES), Université libre de Bruxelles.
+:::
+
+---
+
+## References {.unnumbered}
+
+::: {#refs}
+:::

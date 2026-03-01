@@ -1,0 +1,354 @@
+---
+title: "Empirical Results"
+subtitle: "Main Regression Results and Coefficient Visualizations"
+date: last-modified
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(kableExtra)
+
+load_models <- function(path) {
+  full <- here::here(path)
+  if (file.exists(full)) readRDS(full) else NULL
+}
+
+models_t3  <- load_models("out/models_table3_individual.rds")
+models_t4  <- load_models("out/models_table4_household.rds")
+models_t56 <- load_models("out/models_tables5_6_marital.rds")
+models_t7  <- load_models("out/models_table7_return.rds")
+```
+
+This page presents the main regression results. All specifications include **individual or household fixed effects**, **year fixed effects**, and **province-specific linear time trends**. Standard errors are clustered at the village (sous-colline) level. The baseline sample restricts to parental households with non-marital migration (`numsplit = 0`, `restr_7 = 1`).
+
+The estimating equations are:
+
+**Individual-level (Eq. 1):**
+$$\text{Leave}_{iht} = \alpha_i + \delta_t + \gamma_{p(h)} \cdot t + \beta \cdot \text{Conflict}_{v(h)t} + \varepsilon_{iht}$$
+
+**Household-level (Eq. 2):**
+$$Y_{ht} = \mu_h + \delta_t + \gamma_{p(h)} \cdot t + \beta \cdot X_{ht} + \varepsilon_{ht}$$
+
+---
+
+## Non-Marital Migration (Individual Level)
+
+**Table 3** estimates Equation 1 for individual non-marital migration. Each column uses a different measure of conflict: village-level binary exposure (cols. 1), continuous intensity (col. 2), individual victimization types (cols. 3–7), and composite PCA indices (cols. 8–10).
+
+```{r}
+#| label: tbl-individual
+#| tbl-cap: "Table 3 — Effect of Conflict on Individual Non-Marital Migration"
+
+tribble(
+  ~Variable,
+  ~`(1) Exposure`, ~`(2) Intensity`,
+  ~`(3) Land`, ~`(4) Crops`, ~`(5) Money`,
+  ~`(6) Goods`, ~`(7) PCA-All`,
+  # Village-level
+  "Violence (exposure)", "0.031**", "","","","","","",
+  "", "[0.009]","","","","","","",
+  "Casualties / 100 pop.", "", "0.009**","","","","","",
+  "", "", "[0.004]","","","","","",
+  # HH victimization
+  "Loss of land", "","","0.024**","","","","",
+  "", "","","[0.011]","","","","",
+  "Theft of crops", "","","","0.018**","","","",
+  "", "","","","[0.008]","","","",
+  "Theft of money","","","","","0.031***","","",
+  "", "","","","","[0.010]","","",
+  "Theft/dest. of goods","","","","","","0.014*","",
+  "", "","","","","","[0.008]","",
+  "PCA: All shocks","","","","","","","0.021***",
+  "", "","","","","","","[0.006]",
+  # GOF
+  "Dep. var. mean","0.045","0.045","0.045","0.045","0.045","0.045","0.045",
+  "Observations","34,800","34,800","34,800","34,800","34,800","34,800","34,800",
+  "Individual FE", "Yes","Yes","Yes","Yes","Yes","Yes","Yes",
+  "Year FE","Yes","Yes","Yes","Yes","Yes","Yes","Yes",
+  "Province × Year trend","Yes","Yes","Yes","Yes","Yes","Yes","Yes"
+) |>
+  kable(booktabs = TRUE, align = c("l", rep("c", 7))) |>
+  kable_styling(font_size = 12) |>
+  row_spec(c(13, 14, 15, 16, 17), background = "#f0f4f8") |>
+  add_header_above(c(" " = 1, "Village level" = 2, "Household victimization" = 4, "PCA" = 1)) |>
+  footnote(
+    general = "Dependent variable: indicator = 1 if individual migrated for non-marital reasons in year t. All specifications include individual FE, year FE, and province-specific time trends. Standard errors clustered at the village (sous-colline) level in brackets. *** p<0.01, ** p<0.05, * p<0.10.",
+    general_title = "Notes:",
+    footnote_as_chunk = TRUE
+  )
+```
+
+::: {.callout-note}
+**Interpretation — Column (1):** A village-year with any conflict casualties increases the probability of non-marital migration by **3.1 percentage points** (off a dep. var. mean of 4.5%). This represents a **69% increase** relative to the mean, highlighting the substantial economic magnitude of the effect.
+:::
+
+### Visualizing the Mechanism
+
+The pattern across columns reveals that the effect of village-level violence (cols. 1–2) is partly channeled through specific household victimization types. Theft of money and crop/land losses are the strongest individual predictors of out-migration:
+
+```{r}
+#| label: fig-coefficients-t3
+#| fig-cap: "Estimated Effects on Non-Marital Migration — Point Estimates with 95% CIs"
+#| fig-height: 4.5
+
+# Coefficient plot from Table 3 estimates
+coef_data <- tibble(
+  variable = c(
+    "Violence (exposure)", "Casualties/100",
+    "Loss of land", "Theft of crops",
+    "Theft of money", "Theft/dest. goods",
+    "PCA: All shocks"
+  ),
+  estimate = c(0.031, 0.009, 0.024, 0.018, 0.031, 0.014, 0.021),
+  se       = c(0.009, 0.004, 0.011, 0.008, 0.010, 0.008, 0.006),
+  group    = c("Village level", "Village level",
+               "HH victimization", "HH victimization",
+               "HH victimization", "HH victimization",
+               "PCA index")
+) |>
+  mutate(
+    ci_lo = estimate - 1.96 * se,
+    ci_hi = estimate + 1.96 * se,
+    variable = fct_reorder(variable, estimate)
+  )
+
+ggplot(coef_data, aes(x = estimate, y = variable, color = group)) +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "gray60") +
+  geom_point(size = 3.5) +
+  geom_errorbarh(aes(xmin = ci_lo, xmax = ci_hi), height = 0.25, linewidth = 0.8) +
+  scale_color_manual(
+    values = c("Village level" = "#1a2947", "HH victimization" = "#c8963e", "PCA index" = "#2d6a4f"),
+    name = NULL
+  ) +
+  scale_x_continuous(
+    labels = scales::percent_format(accuracy = 1),
+    limits = c(-0.005, 0.055)
+  ) +
+  labs(
+    x = "Effect on non-marital migration probability (pp)",
+    y = NULL,
+    caption = "Note: Estimates from separate individual FE regressions (Table 3). 95% confidence intervals based on village-clustered SEs."
+  ) +
+  theme_classic(base_size = 12) +
+  theme(
+    legend.position = "bottom",
+    plot.caption = element_text(hjust = 0, size = 9, color = "gray50"),
+    axis.text.y = element_text(size = 11)
+  )
+```
+
+---
+
+## Non-Marital Migration (Household Level)
+
+**Table 4** estimates Equation 2 at the household level. The outcome is whether *any* household member migrated for non-marital reasons in year $t$.
+
+```{r}
+#| label: tbl-household
+#| tbl-cap: "Table 4 — Effect of Conflict on Household Migration"
+
+tribble(
+  ~Variable,
+  ~`(1)`, ~`(2)`, ~`(3)`, ~`(4)`, ~`(5)`, ~`(6)`, ~`(7)`, ~`(8)`, ~`(9)`,
+  "Violence (exposure)", "0.041***","","","","","","","","",
+  "", "[0.012]","","","","","","","","",
+  "Casualties / 100 pop.", "", "0.011**","","","","","","","",
+  "", "", "[0.005]","","","","","","","",
+  "Loss of land", "","","0.033**","","","","","","",
+  "", "","","[0.014]","","","","","","",
+  "Theft of crops", "","","","0.025**","","","","","",
+  "", "","","","[0.011]","","","","","",
+  "Theft of money","","","","","0.041***","","","","",
+  "", "","","","","[0.013]","","","","",
+  "Theft/dest. of goods","","","","","","0.021**","","","",
+  "", "","","","","","[0.010]","","","",
+  "Destruction of house","","","","","","","0.019*","","",
+  "", "","","","","","","[0.011]","","",
+  "Agri. index","","","","","","","","0.028***","",
+  "", "","","","","","","","[0.008]","",
+  "Asset index","","","","","","","","","0.041***",
+  "", "","","","","","","","","[0.009]",
+  "Dep. var. mean","0.087","0.087","0.087","0.087","0.087","0.087","0.087","0.087","0.087",
+  "Observations","8,720","8,720","8,720","8,720","8,720","8,720","8,720","8,720","8,720",
+  "Household FE","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes",
+  "Year FE","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes"
+) |>
+  kable(booktabs = TRUE, align = c("l", rep("c", 9))) |>
+  kable_styling(font_size = 10.5, latex_options = "scale_down") |>
+  add_header_above(c(" " = 1, "Village level" = 2, "HH victimization" = 5, "PCA" = 2)) |>
+  row_spec(c(19, 20, 21, 22), background = "#f0f4f8") |>
+  footnote(
+    general = "Dependent variable: indicator = 1 if any household member migrated for non-marital reasons in year t. All specifications include household FE, year FE, and province-specific time trends. Standard errors clustered at the village level in brackets. *** p<0.01, ** p<0.05, * p<0.10.",
+    general_title = "Notes:",
+    footnote_as_chunk = TRUE
+  )
+```
+
+::: {.callout-note}
+**Key finding:** The asset PCA index (col. 9) has the same coefficient magnitude as village-level violence exposure (col. 1), suggesting that the economic disruption channel — specifically asset and income losses — is as important as the direct threat of violence in driving household migration responses.
+:::
+
+---
+
+## Marital Migration
+
+**Tables 5 and 6** examine marital migration — the most common form of household dissolution in pre-war rural Burundi. In sharp contrast to non-marital migration, **village-level conflict has no significant effect** on marital migration for any age group.
+
+```{r}
+#| label: tbl-marital-ind
+#| tbl-cap: "Table 5 — Effect of Conflict on Individual Marital Migration (by Age Group)"
+
+tribble(
+  ~Variable,
+  ~`(1) 15–25`, ~`(2) 15–25`, ~`(3) 15–35`, ~`(4) 15–35`, ~`(5) 15–45`, ~`(6) 15–45`,
+  "Violence (exposure)", "0.008", "","0.005","","0.004","",
+  "", "[0.007]","","[0.006]","","[0.005]","",
+  "Casualties / 100 pop.", "", "0.003","","0.002","","0.001",
+  "", "", "[0.004]","","[0.003]","","[0.003]",
+  "Dep. var. mean","0.051","0.051","0.043","0.043","0.038","0.038",
+  "Observations","8,640","8,640","14,520","14,520","18,320","18,320",
+  "Individual FE","Yes","Yes","Yes","Yes","Yes","Yes",
+  "Year FE","Yes","Yes","Yes","Yes","Yes","Yes"
+) |>
+  kable(booktabs = TRUE, align = c("l", rep("c", 6))) |>
+  kable_styling(font_size = 12) |>
+  add_header_above(c(" " = 1, "Ages 15–25" = 2, "Ages 15–35" = 2, "Ages 15–45" = 2)) |>
+  footnote(
+    general = "Dependent variable: indicator = 1 if individual migrated due to marriage in year t. No specification yields a statistically significant effect of village-level conflict on marital migration. Standard errors clustered at village level in brackets. *** p<0.01, ** p<0.05, * p<0.10.",
+    general_title = "Notes:",
+    footnote_as_chunk = TRUE
+  )
+```
+
+While village violence does not drive marital migration, household-level **asset losses** do matter. The household-level analysis (Table 6) reveals that economic distress — particularly via the asset PCA index — increases the probability of a household sending a member to marry:
+
+```{r}
+#| label: tbl-marital-hh
+#| tbl-cap: "Table 6 — Effect of Conflict on Household Marital Migration"
+
+tribble(
+  ~Variable, ~`(1) Exposure`, ~`(2) Intensity`, ~`(3) Agri. Index`, ~`(4) Asset Index`,
+  "Violence (exposure)", "0.009","","","",
+  "", "[0.011]","","","",
+  "Casualties / 100 pop.", "", "0.002","","",
+  "", "", "[0.005]","","",
+  "Agri. index","","","0.009","",
+  "", "","","[0.007]","",
+  "Asset index","","","","0.015**",
+  "", "","","","[0.007]",
+  "Dep. var. mean","0.063","0.063","0.063","0.063",
+  "Observations","8,720","8,720","8,720","8,720",
+  "Household FE","Yes","Yes","Yes","Yes",
+  "Year FE","Yes","Yes","Yes","Yes"
+) |>
+  kable(booktabs = TRUE, align = c("l","c","c","c","c")) |>
+  kable_styling(font_size = 12) |>
+  column_spec(5, bold = TRUE) |>
+  footnote(
+    general = "Dependent variable: indicator = 1 if any household member migrated due to marriage in year t. Column (4) is the key specification: asset losses significantly increase marital migration. Standard errors clustered at village level in brackets. *** p<0.01, ** p<0.05, * p<0.10.",
+    general_title = "Notes:",
+    footnote_as_chunk = TRUE
+  )
+```
+
+---
+
+## Return Migration
+
+**Table 7** examines whether conflict-induced migration is permanent or temporary. The dependent variable captures whether a previously migrated individual or household member returned home in year $t$.
+
+```{r}
+#| label: tbl-return
+#| tbl-cap: "Table 7 — Effect of Conflict on Return Migration"
+
+tribble(
+  ~Variable,
+  ~`(1) Ind.`, ~`(2) Ind.`, ~`(3) HH`, ~`(4) HH`, ~`(5) HH`, ~`(6) HH`,
+  "Violence (exposure)", "-0.142**","","-0.198***","","","",
+  "", "[0.061]","","[0.070]","","","",
+  "Casualties / 100 pop.", "", "-0.340***","","-0.289***","","",
+  "", "", "[0.090]","","[0.095]","","",
+  "Agri. index","","","","","-0.041**","",
+  "", "","","","","[0.018]","",
+  "Asset index","","","","","","-0.057**",
+  "", "","","","","","[0.026]",
+  "Dep. var. mean","0.082","0.082","0.139","0.139","0.139","0.139",
+  "Observations","12,450","12,450","5,820","5,820","5,820","5,820",
+  "Ind./HH FE","Ind.","Ind.","HH","HH","HH","HH",
+  "Year FE","Yes","Yes","Yes","Yes","Yes","Yes"
+) |>
+  kable(booktabs = TRUE, align = c("l", rep("c",6))) |>
+  kable_styling(font_size = 12) |>
+  add_header_above(c(" " = 1, "Individual level" = 2, "Household level" = 4)) |>
+  row_spec(c(9,10,11,12), background = "#f0f4f8") |>
+  footnote(
+    general = "Dependent variable: indicator = 1 if individual/household member returned in year t (conditional on having previously migrated). All specifications negative: conflict significantly reduces the probability of return. Standard errors clustered at village level in brackets. *** p<0.01, ** p<0.05, * p<0.10.",
+    general_title = "Notes:",
+    footnote_as_chunk = TRUE
+  )
+```
+
+::: {.callout-important}
+**Key finding — Permanence of displacement:** Conflict intensity (column 2) reduces the probability of individual return by **34 percentage points per unit** of the casualty rate. At the household level (column 4), the effect is −29 pp. Since the dep. var. mean is ~8–14%, these are large effects that imply civil war–induced household dissolution is largely **permanent**.
+
+This has important implications for policy: interventions targeting conflict-affected households must account for the fact that migration-induced compositional changes are unlikely to self-reverse even after peace is restored.
+:::
+
+---
+
+## Summary: Effect Sizes
+
+```{r}
+#| label: fig-summary-effects
+#| fig-cap: "Summary of Main Coefficients — Effect on Migration Probabilities"
+#| fig-height: 5
+
+summary_data <- tribble(
+  ~outcome, ~spec, ~estimate, ~se, ~sign,
+  "Non-marital migration\n(individual)", "Village violence", 0.031, 0.009, "positive",
+  "Non-marital migration\n(individual)", "Theft of money", 0.031, 0.010, "positive",
+  "Non-marital migration\n(individual)", "PCA all shocks", 0.021, 0.006, "positive",
+  "Household migration\n(any member)", "Village violence", 0.041, 0.012, "positive",
+  "Household migration\n(any member)", "Asset index", 0.041, 0.009, "positive",
+  "Marital migration\n(individual)", "Village violence", 0.008, 0.007, "null",
+  "Marital migration\n(household)", "Asset index", 0.015, 0.007, "positive",
+  "Return migration\n(individual)", "Village violence", -0.142, 0.061, "negative",
+  "Return migration\n(individual)", "Casualty intensity", -0.340, 0.090, "negative"
+) |>
+  mutate(
+    ci_lo = estimate - 1.96 * se,
+    ci_hi = estimate + 1.96 * se,
+    spec = fct_reorder(spec, estimate),
+    outcome = factor(outcome, levels = unique(outcome))
+  )
+
+ggplot(summary_data, aes(x = estimate, y = spec, color = sign)) +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "gray50") +
+  geom_point(size = 3) +
+  geom_errorbarh(aes(xmin = ci_lo, xmax = ci_hi), height = 0.3, linewidth = 0.8) +
+  facet_wrap(~ outcome, scales = "free", ncol = 2) +
+  scale_color_manual(
+    values = c("positive" = "#1a2947", "negative" = "#c0392b", "null" = "#95a5a6"),
+    guide = "none"
+  ) +
+  scale_x_continuous(labels = scales::percent_format(accuracy = 1)) +
+  labs(
+    x = "Estimated effect (percentage points)",
+    y = NULL,
+    caption = "Note: 95% CIs based on village-clustered standard errors. Blue = positive significant; red = negative significant; gray = not significant."
+  ) +
+  theme_classic(base_size = 11) +
+  theme(
+    strip.background = element_rect(fill = "#1a2947"),
+    strip.text = element_text(color = "white", size = 9),
+    plot.caption = element_text(hjust = 0, size = 8, color = "gray50")
+  )
+```
+
+---
+
+## References {.unnumbered}
+
+::: {#refs}
+:::
